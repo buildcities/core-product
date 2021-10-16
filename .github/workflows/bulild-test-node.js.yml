@@ -21,16 +21,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }} And Test
+      with:
+        fetch-depth: 0
+    - name: Build & Test With Node ${{matrix.node-version}}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn install
     - run: yarn jest test
-    - name: Types check
-      uses: mooyoul/tslint-actions@v1.1.1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        pattern: '*.ts'
+    - name: Lint Code base
+      uses: github/super-linter@v4
+      env:
+        VALIDATE_ALL_CODEBASE: false
+        DEFAULT_BRANCH: master
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
