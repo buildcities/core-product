@@ -6,8 +6,9 @@ on:
         - "main"
 jobs:
   ### test
-  call_test_workflow:
+  test_workflow:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
       token: ${{ github.token }}
-
+  build_workflow:
+    uses: buildcities/composite-workflows/.github/workflows/build.yml@main
