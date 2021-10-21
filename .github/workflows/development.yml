@@ -9,7 +9,7 @@ jobs:
   # test
   #
   call_test_workflow:
-    uses: buildcities/product_mvp/.github/workflows/test.yml@build-test-ci
+    uses: buildcities/product_mvp/.github/workflows/test-assets.yml@build-test-ci
   #
   # build
   #
