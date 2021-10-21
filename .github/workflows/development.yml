@@ -33,5 +33,9 @@ jobs:
   build:
     needs: test
     uses: buildcities/composite-workflows/.github/workflows/build.yml@main
+    with:
+      registry-user: buildcities
+      registry-host: ghcr.io
+      registry-repo: product-mvp
     secrets:
       token: ${{ github.token }}
