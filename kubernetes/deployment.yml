@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      platform: api
+  template:
+    metadata:
+      labels:
+        platform: api
+    spec:
+      containers:
+        - env:
+            - name: NODE_ENV
+              value: development
+            - name: RUNTIME_ENV
+              value: dev
+            - name: DATABASE_URL
+              value: postgres://username:password@dbserver:5432/dbname
+          image: ghcr.io/buildcities/buildmvp-api-dev:latest
+          name: api
+          ports:
+            - containerPort: 8911
+      imagePullSecrets:
+        - name: my-container-registry-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      platform: web
+  template:
+    metadata:
+      labels:
+        platform: web
+    spec:
+      containers:
+        - env:
+            - name: NODE_ENV
+              value: production
+            - name: RUNTIME_ENV
+              value: production
+          image: ghcr.io/buildcities/buildmvp-web-dev:latest
+          name: web
+          ports:
+            - containerPort: 8910
+      imagePullSecrets:
+        - name: my-container-registry-secret

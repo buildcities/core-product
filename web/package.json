@@ -12,6 +12,10 @@
       "not IE_Mob 11"
     ]
   },
+  "scripts": {
+    "build": "webpack --config ../node_modules/@redwoodjs/core/config/webpack.production.js"
+  },
+
   "dependencies": {
     "@redwoodjs/forms": "0.37.4",
     "@redwoodjs/router": "0.37.4",

@@ -1,0 +1,83 @@
+name: "build pipeline"
+on:
+  workflow_call:
+    inputs:
+      nodeenv:
+        description: 'app node environment'
+        default: 'development'
+        required: false
+        type: string
+      runtime:
+        description: 'runtime  environment'
+        default: 'dev'
+        required: false
+        type: string
+
+env:
+  # Build
+  NODE_ENV: ${{ inputs.nodeenv }}
+  RUNTIME_ENV: ${{ inputs.runtime }}
+
+  # Container Registry
+  CONTAINER_REGISTRY_HOSTNAME: ghcr.io
+  CONTAINER_REGISTRY_USERNAME: buildcities
+  CONTAINER_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+  CONTAINER_REGISTRY_REPOSITORY: buildcities
+  CONTAINER_REGISTRY_IMAGE_PREFIX: buildmvp
+
+  # Repository
+  GIT_DEPLOY_REPOSITORY_NAME: buildcities/mvp-deployment
+  GIT_DEPLOY_REPOSITORY_BRANCH: main
+  GIT_DEPLOY_REPOSITORY_AUTHOR_NAME: buildcities
+  GIT_DEPLOY_REPOSITORY_AUTHOR_EMAIL: rollymaduk@gmail.com
+  GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  #
+  # Build
+  #
+  build:
+    name: Build
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: true
+      matrix:
+        platform: [api, web]
+        include:
+          - platform: api
+          #  DATABASE_URL: __DEV_DATABASE_URL
+          - platform: web
+
+    steps:
+
+      # Checkout source code
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      # Setup Docker using buildx-action
+      - name: Setup Docker
+        uses: docker/setup-buildx-action@v1
+
+      # Login to Docker Container Registry
+      - name: Docker login
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.CONTAINER_REGISTRY_HOSTNAME }}
+          username: ${{ env.CONTAINER_REGISTRY_USERNAME }}
+          password: ${{ env.CONTAINER_REGISTRY_PASSWORD }}
+
+      # Build Docker image with a :latest and :<git sha> tag
+      - name: Docker build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          context: .
+          file: ./docker/${{ matrix.platform }}/Dockerfile
+          build-args: |
+            NODE_ENV=${{ env.NODE_ENV }}
+            RUNTIME_ENV=${{ env.RUNTIME_ENV }}
+           # DATABASE_URL=${{ secrets[matrix.DATABASE_URL] }}
+          tags: |
+            ${{ env.CONTAINER_REGISTRY_HOSTNAME }}/${{ env.CONTAINER_REGISTRY_REPOSITORY }}/${{ env.CONTAINER_REGISTRY_IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:latest
+            ${{ env.CONTAINER_REGISTRY_HOSTNAME }}/${{ env.CONTAINER_REGISTRY_REPOSITORY }}/${{ env.CONTAINER_REGISTRY_IMAGE_PREFIX }}-${{ matrix.platform }}-${{ env.RUNTIME_ENV }}:${{ github.sha }}

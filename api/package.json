@@ -2,6 +2,9 @@
   "name": "api",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist"
+  },
   "dependencies": {
     "@redwoodjs/api": "0.37.4",
     "@redwoodjs/graphql-server": "0.37.4"
