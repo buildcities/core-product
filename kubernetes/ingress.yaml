@@ -2,12 +2,12 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-production
     kubernetes.io/ingress.class: nginx
   name: app
 spec:
   rules:
-    - host: buildmvp-app.51.105.102.164.nip.io
+    - host: buildmvp-app.35.232.11.64.nip.io
       http:
         paths:
           - backend:
@@ -20,5 +20,5 @@ spec:
             path: /api
   tls:
     - hosts:
-        - buildmvp-app.51.105.102.164.nip.io
+        - buildmvp-app.35.232.11.64.nip.io
       secretName: domain-tld-tls
