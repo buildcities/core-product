@@ -1,4 +1,4 @@
-name: "deploy-pipeline"
+name: deploy-pipeline
 on:
   workflow_run:
 jobs:
