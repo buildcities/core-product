@@ -1,18 +1,5 @@
 name: build pipeline
-on:
-  workflow_call:
-    inputs:
-      nodeenv:
-        description: 'app node environment'
-        default: development
-        required: false
-        type: string
-      runtime:
-        description: 'runtime  environment'
-        default: dev
-        required: false
-        type: string
-
+on: workflow_call
 env:
   # Build
   NODE_ENV: development
