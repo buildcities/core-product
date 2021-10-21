@@ -1,6 +1,5 @@
 name: deploy-pipeline
-on:
-  workflow_run:
+on: workflow_call
 jobs:
   # ghcr.io/buildcities/buildmvp-web-dev:latest
   # Configure
