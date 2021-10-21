@@ -4,19 +4,19 @@ on:
     inputs:
       nodeenv:
         description: 'app node environment'
-        default: 'development'
+        default: development
         required: false
         type: string
       runtime:
         description: 'runtime  environment'
-        default: 'dev'
+        default: dev
         required: false
         type: string
 
 env:
   # Build
-  NODE_ENV: ${{ inputs.nodeenv }}
-  RUNTIME_ENV: ${{ inputs.runtime }}
+  NODE_ENV: development
+  RUNTIME_ENV: dev
 
   # Container Registry
   CONTAINER_REGISTRY_HOSTNAME: ghcr.io
