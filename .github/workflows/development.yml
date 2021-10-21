@@ -9,5 +9,5 @@ jobs:
   call_test_workflow:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
-      token: ${{ secrets.GITHUB_TOKEN }}
+      token: ${{ github.token }}
 
