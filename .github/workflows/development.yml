@@ -29,6 +29,7 @@ jobs:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
       token: ${{ github.token }}
+  ### build
   build:
     needs: test
     uses: buildcities/composite-workflows/.github/workflows/build.yml@main
