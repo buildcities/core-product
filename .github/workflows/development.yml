@@ -6,7 +6,6 @@ on:
         - "main"
 jobs:
   # test
-  #
   call_test_workflow:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
