@@ -9,11 +9,11 @@ jobs:
   # test
   #
   call_test_workflow:
-    uses: buildcities/product_mvp/.github/workflows/test-assets.yml@build-test-ci
+    uses: buildcities/product_mvp/.github/workflows/test-assets.yml@2d1e69fa9061c514664bbd1ec59345b28d5c1a86
   #
   # build
   #
   call_build_workflow:
     needs:  call_test_workflow
-    uses: buildcities/product_mvp/.github/workflows/build-assets.yml@build-test-ci
+    uses: buildcities/product_mvp/.github/workflows/build-assets.yml@acfbaae8b632c36f8e5abcd41b6c0bd54de99126
 
