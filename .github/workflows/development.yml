@@ -5,7 +5,7 @@ on:
      branches-ignore:
         - "main"
 jobs:
-  # test
+  ## test
   call_test_workflow:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
