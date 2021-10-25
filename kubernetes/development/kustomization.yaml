@@ -4,8 +4,6 @@ kind: Kustomization
 resources:
   - ../resources
 
-namespace: development
-
 images:
   - name: placeholder/api
     newName: ghcr.io/buildcities/buildmvp-api-dev
