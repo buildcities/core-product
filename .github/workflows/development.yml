@@ -3,7 +3,7 @@ name: "development pipeline"
 on:
   push:
      branches-ignore:
-        - "*"
+        - "main"
 env:
   # Build
   NODE_ENV: development
