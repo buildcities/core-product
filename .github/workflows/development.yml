@@ -24,7 +24,7 @@ env:
   GIT_DEPLOY_REPOSITORY_BRANCH: main
   GIT_DEPLOY_REPOSITORY_AUTHOR_NAME: buildcities
   GIT_DEPLOY_REPOSITORY_AUTHOR_EMAIL: rollymaduk@gmail.com
-  GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   ### test
@@ -63,7 +63,7 @@ jobs:
           submodules: recursive
           repository: ${{ env.GIT_DEPLOY_REPOSITORY_NAME }}
           ref: ${{ env.GIT_DEPLOY_REPOSITORY_BRANCH }}
-          token: ${{ env.GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Login to Docker Container Registry
       - name: Docker login
