@@ -42,7 +42,7 @@ spec:
         image: placeholder/web
         envFrom:
           - configMapRef:
-            name: web-env-vars
+              name: web-env-vars
         ports:
         - containerPort: 8910
       imagePullSecrets:
