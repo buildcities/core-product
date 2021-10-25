@@ -4,13 +4,14 @@ metadata:
   name: app
 spec:
   rules:
-    - http:
+    - host: buildmvp-app.staging.35.232.11.64.nip.io
+      http:
         paths:
           - backend:
               serviceName: web
               servicePort: 8910
-            path: /staging
+            path: /
           - backend:
               serviceName: api
               servicePort: 8911
-            path: /staging/api
+            path: /api
