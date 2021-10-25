@@ -13,15 +13,15 @@ spec:
         platform: api
     spec:
       containers:
-      - envFrom:
+      - name: api
+        image: placeholder/api
+        envFrom:
           - configMapRef:
               name: api-env-vars
-        image: placeholder/api
-        name: api
         ports:
-          - containerPort: 8911
+        - containerPort: 8911
       imagePullSecrets:
-        - name: my-container-registry-secret
+      - name: my-container-registry-secret
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -38,12 +38,12 @@ spec:
         platform: web
     spec:
       containers:
-      - envFrom:
+      - name: web
+        image: placeholder/web
+        envFrom:
           - configMapRef:
             name: web-env-vars
-        image: placeholder/web
-        name: web
         ports:
-          - containerPort: 8910
+        - containerPort: 8910
       imagePullSecrets:
-        - name: my-container-registry-secret
+      - name: my-container-registry-secret
