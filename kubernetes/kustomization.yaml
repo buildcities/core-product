@@ -5,6 +5,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
+
 images:
   - name: placeholder/api
     newName: ghcr.io/buildcities/buildmvp-api-dev
@@ -16,7 +17,7 @@ images:
 configMapGenerator:
   - name: api-env-vars
     envs:
-    - config.env
+    - api-config.env
   - name: web-env-vars
     env:
     - web-config.env
