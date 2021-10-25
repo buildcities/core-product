@@ -19,7 +19,7 @@ configMapGenerator:
     envs:
     - api-config.env
   - name: web-env-vars
-    env:
+    envs:
     - web-config.env
 
 replicas:
