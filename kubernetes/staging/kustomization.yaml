@@ -1,9 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 resources:
-  - ./deployment.yaml
-  - ./service.yaml
-  - ./ingress.yaml
+  - ../deployment.yaml
+  - ../service.yaml
+  - ../ingress.yaml
 images:
   - name: placeholder/api
     newName: ghcr.io/buildcities/buildmvp-api-dev
@@ -12,3 +13,16 @@ images:
     newName: ghcr.io/buildcities/buildmvp-web-dev
     newTag: latest
 
+configMapGenerator:
+  - name: api-env-vars
+    envs:
+    - api-config.env
+  - name: web-env-vars
+    envs:
+    - web-config.env
+
+replicas:
+  - name: api
+    count: 2
+  - name: web
+    count: 4
