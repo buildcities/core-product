@@ -13,13 +13,13 @@ spec:
         platform: api
     spec:
       containers:
-        - envFrom:
-            - configMapRef:
-                name: api-env-vars
-          image: placeholder/api
-          name: api
-          ports:
-            - containerPort: 8911
+      - envFrom:
+          - configMapRef:
+              name: api-env-vars
+        image: placeholder/api
+        name: api
+        ports:
+          - containerPort: 8911
       imagePullSecrets:
         - name: my-container-registry-secret
 ---
