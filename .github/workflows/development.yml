@@ -24,7 +24,7 @@ env:
   GIT_DEPLOY_REPOSITORY_BRANCH: main
   GIT_DEPLOY_REPOSITORY_AUTHOR_NAME: buildcities
   GIT_DEPLOY_REPOSITORY_AUTHOR_EMAIL: rollymaduk@gmail.com
-  GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
 jobs:
   ### test
@@ -58,7 +58,7 @@ jobs:
     steps:
       # Checkout deployment repository
       - name: Checkout source code
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2
         with:
           submodules: recursive
           repository: ${{ env.GIT_DEPLOY_REPOSITORY_NAME }}
