@@ -63,7 +63,7 @@ jobs:
           submodules: recursive
           repository: ${{ env.GIT_DEPLOY_REPOSITORY_NAME }}
           ref: ${{ env.GIT_DEPLOY_REPOSITORY_BRANCH }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
 
       # Login to Docker Container Registry
       - name: Docker login
