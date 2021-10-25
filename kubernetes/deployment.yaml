@@ -38,12 +38,12 @@ spec:
         platform: web
     spec:
       containers:
-        - envFrom:
-            - configMapRef:
-              name: web-env-vars
-          image: placeholder/web
-          name: web
-          ports:
-            - containerPort: 8910
+      - envFrom:
+          - configMapRef:
+            name: web-env-vars
+        image: placeholder/web
+        name: web
+        ports:
+          - containerPort: 8910
       imagePullSecrets:
         - name: my-container-registry-secret
