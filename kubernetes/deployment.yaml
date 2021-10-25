@@ -13,14 +13,10 @@ spec:
         platform: api
     spec:
       containers:
-        - env:
-            - name: NODE_ENV
-              value: development
-            - name: RUNTIME_ENV
-              value: dev
-            - name: DATABASE_URL
-              value: postgres://username:password@dbserver:5432/dbname
-          image: ghcr.io/buildcities/buildmvp-api-dev:latest
+        - envFrom:
+            - configMapRef:
+                name: api-env-vars
+          image: placeholder/api
           name: api
           ports:
             - containerPort: 8911
@@ -42,12 +38,10 @@ spec:
         platform: web
     spec:
       containers:
-        - env:
-            - name: NODE_ENV
-              value: production
-            - name: RUNTIME_ENV
-              value: production
-          image: ghcr.io/buildcities/buildmvp-web-dev:latest
+        - envFrom:
+            - configMapRef:
+              name: web-env-vars
+          image: placeholder/web
           name: web
           ports:
             - containerPort: 8910

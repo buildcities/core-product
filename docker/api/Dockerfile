@@ -41,7 +41,7 @@ COPY redwood.toml .
 COPY api api
 
 COPY --from=api_build /app/api/dist /app/api/dist
-#COPY --from=api_build /app/node_modules/.prisma /app/node_modules/.prisma
+COPY --from=api_build /app/node_modules/.prisma /app/node_modules/.prisma
 
 EXPOSE 8911
 
