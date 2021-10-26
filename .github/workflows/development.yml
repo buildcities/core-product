@@ -23,7 +23,7 @@ jobs:
   #### deploy
   deploy:
     needs:  build
-    uses: buildcities/composite-workflows/.github/workflows/build.yml@main
+    uses: buildcities/composite-workflows/.github/workflows/deploy.yml@main
     with:
       registry-user: buildcities
       registry-host: ghcr.io
