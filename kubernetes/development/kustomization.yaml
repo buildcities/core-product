@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - ../resources
 
-
 configMapGenerator:
   - name: api-env-vars
     envs:
