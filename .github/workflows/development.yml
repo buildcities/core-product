@@ -4,35 +4,13 @@ on:
   push:
     branches-ignore:
       - 'main'
-env:
-  # Build
-  NODE_ENV: development
-  RUNTIME_ENV: dev
-
-  # argo-autopilot vars
-  APP_NAME: buildcities-mvp
-
-  # Container Registry
-  CONTAINER_REGISTRY_HOSTNAME: ghcr.io
-  CONTAINER_REGISTRY_USERNAME: buildcities
-  CONTAINER_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-  CONTAINER_REGISTRY_REPOSITORY: buildcities
-  CONTAINER_REGISTRY_IMAGE_PREFIX: buildmvp
-
-  # Repository
-  GIT_DEPLOY_REPOSITORY_NAME: buildcities/git-ops
-  GIT_DEPLOY_REPOSITORY_BRANCH: main
-  GIT_DEPLOY_REPOSITORY_AUTHOR_NAME: buildcities
-  GIT_DEPLOY_REPOSITORY_AUTHOR_EMAIL: rollymaduk@gmail.com
-  GIT_DEPLOY_REPOSITORY_AUTHOR_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
 jobs:
   ### test
   test:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
       token: ${{ github.token }}
-  ###build
+  ### build
   build:
     needs: test
     uses: buildcities/composite-workflows/.github/workflows/build.yml@main
@@ -42,7 +20,11 @@ jobs:
       registry-repo: product-mvp
     secrets:
       token: ${{ github.token }}
+  ### deploy
   deploy:
+    needs: build
     uses: buildcities/composite-workflows/.github/workflows/build.yml@main
     with:
-      
+      registry-user: buildcities
+      registry-host: ghcr.io
+      registry-repo: product-mvp
