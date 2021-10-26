@@ -4,13 +4,6 @@ kind: Kustomization
 resources:
   - ../resources
 
-images:
-  - name: placeholder/api
-    newName: ghcr.io/buildcities/buildmvp-api-dev
-    newTag: latest
-  - name: placeholder/web
-    newName: ghcr.io/buildcities/buildmvp-web-dev
-    newTag: latest
 
 configMapGenerator:
   - name: api-env-vars
