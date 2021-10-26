@@ -20,7 +20,7 @@ jobs:
       registry-repo: product-mvp
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
-  #### deploy
+  ##### deploy
   deploy:
     needs: build
     uses: buildcities/composite-workflows/.github/workflows/deploy.yml@main
