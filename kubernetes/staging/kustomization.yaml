@@ -17,10 +17,10 @@ images:
 configMapGenerator:
   - name: api-env-vars
     envs:
-    - api-config.env
+      - api-config.env
   - name: web-env-vars
     envs:
-    - web-config.env
+      - web-config.env
 
 replicas:
   - name: api
