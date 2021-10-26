@@ -84,6 +84,9 @@ jobs:
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
 
+      - name: list files
+        run: |
+          ls
       # Use Kustomize to update the image placeholder in the Kustomize manifest file
       - name: Set Docker image
         run: |
