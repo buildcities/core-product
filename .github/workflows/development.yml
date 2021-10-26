@@ -10,7 +10,7 @@ jobs:
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
       token: ${{ github.token }}
-  ### build
+  #### build
   build:
     needs: test
     uses: buildcities/composite-workflows/.github/workflows/build.yml@main
@@ -22,7 +22,7 @@ jobs:
       token: ${{ github.token }}
   #### deploy
   deploy:
-    needs: build
+    needs:  build
     uses: buildcities/composite-workflows/.github/workflows/build.yml@main
     with:
       registry-user: buildcities
