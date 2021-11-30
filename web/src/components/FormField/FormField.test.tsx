@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import MyPagePage from './MyPagePage'
+import FormField from './FormField'
 
-describe('MyPagePage', () => {
+describe('FormField', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<MyPagePage />)
+      render(<FormField />)
     }).not.toThrow()
   })
 })
