@@ -9,8 +9,10 @@
   title = "Redwood App"
   port = 8910
   apiUrl = "/.redwood/functions"
-  includeEnvironmentVariables = [] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
-[api]
+  includeEnvironmentVariables = ['FB_API_KEY','FB_AUTH_DOMAIN',
+  'FB_PROJECT_ID','FB_STORAGE_BUCKET','FB_MESSAGING_SENDER_ID','FB_APP_ID',
+  'FB_MEASUREMENT_ID','G_PLACES_API_KEY','IMAGE_PICKER_ROOT_FOLDER']
+ [api]
   port = 8911
 [browser]
   open = true

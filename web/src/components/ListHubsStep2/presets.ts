@@ -1,5 +1,3 @@
-import { SelectInputProps } from '@buildcities/build-ui.ui.base.select-input'
-
 export const LOCATION_SECTION_TITLE = 'Location'
 export const LOCATION_SECTION_TEXT =
   'Only build_citizens will be able to see the exact address of the build_hub at the time of approved reservation.'

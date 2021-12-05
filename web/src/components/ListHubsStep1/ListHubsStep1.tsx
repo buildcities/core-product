@@ -4,7 +4,8 @@ import {
   LIST_HUB_CTA,
   LIST_HUB_WELCOME_TEXT,
   LIST_HUB_WELCOME_TITLE,
-} from '../../utils/constants'
+} from './presets'
+import ListHubsHOC from '../HOC/listHubsHOC'
 
 const ListHubsStep1 = () => {
   return (
@@ -19,4 +20,4 @@ const ListHubsStep1 = () => {
   )
 }
 
-export default ListHubsStep1
+export default ListHubsHOC(ListHubsStep1)
