@@ -6,6 +6,7 @@ import ListHubsStep2 from 'src/components/ListHubsStep2/ListHubsStep2'
 import ListHubsStep3 from 'src/components/ListHubsStep3/ListHubsStep3'
 import ListHubsStep4 from 'src/components/ListHubsStep4/ListHubsStep4'
 import ListHubsStep5 from 'src/components/ListHubsStep5/ListHubsStep5'
+import ListHubsStep6 from 'src/components/ListHubsStep6/ListHubsStep6'
 import { useEffect } from 'react'
 
 type ListHubsPageProps = {
@@ -30,6 +31,7 @@ const ListHubsPage = ({ stepId }: ListHubsPageProps) => {
       {stepId == 2 && <ListHubsStep3 stepId={stepId} />}
       {stepId == 3 && <ListHubsStep4 stepId={stepId} />}
       {stepId == 4 && <ListHubsStep5 stepId={stepId} />}
+      {stepId == 5 && <ListHubsStep6 stepId={stepId} />}
     </TwoColumnLayoutLayout>
   )
 }

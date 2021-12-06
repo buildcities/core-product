@@ -1,5 +1,4 @@
 import { Heading, Paragraph } from '@buildcities/build-ui.components.all'
-import classNames from 'classnames'
 
 type FormSectionProps = {
   title: string

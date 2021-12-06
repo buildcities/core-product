@@ -4,8 +4,8 @@ import {
   GoogleAddressAutocomplete,
   SelectInput,
   TextInput,
-  Button,
 } from '@buildcities/build-ui.components.all'
+import Button from '../ListHubsStepButton/ListHubsStepButton'
 
 import {
   hubTypes,
@@ -23,12 +23,14 @@ const ListHubsStep2 = ({
   stepId,
   data,
   updateStepData,
+  onFormSubmit,
 }: TListHubsComponentProps) => {
   const formMethods = useForm({ defaultValues: data })
 
   const onSubmit = (data) => {
     console.log(data)
     updateStepData({ data, stepId })
+    onFormSubmit && onFormSubmit()
   }
 
   return (
@@ -70,9 +72,7 @@ const ListHubsStep2 = ({
           />
         </FormField>
       </FormSection>
-      <div className="mt-8">
-        <Button text="Next" type="submit" />
-      </div>
+      <Button text="Next" />
     </Form>
   )
 }

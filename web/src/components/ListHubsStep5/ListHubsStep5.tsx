@@ -1,10 +1,12 @@
-import { Button, RadioControls } from '@buildcities/build-ui.components.all'
+import { RadioControls } from '@buildcities/build-ui.components.all'
 import { Form, useForm } from '@redwoodjs/forms'
 import React from 'react'
 import { TListHubsComponentProps } from 'src/utils/types'
 import ControlledInput from '../ControlledInput/ControlledInput'
 import FormSection from '../FormSection/FormSection'
 import ListHubsHOC from '../HOC/listHubsHOC'
+import Button from '../ListHubsStepButton/ListHubsStepButton'
+
 import {
   AVAILABILITY_SECTION_TEXT,
   AVAILABILITY_SECTION_TITLE,
@@ -15,11 +17,14 @@ const ListHubsStep5 = ({
   stepId,
   data,
   updateStepData,
+  onFormSubmit,
 }: TListHubsComponentProps) => {
   const formMethods = useForm({ defaultValues: data })
 
   const onSubmit = (data) => {
+    console.log(data)
     updateStepData({ data, stepId })
+    onFormSubmit && onFormSubmit()
   }
   return (
     <Form
@@ -35,15 +40,15 @@ const ListHubsStep5 = ({
           {(inputProps) => {
             return (
               <RadioControls.RadioGroup inputProps={inputProps}>
-                {radioOptions.map(RadioControls.RadioOption)}
+                {radioOptions.map((props, key) => (
+                  <RadioControls.RadioOption key={key} {...props} />
+                ))}
               </RadioControls.RadioGroup>
             )
           }}
         </ControlledInput>
       </FormSection>
-      <div className="mt-6">
-        <Button type="submit" text="Next" />
-      </div>
+      <Button text="Next" />
     </Form>
   )
 }

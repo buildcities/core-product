@@ -5,6 +5,7 @@ export type TListHubsComponentProps = {
   stepId?: number
   data?: Record<string, unknown>
   updateStepData?: (payload: TUpdateStepDataActionProps) => void
+  onFormSubmit?: () => void
 }
 
 export type ThubListData = {
@@ -13,4 +14,5 @@ export type ThubListData = {
   amenities?: amenitiesProps
   images?: string | []
   availability?: string
+  rules?: { default?: string[]; custom: 'string' }
 }

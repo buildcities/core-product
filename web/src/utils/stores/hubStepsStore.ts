@@ -2,6 +2,7 @@ import { listHubsSteps, TListHubsSteps } from '../presets'
 import create from 'zustand'
 import { produce } from 'immer'
 import { merge } from 'lodash'
+import { ThubListData } from '../types'
 
 export type TUpdateStepDataActionProps = {
   stepId: number
@@ -13,10 +14,15 @@ interface TStore {
   listHubsSteps: TListHubsSteps[]
   stepId?: number
   updateStepData: ({ stepId, data, status }: TUpdateStepDataActionProps) => void
+  getStepsData: () => ThubListData
 }
 
 export const useStore = create<TStore>((set) => ({
   listHubsSteps,
+  getStepsData: () =>
+    listHubsSteps.reduce((acc, val) => {
+      return { ...acc, ...val.data }
+    }, {}),
   updateStepData: (props) =>
     set(
       produce((draft) => {

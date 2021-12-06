@@ -11,14 +11,16 @@ type SelectButtonsProps = {
   label?: string
   className?: string
   name: string
+  children?: (payload: unknown) => React.ReactElement
 }
 
-const SelectButtons = ({
+const SelectButtons: React.FC<SelectButtonsProps> = ({
   selectProps,
   label,
   name,
   className,
-}: SelectButtonsProps) => {
+  children,
+}) => {
   return (
     <div>
       {' '}
@@ -33,7 +35,11 @@ const SelectButtons = ({
               <div key={index} className="mr-2 mb-2">
                 <ControlledInput name={_name}>
                   {(inputProps) => {
-                    return <SelectButton {...props} inputProps={inputProps} />
+                    return children ? (
+                      children({ ...props, ...inputProps })
+                    ) : (
+                      <SelectButton {...props} inputProps={inputProps} />
+                    )
                   }}
                 </ControlledInput>
               </div>

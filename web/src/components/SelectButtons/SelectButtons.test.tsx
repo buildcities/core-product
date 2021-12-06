@@ -5,7 +5,7 @@ import SelectButtons from './SelectButtons'
 describe('SelectButtons', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<SelectButtons />)
+      render(<SelectButtons name="selectButtons" selectProps={[]} />)
     }).not.toThrow()
   })
 })

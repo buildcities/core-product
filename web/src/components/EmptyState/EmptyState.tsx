@@ -1,21 +1,15 @@
-import {
-  Heading,
-  Paragraph,
-  Button,
-} from '@buildcities/build-ui.components.all'
+import { Heading, Paragraph } from '@buildcities/build-ui.components.all'
 
 type TEmptyStateProps = {
   title: string
   description?: string
   onClick?: () => void
-  ctaName?: string
 }
 
 const EmptyState: React.FC<TEmptyStateProps> = ({
   children,
   title,
   description,
-  ctaName,
 }) => {
   return (
     <div className="flex flex-col h-full   items-center">
@@ -27,9 +21,6 @@ const EmptyState: React.FC<TEmptyStateProps> = ({
         />
 
         {children}
-        <div className="mt-6 w-full">
-          <Button text={ctaName} />
-        </div>
       </div>
     </div>
   )

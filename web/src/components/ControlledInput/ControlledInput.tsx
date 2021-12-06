@@ -7,7 +7,7 @@ import {
 import { ReactElement } from '@redwoodjs/testing/node_modules/@types/react'
 
 interface IControlledInput extends UseControllerProps {
-  children: (field: ControllerRenderProps<FieldValues, string>) => ReactElement
+  children?: (field: ControllerRenderProps<FieldValues, string>) => ReactElement
 }
 
 const ControlledInput: React.FC<IControlledInput> = (props) => {

@@ -10,7 +10,7 @@ export const listHubsSteps: TListHubsSteps[] = [
   {
     name: '1. Welcome',
     icon: 'flag',
-    status: 'current',
+    status: 'upcoming',
     route: routes.listHubs({ stepId: 0 }),
     as: Link,
     data: { type: { estate: '', seats: 0 } },
@@ -51,12 +51,16 @@ export const listHubsSteps: TListHubsSteps[] = [
     name: '6. Rules',
     icon: 'list',
     status: 'upcoming',
+    route: routes.listHubs({ stepId: 5 }),
+    as: Link,
     data: {},
   },
   {
     name: '7. Final steps',
     icon: 'trophy',
     status: 'upcoming',
+    route: routes.listHubs({ stepId: 6 }),
+    as: Link,
     data: {},
   },
 ]

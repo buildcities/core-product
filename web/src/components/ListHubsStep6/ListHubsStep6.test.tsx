@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import FormField from './FormField'
+import ListHubsStep6 from './ListHubsStep6'
 
-describe('FormField', () => {
+describe('ListHubsStep6', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<FormField name="formField" />)
+      render(<ListHubsStep6 />)
     }).not.toThrow()
   })
 })

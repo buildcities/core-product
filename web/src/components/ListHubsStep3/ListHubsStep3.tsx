@@ -2,7 +2,6 @@ import FormSection from '../FormSection/FormSection'
 
 import { Form, useForm } from '@redwoodjs/forms'
 import SelectButtons from '../SelectButtons/SelectButtons'
-import { Button } from '@buildcities/build-ui.components.all'
 import {
   AMENITIES_SECTION_TEXT,
   AMENITIES_SECTION_TITLE,
@@ -12,16 +11,19 @@ import {
 } from './presets'
 import { TListHubsComponentProps } from 'src/utils/types'
 import ListHubsHOC from '../HOC/listHubsHOC'
+import Button from '../ListHubsStepButton/ListHubsStepButton'
 
 const ListHubsStep3 = ({
   stepId,
   data,
   updateStepData,
+  onFormSubmit,
 }: TListHubsComponentProps) => {
   const formMethods = useForm({ defaultValues: data })
   const onSubmit = (data) => {
     console.log(data)
     updateStepData({ data, stepId })
+    onFormSubmit && onFormSubmit()
   }
   return (
     <Form
@@ -64,7 +66,7 @@ const ListHubsStep3 = ({
         description={ADD_AMENITIES_SECTION_TEXT}
         title={ADD_AMENITIES_SECTION_TITLE}
       ></FormSection>
-      <Button type="submit" text="Next" />
+      <Button text="Next" />
     </Form>
   )
 }

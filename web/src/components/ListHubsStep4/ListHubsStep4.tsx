@@ -1,9 +1,8 @@
 import {
   ImagePicker,
   TextInputArea,
-  Button,
 } from '@buildcities/build-ui.components.all'
-import { Form, useForm } from '@redwoodjs/forms'
+import { Form, useForm, TextAreaField } from '@redwoodjs/forms'
 import ControlledInput from '../ControlledInput/ControlledInput'
 import FormSection from '../FormSection/FormSection'
 import {
@@ -14,17 +13,21 @@ import {
 } from './presets'
 import ListHubsHOC from '../HOC/listHubsHOC'
 import { TListHubsComponentProps } from 'src/utils/types'
+import Button from '../ListHubsStepButton/ListHubsStepButton'
 
 const ListHubsStep4 = ({
   stepId,
   data,
   updateStepData,
+  onFormSubmit,
 }: TListHubsComponentProps) => {
   //Todo: get user-context for cloudstore picture folder
   const formMethods = useForm({ defaultValues: data })
 
   const onSubmit = (data) => {
+    console.log(data)
     updateStepData({ data, stepId })
+    onFormSubmit && onFormSubmit()
   }
   return (
     <Form
@@ -57,11 +60,13 @@ const ListHubsStep4 = ({
         description={DESCRIPTION_SECTION_TEXT}
         title={DESCRIPTION_SECTION_TITLE}
       >
-        <TextInputArea name="description" defaultValue="1500-character limit" />
+        <TextInputArea
+          as={TextAreaField}
+          name="description"
+          defaultValue="1500-character limit"
+        />
       </FormSection>
-      <div className="mt-6">
-        <Button type="submit" text="Next" />
-      </div>
+      <Button text="Next" />
     </Form>
   )
 }

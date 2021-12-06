@@ -6,7 +6,7 @@ import { NavBar } from '@buildcities/build-ui.components.all'
 type TwoColumnLayoutLayoutProps = {
   children?: React.ReactNode
   sideBar?: React.ReactNode
-  metaTitle: string
+  metaTitle?: string
   metaDescription?: string
 }
 

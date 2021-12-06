@@ -5,7 +5,7 @@ import ControlledInput from './ControlledInput'
 describe('ControlledInput', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ControlledInput />)
+      render(<ControlledInput name="controlledInput" />)
     }).not.toThrow()
   })
 })
