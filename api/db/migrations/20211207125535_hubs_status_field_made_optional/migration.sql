@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Hub" ALTER COLUMN "status" DROP NOT NULL;

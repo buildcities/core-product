@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      platform: api
+  template:
+    metadata:
+      labels:
+        platform: api
+    spec:
+      containers:
+        - name: api
+          image: placeholder/api
+          envFrom:
+            - configMapRef:
+                name: api-env-vars
+          ports:
+            - containerPort: 8911
+      imagePullSecrets:
+        - name: my-container-registry-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      platform: web
+  template:
+    metadata:
+      labels:
+        platform: web
+    spec:
+      containers:
+        - name: web
+          image: placeholder/web
+          envFrom:
+            - configMapRef:
+                name: web-env-vars
+          ports:
+            - containerPort: 8910
+      imagePullSecrets:
+        - name: my-container-registry-secret

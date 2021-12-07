@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+model Hub {
+  id    Int     @id @default(autoincrement())
+  name  String?
+  location Json?
+  type Json?
+  amenities Json?
+  images Json?
+  availability String?
+  rules Json?
+  description String?
+  status Status? @default(PENDING)
+  createdAt DateTime @default(now())
+}
+
+enum Status {
+  PENDING
+  ACTIVE
+  DISABLED
+}

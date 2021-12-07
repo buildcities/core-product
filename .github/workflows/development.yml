@@ -1,0 +1,14 @@
+### Force redeploy ###
+name: 'development pipeline'
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+env:
+  NODE_OPTIONS: "--max-old-space-size=8192"
+jobs:
+  ### test
+  test:
+    uses: buildcities/composite-workflows/.github/workflows/test.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
