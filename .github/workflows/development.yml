@@ -8,17 +8,6 @@ on:
 jobs:
   ### test
   test:
-    env:
-      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-    steps:
-      - name: init bit.dev
-        run: |
-          echo "Adding bit.dev to npm registry"
-          npm config set @bit:registry https://node.bit.dev
-          npm config set @buildcities:registry=https://node.bit.dev
-          npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
-          echo "Completed adding bit.dev to npm registry"
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
