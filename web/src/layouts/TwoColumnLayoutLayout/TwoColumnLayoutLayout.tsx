@@ -5,7 +5,7 @@ import { NavBar } from '../../components/bit.dev/nav-bar'
 
 type TwoColumnLayoutLayoutProps = {
   children?: React.ReactNode
-  sideBar?: React.ReactNode
+  sideBar?: React.ReactElement
   metaTitle?: string
   metaDescription?: string
 }

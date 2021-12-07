@@ -1,4 +1,5 @@
-import { amenitiesProps } from 'src/components/ListHubsStep3/presets'
+//import { amenitiesProps } from 'src/components/ListHubsStep3/presets'
+import { amenitiesProps } from 'src/components/ListHubs/ListHubsStep3/presets'
 import { TUpdateStepDataActionProps } from './stores/hubStepsStore'
 
 export type TListHubsComponentProps = {
