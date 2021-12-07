@@ -3,6 +3,9 @@ import { navigate, routes } from '@redwoodjs/router'
 import React, { useCallback, useEffect } from 'react'
 import { useStore } from 'src/utils/stores/hubStepsStore'
 import { TListHubsComponentProps } from 'src/utils/types'
+import { useMutation } from '@redwoodjs/web'
+import { CREATE_HUB } from '../ListHubs/queries'
+import { toast } from '@redwoodjs/web/toast'
 
 export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
   const HOCComponent = ({ stepId }: { stepId?: number }) => {
@@ -14,10 +17,19 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
       useCallback((state) => state.getStepsData, [])
     )
 
+    const setIsBusy = useStore(useCallback((state) => state.setIsBusy, []))
+
+    const [create, { loading }] = useMutation(CREATE_HUB)
+
     const onFormSubmit = useCallback(() => {
       if (_stepId == 5) {
-        //upload to cloud repo here
-        console.log(getStepsData())
+        //upload to cloud repo here at step 6
+        toast.promise(create({ variables: { input: getStepsData() } }), {
+          loading: 'loading',
+          success: 'Hub successfully added!',
+          error: 'Opps! Hub listing failed to post!',
+        })
+        //console.log(getStepsData())
       }
       navigate(routes.listHubs({ stepId: _stepId + 1 }))
     }, [_stepId])
@@ -31,6 +43,11 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
         updateStepData({ stepId: _stepId, status: 'complete' })
       }
     }, [stepId])
+
+    useEffect(() => {
+      setIsBusy(loading)
+      return () => {}
+    }, [loading])
 
     return (
       <WrappedComponent

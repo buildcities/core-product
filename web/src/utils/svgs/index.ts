@@ -1,3 +1,4 @@
 import ShieldIcon from './shield'
 import UndulatingFloorIcon from './undulating-floor'
-export { ShieldIcon, UndulatingFloorIcon }
+import SpiralIcon from './spiral'
+export { ShieldIcon, UndulatingFloorIcon, SpiralIcon }

@@ -1,0 +1,10 @@
+db:
+  image:  postgres
+  restart: always
+  environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres
+  ports:
+    - '5432:5432'
+  volumes:
+    - ~/Documents/postgres-data:/var/lib/postgresql/data

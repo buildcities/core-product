@@ -1,7 +1,7 @@
 import { MetaTags } from '@redwoodjs/web'
 import React from 'react'
 import LayoutHeader from 'src/components/LayoutHeader/LayoutHeader'
-import { NavBar } from '@buildcities/build-ui.components.all'
+import { NavBar } from '../../components/bit.dev/nav-bar'
 
 type TwoColumnLayoutLayoutProps = {
   children?: React.ReactNode

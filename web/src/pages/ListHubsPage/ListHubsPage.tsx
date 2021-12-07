@@ -1,12 +1,13 @@
 import { Steps } from '@buildcities/build-ui.ui.base.steps'
 import TwoColumnLayoutLayout from 'src/layouts/TwoColumnLayoutLayout/TwoColumnLayoutLayout'
 import { useStore } from 'src/utils/stores/hubStepsStore'
-import ListHubsStep1 from 'src/components/ListHubsStep1/ListHubsStep1'
-import ListHubsStep2 from 'src/components/ListHubsStep2/ListHubsStep2'
-import ListHubsStep3 from 'src/components/ListHubsStep3/ListHubsStep3'
-import ListHubsStep4 from 'src/components/ListHubsStep4/ListHubsStep4'
-import ListHubsStep5 from 'src/components/ListHubsStep5/ListHubsStep5'
-import ListHubsStep6 from 'src/components/ListHubsStep6/ListHubsStep6'
+import ListHubsStep1 from 'src/components/ListHubs/ListHubsStep1/ListHubsStep1'
+import ListHubsStep2 from 'src/components/ListHubs/ListHubsStep2/ListHubsStep2'
+import ListHubsStep3 from 'src/components/ListHubs/ListHubsStep3/ListHubsStep3'
+import ListHubsStep4 from 'src/components/ListHubs/ListHubsStep4/ListHubsStep4'
+import ListHubsStep5 from 'src/components/ListHubs/ListHubsStep5/ListHubsStep5'
+import ListHubsStep6 from 'src/components/ListHubs/ListHubsStep6/ListHubsStep6'
+import ListHubsStep7 from 'src/components/ListHubs/ListHubsStep7/ListHubsStep7'
 import { useEffect } from 'react'
 
 type ListHubsPageProps = {
@@ -32,6 +33,7 @@ const ListHubsPage = ({ stepId }: ListHubsPageProps) => {
       {stepId == 3 && <ListHubsStep4 stepId={stepId} />}
       {stepId == 4 && <ListHubsStep5 stepId={stepId} />}
       {stepId == 5 && <ListHubsStep6 stepId={stepId} />}
+      {stepId == 6 && <ListHubsStep7 stepId={stepId} />}
     </TwoColumnLayoutLayout>
   )
 }

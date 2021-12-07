@@ -1,0 +1,33 @@
+### Force redeploy
+name: 'development pipeline'
+on:
+  push:
+    branches-ignore:
+      - 'main'
+jobs:
+  ### test
+  test:
+    uses: buildcities/composite-workflows/.github/workflows/test.yml@main
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+  #### build
+  build:
+    needs: test
+    uses: buildcities/composite-workflows/.github/workflows/build.yml@main
+    with:
+      registry-user: buildcities
+      registry-host: ghcr.io
+      registry-repo: product-mvp
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+  ##### deploy
+  deploy:
+    needs: build
+    uses: buildcities/composite-workflows/.github/workflows/deploy.yml@main
+    with:
+      registry-user: buildcities
+      registry-host: ghcr.io
+      registry-repo: product-mvp
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+      registry-token: ${{ secrets.ACCESS_TOKEN}}

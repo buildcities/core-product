@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   mode: 'jit',
-  purge: [
+  content: [
     './src/**/*.{js,jsx,ts,tsx}',
     '../node_modules/@buildcities/**/*.{js,jsx,ts,tsx}',
   ],
