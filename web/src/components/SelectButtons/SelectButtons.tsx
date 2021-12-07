@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import ControlledInput from '../ControlledInput/ControlledInput'
 
 type SelectButtonsProps = {
-  selectProps: SelectButtonProps[]
+  selectProps: SelectButtonProps[] | string[]
   label?: string
   className?: string
   name: string
