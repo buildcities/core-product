@@ -6,8 +6,22 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
+  initialize-bit-dev:
+    env:
+      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: init bit.dev
+        run: |
+          echo "Adding bit.dev to npm registry"
+          npm config set @bit:registry https://node.bit.dev
+          npm config set @buildcities:registry=https://node.bit.dev
+          npm config set @teambit:registry=https://node.bit.dev
+          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          echo "Completed adding bit.dev to npm registry"
   ### test
   test:
+    needs: initialize-bit-dev
     uses: buildcities/composite-workflows/.github/workflows/test.yml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
