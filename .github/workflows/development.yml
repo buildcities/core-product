@@ -2,6 +2,10 @@
 name: 'development pipeline'
 on:
   push:
+    branches: [ * ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 jobs:
   ### test
   test:
