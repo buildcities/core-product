@@ -1,9 +1,14 @@
+import classnames from 'classnames'
 import React from 'react'
 
-export default function Component() {
+type IconProps = {
+  className?: string
+}
+export default function Component({ className }: IconProps) {
   return (
     <svg
-      className="w-[400px] h-[347px]"
+      viewBox="0 0 400 347"
+      className={classnames('fill-none', className)}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

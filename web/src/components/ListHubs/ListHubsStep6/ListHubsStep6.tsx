@@ -24,7 +24,7 @@ const ListHubsStep6 = ({ data, stepId, updateStepData, onFormSubmit }) => {
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[632px] ml-[120px]"
+      className="space-y-2 w-auto max-w-[632px]"
     >
       <FormSection description={RULES_SECTION_TEXT} title={RULES_SECTION_TITLE}>
         <SelectButtons

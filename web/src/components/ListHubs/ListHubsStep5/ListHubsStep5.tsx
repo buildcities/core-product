@@ -30,7 +30,7 @@ const ListHubsStep5 = ({
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[632px] ml-[120px]"
+      className="space-y-2 w-auto max-w-[632px] "
     >
       <FormSection
         description={AVAILABILITY_SECTION_TEXT}
@@ -39,7 +39,10 @@ const ListHubsStep5 = ({
         <ControlledInput name="availability">
           {(inputProps) => {
             return (
-              <RadioControls.RadioGroup inputProps={inputProps}>
+              <RadioControls.RadioGroup
+                className="lg:flex space-y-4 lg:space-y-0 lg:space-x-2 "
+                inputProps={inputProps}
+              >
                 {radioOptions.map((props, key) => (
                   <RadioControls.RadioOption key={key} {...props} />
                 ))}

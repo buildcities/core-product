@@ -33,7 +33,7 @@ const ListHubsStep4 = ({
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[513px] ml-[120px]"
+      className="space-y-2 w-auto max-w-[513px]"
     >
       <FormSection
         description={PHOTOS_SECTION_TEXT}
