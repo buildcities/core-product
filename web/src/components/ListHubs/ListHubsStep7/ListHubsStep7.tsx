@@ -14,7 +14,7 @@ const ListHubsStep7 = () => {
   }
   return (
     <EmptyState title={LIST_HUB_EXIT_TITLE} description={LIST_HUB_EXIT_TEXT}>
-      <SpiralIcon />
+      <SpiralIcon className="w-280px h-[150px] md:w-[320px] md:h-[220px] lg:w-[280px] lg:h-[247px]" />
       <div className="mt-6 w-full">
         <Button onClick={onClick} text={LIST_HUB_EXIT_CTA} />
       </div>

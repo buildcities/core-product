@@ -1,7 +1,6 @@
 import { MetaTags } from '@redwoodjs/web'
 import React from 'react'
 import LayoutHeader from 'src/components/LayoutHeader/LayoutHeader'
-import { NavBar } from '../../components/bit.dev/nav-bar'
 
 type TwoColumnLayoutLayoutProps = {
   children?: React.ReactNode
@@ -17,23 +16,16 @@ const TwoColumnLayoutLayout = ({
   metaDescription,
 }: TwoColumnLayoutLayoutProps) => {
   return (
-    <div>
-      {/* Static sidebar for desktop */}
-      <div className="hidden md:flex  md:w-[494px] md:flex-col md:fixed md:inset-y-0">
-        {/* Sidebar component, swap this element with another sidebar if you like */}
-        <NavBar className="bg-background z-40">{sideBar}</NavBar>
-      </div>
-      <div className="md:pl-[494px]  h-screen  flex flex-col flex-1">
-        <LayoutHeader />
-        <main className="border-l h-full border-[#202020]">
-          <div className="py-10 h-full">
-            <div className="max-w-7xl h-full  mx-auto px-4 sm:px-6 md:px-8">
-              <MetaTags title={metaTitle} description={metaDescription} />
-              {children}
-            </div>
-          </div>
-        </main>
-      </div>
+    <div className="w-full">
+      <MetaTags description={metaDescription} title={metaTitle} />
+      <LayoutHeader />
+      <nav className=" hidden md:block border-r h-full pt-10  pr-4 sm:pr-8 md:px-20 lg:px-28  text-white  fixed overflow-y-auto w-full max-w-sm lg:max-w-[420px] border-outline">
+        {sideBar}
+      </nav>
+
+      <main className="max-w-7xl mx-auto flex pt-10 flex-cols md:pl-[384px] lg:pl-[420px]  ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+      </main>
     </div>
   )
 }

@@ -33,7 +33,7 @@ const ListHubsStep2 = ({
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="max-w-[391px] w-auto ml-[120px]"
+      className="max-w-[391px] w-auto"
     >
       <FormSection
         description={LOCATION_SECTION_TEXT}

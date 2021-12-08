@@ -24,6 +24,7 @@
     "@redwoodjs/router": "^0.39.3",
     "@redwoodjs/web": "^0.39.3",
     "classnames": "^2.3.1",
+    "google-map-react": "^2.1.10",
     "immer": "^9.0.7",
     "lodash": "^4.17.21",
     "postcss-loader": "^6.2.1",

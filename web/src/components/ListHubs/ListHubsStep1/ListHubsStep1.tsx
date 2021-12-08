@@ -15,7 +15,9 @@ const ListHubsStep1 = ({ onFormSubmit }) => {
       description={LIST_HUB_WELCOME_TEXT}
     >
       <ShieldIcon />
-      <UndulatingFloorIcon />
+
+      <UndulatingFloorIcon className="w-[280px] md:w-[320px] lg:w-[464px] h-[129px]" />
+
       <Button onClick={onFormSubmit} text={LIST_HUB_CTA} />
     </EmptyState>
   )

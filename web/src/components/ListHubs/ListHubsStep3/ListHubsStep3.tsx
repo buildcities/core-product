@@ -29,7 +29,7 @@ const ListHubsStep3 = ({
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[564px] ml-[120px]"
+      className="space-y-2 w-auto max-w-[564px] "
     >
       <FormSection
         description={AMENITIES_SECTION_TEXT}
