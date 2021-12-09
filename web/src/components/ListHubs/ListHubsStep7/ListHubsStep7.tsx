@@ -7,10 +7,11 @@ import {
 } from './presets'
 import { Button } from '@buildcities/build-ui.components.all'
 import ListHubsHOC from '../../HOC/listHubsHOC'
+import { routes } from '@redwoodjs/router'
 
 const ListHubsStep7 = () => {
   const onClick = () => {
-    //goto home page
+    routes.home()
   }
   return (
     <EmptyState title={LIST_HUB_EXIT_TITLE} description={LIST_HUB_EXIT_TEXT}>
