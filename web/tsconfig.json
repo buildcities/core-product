@@ -26,6 +26,6 @@
   "include": [
     "src",
     "../.redwood/types/includes/all-*",
-    "../.redwood/types/includes/web-*",
+    "../.redwood/types/includes/web-*", "src/components/bit.dev/.mock",
   ]
 }

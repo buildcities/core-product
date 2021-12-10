@@ -1,7 +1,7 @@
 import { Heading, Button } from '@buildcities/build-ui.components.all'
-import SingleColumnLayout from '../../layouts/SingleColumnLayout/SingleColumnLayout'
-import { GlobeIcon } from '../../utils/svgs'
-import { routes } from '@redwoodjs/router'
+import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
+import { GlobeIcon } from 'src/utils/svgs'
+import { navigate, routes } from '@redwoodjs/router'
 import {
   VERIFY_DISCORD_MEMBERSHIP_TEXT,
   VERIFY_DISCORD_CTA_TEXT,
@@ -9,7 +9,7 @@ import {
 
 const HomePage = () => {
   const onClick = () => {
-    routes.listHubs()
+    navigate(routes.viewHubs())
   }
 
   return (

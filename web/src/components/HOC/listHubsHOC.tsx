@@ -4,7 +4,7 @@ import React, { useCallback, useEffect } from 'react'
 import { useStore } from 'src/utils/stores/hubStepsStore'
 import { TListHubsComponentProps } from 'src/utils/types'
 import { useMutation } from '@redwoodjs/web'
-import { CREATE_HUB } from '../ListHubs/queries'
+import { CREATE_HUB } from './mutation'
 import { toast } from '@redwoodjs/web/toast'
 
 export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {

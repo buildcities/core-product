@@ -147,12 +147,7 @@ export function ImagePicker({
         {({ imageList, onImageUpload, onImageUpdate, onImageRemove }) => (
           // write your building UI
           <>
-            <ul
-              className={classNames(
-                'grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-x-6  xl:gap-x-8',
-                imageList.length ? 'sm:grid-cols-2' : 'sm:grid-cols-1'
-              )}
-            >
+            <ul className={classNames('columns-2xl')}>
               {imageList.map((image: ImageType, index) => (
                 <ImageCard
                   loading={image.loading}
