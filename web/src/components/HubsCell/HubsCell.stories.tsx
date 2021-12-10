@@ -1,5 +1,5 @@
-import { Loading, Empty, Failure, Success } from './MapHubsCell'
-import { standard } from './MapHubsCell.mock'
+import { Loading, Empty, Failure, Success } from './HubsCell'
+import { standard } from './HubsCell.mock'
 
 export const loading = () => {
   return Loading ? <Loading /> : null
@@ -17,4 +17,4 @@ export const success = () => {
   return Success ? <Success {...standard()} /> : null
 }
 
-export default { title: 'Cells/MapHubsCell' }
+export default { title: 'Cells/HubsCell' }

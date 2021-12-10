@@ -1,8 +1,8 @@
-import { render, screen } from '@redwoodjs/testing/web'
-import { Loading, Empty, Failure, Success } from './MapHubsCell'
-import { standard } from './MapHubsCell.mock'
+import { render } from '@redwoodjs/testing/web'
+import { Loading, Empty, Failure, Success } from './HubsCell'
+import { standard } from './HubsCell.mock'
 
-describe('MapHubsCell', () => {
+describe('HubsCell', () => {
   it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />)
@@ -29,7 +29,7 @@ describe('MapHubsCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success mapHubs={standard().mapHubs} />)
+      render(<Success hubs={standard().hubs} />)
     }).not.toThrow()
   })
 })

@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import MapViewPage from './MapViewPage'
+import HubFilters from './HubFilters'
 
-describe('MapViewPage', () => {
+describe('HubFilters', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<MapViewPage />)
+      render(<HubFilters />)
     }).not.toThrow()
   })
 })

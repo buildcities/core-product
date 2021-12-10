@@ -9,7 +9,7 @@ import {
 
 const HomePage = () => {
   const onClick = () => {
-    navigate(routes.mapView())
+    navigate(routes.viewHubs())
   }
 
   return (

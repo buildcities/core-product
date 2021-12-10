@@ -64,3 +64,12 @@ export const listHubsSteps: TListHubsSteps[] = [
     data: {},
   },
 ]
+export const continents = [
+  'Asia',
+  'Europe',
+  'North America',
+  'South America',
+  'Antartica',
+  'Africa',
+  'Oceania',
+]
