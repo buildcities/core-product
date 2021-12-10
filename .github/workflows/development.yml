@@ -1,4 +1,4 @@
-### Force redeploy ###
+### Force redeploy #### Just Merge
 name: 'development pipeline'
 on:
   push:
