@@ -18,8 +18,8 @@ const SingleColumnLayout = ({
       <MetaTags description={metaDescription} title={metaTitle} />
       <LayoutHeader />
 
-      <main className="max-w-7xl  pt-10 mx-auto flex flex-cols  ">
-        <div className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
+      <main className="max-w-7xl  pt-10 mx-auto flex flex-cols ">
+        <div className="max-w-7xl mx-auto  px-4 sm:px-6  lg:px-8">
           {children}
         </div>
       </main>

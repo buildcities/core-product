@@ -13,11 +13,14 @@ const HubFilters = ({ className, filters }: HubFiltersProps) => {
   return (
     <div
       className={classnames(
-        'flex justify-between py-2 px-[120px] opacity-75 w-full items-center',
+        ' justify-between flex py-2 px-[120px] opacity-75 w-full items-center',
         className
       )}
     >
-      <RadioGroup inputProps={{ onChange: setFilter }} containerClass="flex">
+      <RadioGroup
+        inputProps={{ onChange: setFilter }}
+        containerClass=" hidden lg:flex"
+      >
         {filters?.length &&
           filters.map((item) => {
             return (
