@@ -83,8 +83,8 @@ export function MapView({ apiKey, className, mapProps, data }: MapViewProps) {
 MapView.defaultProps = {
   mapProps: {
     center: {
-      lat: 59.938043,
-      lng: 30.337157,
+      lat: 15.5,
+      lng: -98.35,
     },
     zoom: 0,
   },

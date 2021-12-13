@@ -1,7 +1,9 @@
+import { Paragraph } from '@buildcities/build-ui.components.all'
 import { Switch } from '@headlessui/react'
 import classNames from 'classnames'
 import { useStore } from 'src/utils/stores/viewHubsStore'
 import shallow from 'zustand/shallow'
+const TEXT_TOGGLE = 'Map view'
 
 export default function FilterToggle() {
   const { isMapView, toggleView } = useStore(
