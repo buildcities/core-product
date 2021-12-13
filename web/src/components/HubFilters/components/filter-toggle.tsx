@@ -12,7 +12,7 @@ export default function FilterToggle() {
     <Switch
       checked={isMapView}
       onChange={toggleView}
-      className="flex-shrink-0 group relative rounded-full inline-flex items-center justify-center h-5 w-10 cursor-pointer focus:outline-none"
+      className="flex-shrink-1 group relative rounded-full inline-flex items-center justify-center h-5 w-10 cursor-pointer focus:outline-none"
     >
       <span className="sr-only">Use setting</span>
       <span

@@ -10,7 +10,7 @@ const ViewHubsPage = () => {
     <SingleColumnLayout metaDescription="List of hubs" metaTitle="Hubs">
       <HubFilters
         filters={continents}
-        className="absolute left-0 z-20 top-[65px] bg-cardBackground w-full"
+        className="absolute right-0 z-20 top-[65px] bg-cardBackground "
       />
       <MapView />
     </SingleColumnLayout>

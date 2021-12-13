@@ -112,7 +112,7 @@ export const darkStyle = [
     elementType: 'geometry',
     stylers: [
       {
-        color: '#121212',
+        color: '#171717',
       },
     ],
   },
@@ -208,7 +208,7 @@ export const darkStyle = [
         gamma: '0',
       },
       {
-        color: '#090909',
+        color: '#000000',
       },
     ],
   },
