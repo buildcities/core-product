@@ -7,6 +7,8 @@ import {
   hubTypes,
   HUB_TYPE_SECTION_TEXT,
   HUB_TYPE_SECTION_TITLE,
+  HUB_NAME_SECTION_TEXT,
+  HUB_NAME_SECTION_TITLE,
   LOCATION_SECTION_TEXT,
   LOCATION_SECTION_TITLE,
 } from './presets'
@@ -48,6 +50,18 @@ const ListHubsStep2 = ({
             />
           )}
         </ControlledInput>
+      </FormSection>
+      <FormSection
+        description={HUB_NAME_SECTION_TEXT}
+        title={HUB_NAME_SECTION_TITLE}
+      >
+        <FormField label="Hub name" name={'name'}>
+          <TextInput
+            inputProps={{ placeholder: 'Type your fancy name' }}
+            as={TextField}
+            name="name"
+          />
+        </FormField>
       </FormSection>
       <FormSection
         title={HUB_TYPE_SECTION_TITLE}

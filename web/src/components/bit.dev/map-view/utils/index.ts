@@ -1,4 +1,4 @@
-import { omit } from 'lodash'
+import { omit, pick } from 'lodash'
 
 export type TPoiInputData = {
   location: { lat: number; lng: number; continent: string; country: string }
@@ -21,7 +21,11 @@ export const preparePOIClusters = (
   data?.length &&
   data.map((item) => ({
     type: 'Feature',
-    properties: { cluster: false, ...omit(item.location, ['lat', 'lng']) },
+    properties: {
+      cluster: false,
+      ...omit(item.location, ['lat', 'lng', 'title']),
+      ...pick(item, ['images', 'name']),
+    },
     geometry: {
       type: 'Point',
       coordinates: [
