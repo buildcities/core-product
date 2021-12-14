@@ -32,7 +32,7 @@ export default function FilterToggle() {
           isMapView
             ? 'translate-x-5 bg-[#6200EE] border-transparent'
             : 'translate-x-0 bg-white border-gray-200',
-          'pointer-events-none absolute left-0 inline-block h-5 w-5 border  rounded-full  shadow transform ring-0 transition-transform ease-in-out duration-200'
+          'pointer-events-none absolute left-0 inline-block h-5 w-5 border rounded-full  shadow transform ring-0 transition-transform ease-in-out duration-200'
         )}
       />
     </Switch>

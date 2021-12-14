@@ -1,3 +1,5 @@
+import { Disclosure } from '@headlessui/react'
+import classnames from 'classnames'
 import React from 'react'
 import { getClusterSize, TPointReturnValue } from '../utils'
 
@@ -5,6 +7,13 @@ type MarkerProps = {
   onClick?: () => void
   lng?: number
   lat?: number
+  children?: ({
+    close,
+    open,
+  }: {
+    close?: () => void
+    open?: boolean
+  }) => React.ReactElement
 }
 
 interface ClusterMarkerProps extends MarkerProps {
@@ -44,16 +53,35 @@ export const ClusterMarker = ({
   )
 }
 
-export const PointMarker: React.FC<MarkerProps> = () => {
+export const PointMarker: React.FC<MarkerProps> = ({ children }) => {
   return (
-    <div className="relative group">
-      <div
-        className="absolute opacity-75
-       blur rounded-full w-5 h-5 bg-blue-500 group-hover:bg-selected"
-      ></div>
-      <button className="p-1 relative rounded-full w-5 h-5 bg-normal group-hover:bg-selected">
-        <div className="bg-white group-hover:bg-[#AE9EFF] h-full justify-center flex items-center rounded-full" />
-      </button>
-    </div>
+    <Disclosure>
+      {({ open }) => (
+        <div className="relative group">
+          <div
+            className={classnames(
+              'absolute opacity-75 blur rounded-full w-5 h-5  group-hover:bg-selected',
+              open ? 'bg-selected' : 'bg-blue-500'
+            )}
+          ></div>
+          <Disclosure.Button
+            className={classnames(
+              'p-1 relative rounded-full w-5 h-5  group-hover:bg-selected',
+              open ? 'bg-selected' : 'bg-normal'
+            )}
+          >
+            <div
+              className={classnames(
+                ' group-hover:bg-[#AE9EFF] h-full justify-center flex items-center rounded-full',
+                open ? 'bg-[#AE9EFF]' : 'bg-white'
+              )}
+            />
+          </Disclosure.Button>
+          <Disclosure.Panel>
+            {({ close, open }) => children({ close, open })}
+          </Disclosure.Panel>
+        </div>
+      )}
+    </Disclosure>
   )
 }
