@@ -6,17 +6,24 @@ import HubsCell from 'src/components/HubsCell'
 const continentSelector = (store) => ({
   continents: store.continents,
   isMapView: store.isMapView,
+  selectedContinent: store.selectedContinent,
 })
 
 const ViewHubsPage = () => {
-  const { continents, isMapView } = useStore(continentSelector)
+  const { continents, isMapView, selectedContinent } =
+    useStore(continentSelector)
+
   return (
     <SingleColumnLayout metaDescription="List of hubs" metaTitle="Hubs">
       <HubFilters
         filters={continents}
         className="absolute right-0 z-20 top-[65px] bg-cardBackground "
       />
-      {isMapView ? <MapView /> : <HubsCell />}
+      {isMapView ? (
+        <MapView />
+      ) : (
+        <HubsCell {...{ filter: selectedContinent }} />
+      )}
     </SingleColumnLayout>
   )
 }

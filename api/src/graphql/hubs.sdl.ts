@@ -20,7 +20,7 @@ export const schema = gql`
   }
 
   type Query {
-    hubs: [Hub!]! @requireAuth
+    hubs(filter: String, skip: Int, take: Int): [Hub!]! @requireAuth
     hub(id: Int!): Hub @requireAuth
   }
 
