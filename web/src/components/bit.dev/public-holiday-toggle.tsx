@@ -5,7 +5,7 @@ const PublicHolidayToggleSwitch = () => {
 
   return (
     <>
-      <div className="absolute right-0 -top-9 flex items-center justify-start">
+      <div className="2xl:absolute 2xl:mb-0 mb-4 right-0 -top-9 flex items-center justify-start">
         <span
           className={`${
             closed ? 'text-white' : 'text-[#969696]'

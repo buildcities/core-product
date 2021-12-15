@@ -3,7 +3,7 @@ type TimePickerProps = {
 }
 const TimePicker = ({ day }: TimePickerProps) => {
   return (
-    <div className="flex items-center w-72 ml-4 mr-2">
+    <div className="flex items-center w-72 2xl:ml-4 mr-2">
       <select
         name={`${day}-from-time`}
         style={{ boxShadow: 'none' }}
