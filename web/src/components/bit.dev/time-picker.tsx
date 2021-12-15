@@ -3,10 +3,10 @@ type TimePickerProps = {
 }
 const TimePicker = ({ day }: TimePickerProps) => {
   return (
-    <div className="flex items-center w-80 ml-4 mr-11">
+    <div className="flex items-center w-72 ml-4 mr-2">
       <select
         name={`${day}-from-time`}
-        className="bg-[#171717] text-lg appearance-none outline-none border-0 rounded-xl focus:border-0"
+        className="bg-[#171717] text-sm appearance-none outline-none border-0 rounded-xl focus:border-0"
       >
         <option value="12:00AM">12:00AM</option>
         <option value="12:30AM">12:30AM</option>
@@ -57,10 +57,10 @@ const TimePicker = ({ day }: TimePickerProps) => {
         <option value="11:00PM">11:00PM</option>
         <option value="11:30PM">11:30PM</option>
       </select>
-      <span className="text-lg text-[#969696] mx-4">TO</span>
+      <span className="text-sm text-[#969696] mx-4">TO</span>
       <select
         name={`${day}-to-time`}
-        className="bg-[#171717] text-lg appearance-none outline-none border-0 rounded-xl"
+        className="bg-[#171717] text-sm appearance-none outline-none border-0 rounded-xl"
       >
         <option value="12:00AM">12:00AM</option>
         <option value="12:30AM">12:30AM</option>

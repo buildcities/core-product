@@ -10,7 +10,7 @@ const DaySelectionRow = ({ day }: DaySelectionRowProps) => {
   const [closed, setClosed] = useState(false)
   return (
     <div className="flex items-center w-full mb-4">
-      <span className="text-2xl font-bold text-[#969696] w-36 mr-3">{day}</span>
+      <span className="text-lg font-bold text-[#969696] w-32 mr-3">{day}</span>
       <ToggleSwitch day={day} setClosed={setClosed} closed={closed} />
       <div
         className={`${

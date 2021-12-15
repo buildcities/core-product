@@ -28,7 +28,7 @@ const ListHubsStep5 = ({
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[632px] "
+      className="space-y-2 w-auto max-w-[660px] "
     >
       <FormSection
         description={AVAILABILITY_SECTION_TEXT}
