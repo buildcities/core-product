@@ -6,6 +6,7 @@ const TimePicker = ({ day }: TimePickerProps) => {
     <div className="flex items-center w-72 ml-4 mr-2">
       <select
         name={`${day}-from-time`}
+        style={{ boxShadow: 'none' }}
         className="bg-[#171717] text-sm appearance-none outline-none border-0 rounded-xl focus:border-0"
       >
         <option value="12:00AM">12:00AM</option>
@@ -60,6 +61,7 @@ const TimePicker = ({ day }: TimePickerProps) => {
       <span className="text-sm text-[#969696] mx-4">TO</span>
       <select
         name={`${day}-to-time`}
+        style={{ boxShadow: 'none' }}
         className="bg-[#171717] text-sm appearance-none outline-none border-0 rounded-xl"
       >
         <option value="12:00AM">12:00AM</option>

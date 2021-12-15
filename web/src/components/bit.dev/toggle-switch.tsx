@@ -26,7 +26,7 @@ const ToggleSwitch = ({ day, closed, setClosed }: ToggleSwitchProps) => {
             ></div>
             <div
               className={`${
-                closed ? 'left-4 bg-[#7B61FF]' : 'bg-[#969696] -left-1'
+                closed ? 'left-4 bg-[#7B61FF]' : 'bg-[#969696] left-0'
               } transform absolute transition-all duration-300 w-6 h-6 rounded-full shadow -top-1`}
             ></div>
           </div>
