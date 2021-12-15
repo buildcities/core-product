@@ -18,9 +18,11 @@ const HubDetailPage = () => {
         metaDescription="Hub Details"
         metaTitle="Details"
       ></SingleColumnLayout>
-      <span className="relative text-2xl text-white">
-        Awesome place to stay
-      </span>
+      <div className="px-96">
+        <span className="relative text-2xl text-white">
+          Awesome place to stay
+        </span>
+      </div>
     </>
   )
 }
