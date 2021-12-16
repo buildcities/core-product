@@ -1,1 +1,91 @@
-@import url("../../node_modules/@buildcities/build-ui.tailwind-styles/styles.css")
+@import url('../../node_modules/@buildcities/build-ui.tailwind-styles/styles.css');
+
+/* Show  backdrop when datepicker open */
+/* open ? 'block pointer-events-auto' : 'hidden pointer-events-none' */
+.DateRangePicker + .backdrop {
+  @apply block pointer-events-auto;
+}
+
+/* Override react-dates CSS for reservation picker */
+.DateRangePicker.DateRangePicker_1 {
+  @apply absolute top-8 right-8 z-10;
+}
+.DateRangePicker.DateRangePicker_1 * {
+  @apply border-0 bg-transparent;
+}
+/* Override inline style positioning of calendar */
+.DateRangePicker_picker {
+  top: 80px !important;
+  left: unset !important;
+  right: 0;
+}
+.DateRangePicker.DateRangePicker_1 .DateInput {
+  @apply static;
+}
+.DateRangePicker .DateRangePickerInput_arrow,
+.DateRangePicker .DateInput_fang {
+  @apply hidden;
+}
+.DateRangePicker .DateInput {
+  @apply w-40 h-20;
+}
+.DateRangePicker #start-date,
+.DateRangePicker #end-date {
+  @apply relative flex items-end bg-cardBackground w-full h-full px-4 pt-11 text-sm text-paragraph font-normal;
+}
+.DateRangePicker #start-date:focus,
+.DateRangePicker #end-date:focus {
+  @apply z-10;
+}
+.DayPickerKeyboardShortcuts_buttonReset {
+  @apply hidden;
+}
+/* Calendar titles */
+.CalendarMonth_caption strong {
+  @apply font-fira text-white;
+}
+.CalendarDay__selected,
+.CalendarDay__selected_span,
+.CalendarMonth_table .CalendarDay__hovered_span {
+  position: relative;
+  /* color: white; */
+}
+.CalendarMonth_table .CalendarDay__selected:hover,
+.CalendarMonth_table .CalendarDay__selected_span:hover {
+  background: unset;
+  border: 1px solid #fff;
+}
+.CalendarDay__selected:hover:after,
+.CalendarDay__selected_span:hover:after {
+  height: 38px;
+}
+.CalendarDay__selected:after,
+.CalendarDay__selected_span:after,
+.CalendarMonth_table .CalendarDay__hovered_span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 20px;
+  width: 100%;
+  transform: translateY(-50%);
+  background: #0033fb !important;
+  z-index: -1;
+  transition: height 0.3s ease;
+}
+.CalendarMonth_table .CalendarDay__hovered_span:active {
+  background: #fff;
+  color: #000;
+  border: 0;
+}
+/* Selectable dates */
+.CalendarMonth_table .CalendarDay__default {
+  color: #fff;
+  box-sizing: border-box;
+}
+/* Blocked out dates */
+.CalendarMonth_table .CalendarDay__blocked_out_of_range,
+.CalendarMonth_table .CalendarDay__blocked_out_of_range:active,
+.CalendarMonth_table .CalendarDay__blocked_out_of_range:hover {
+  color: #777777;
+}
