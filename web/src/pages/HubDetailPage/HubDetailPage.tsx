@@ -9,7 +9,7 @@ const HubDetailPage = () => {
     <SingleColumnLayout metaDescription="Hub details" metaTitle="Details">
       <div className="container bg-gradient-to-r from-black-400">
         <div className="flex w-full">
-          <h1 className="text-white">Awesome place to stay</h1>
+          <h1 className="text-white text-6xl">Awesome place to stay</h1>
         </div>
         <div className="mt-8">
           <AddressComponent />
