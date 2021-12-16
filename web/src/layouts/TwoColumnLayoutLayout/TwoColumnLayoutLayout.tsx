@@ -23,7 +23,7 @@ const TwoColumnLayoutLayout = ({
         {sideBar}
       </nav>
 
-      <main className="max-w-7xl mx-auto flex pt-10 flex-cols md:pl-[384px] lg:pl-[420px]  ">
+      <main className="max-w-7xl mx-auto flex pt-10 flex-cols md:pl-[384px] lg:pl-[420px] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
       </main>
     </div>
