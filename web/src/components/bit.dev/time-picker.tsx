@@ -58,7 +58,7 @@ const TimePicker = ({ day }: TimePickerProps) => {
         <option value="11:00PM">11:00PM</option>
         <option value="11:30PM">11:30PM</option>
       </select>
-      <span className="text-sm text-[#969696] mx-4">TO</span>
+      <span className="text-sm text-paragraph mx-4">TO</span>
       <select
         name={`${day}-to-time`}
         style={{ boxShadow: 'none' }}

@@ -8,7 +8,7 @@ const PublicHolidayToggleSwitch = () => {
       <div className="2xl:absolute 2xl:mb-0 mb-4 right-0 -top-9 flex items-center justify-start">
         <span
           className={`${
-            closed ? 'text-white' : 'text-[#969696]'
+            closed ? 'text-white' : 'text-paragraph'
           } mr-6 text-sm transition-colors duration-300`}
         >
           Closed on public holidays
@@ -32,7 +32,7 @@ const PublicHolidayToggleSwitch = () => {
             ></div>
             <div
               className={`${
-                closed ? 'left-4 bg-[#7B61FF]' : 'bg-[#969696] -left-1'
+                closed ? 'left-4 bg-[#7B61FF]' : 'bg-paragraph -left-1'
               } transform absolute transition-all duration-300 w-6 h-6 rounded-full shadow -top-1`}
             ></div>
           </div>

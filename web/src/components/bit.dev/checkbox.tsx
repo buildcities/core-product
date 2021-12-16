@@ -13,7 +13,7 @@ const Checkbox = ({ day }: CheckboxProps) => {
         value=""
         id={`${day}-24hrs`}
       />
-      <label className="text-sm h-min text-[#969696]" htmlFor={`${day}-24hrs`}>
+      <label className="text-sm h-min text-paragraph" htmlFor={`${day}-24hrs`}>
         24h open
       </label>
     </div>

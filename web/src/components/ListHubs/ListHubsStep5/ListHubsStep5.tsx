@@ -9,6 +9,7 @@ import HubListDateSelector from '../../HubListDateSelector/HubListDateSelector'
 import {
   AVAILABILITY_SECTION_TEXT,
   AVAILABILITY_SECTION_TITLE,
+  daysOfWeek,
 } from './presets'
 
 const ListHubsStep5 = ({
@@ -34,7 +35,7 @@ const ListHubsStep5 = ({
         description={AVAILABILITY_SECTION_TEXT}
         title={AVAILABILITY_SECTION_TITLE}
       >
-        <HubListDateSelector />
+        <HubListDateSelector daysOfWeek={daysOfWeek} />
       </FormSection>
       <Button text="Next" />
     </Form>
