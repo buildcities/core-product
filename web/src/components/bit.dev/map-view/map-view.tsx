@@ -5,15 +5,23 @@ import { MAX_ZOOM, RADIUS, darkStyle } from './utils/presets'
 import { preparePOIClusters, TPoiInputData } from './utils'
 import useSupercluster from 'use-supercluster'
 import { PointMarker, ClusterMarker } from './components'
+import { omit } from 'lodash'
 
 export type MapViewProps = {
   apiKey: string
   className?: string
   mapProps?: Record<string, unknown>
   data?: TPoiInputData[]
+  children?: (payload?: Record<string, unknown>) => React.ReactElement
 }
 
-export function MapView({ apiKey, className, mapProps, data }: MapViewProps) {
+export function MapView({
+  apiKey,
+  className,
+  mapProps,
+  data,
+  children,
+}: MapViewProps) {
   const mapRef = useRef()
   const [bounds, setBounds] = useState(null)
   const [zoom, setZoom] = useState(null)
@@ -22,8 +30,7 @@ export function MapView({ apiKey, className, mapProps, data }: MapViewProps) {
     setBounds([bounds.nw.lng, bounds.se.lat, bounds.se.lng, bounds.nw.lat])
   }, [])
 
-  const points = preparePOIClusters(data)
-
+  const points = preparePOIClusters(data as TPoiInputData[])
   const { clusters, supercluster } = useSupercluster({
     points,
     bounds,
@@ -63,7 +70,8 @@ export function MapView({ apiKey, className, mapProps, data }: MapViewProps) {
             const [lng, lat] = cluster.geometry.coordinates
             const { cluster: isCluster, point_count: pointCount } =
               cluster.properties
-            //console.log(pointCount)
+            const data = omit(cluster.properties, ['cluster'])
+
             return isCluster ? (
               <ClusterMarker
                 key={`cluster-${cluster.id}`}
@@ -72,7 +80,13 @@ export function MapView({ apiKey, className, mapProps, data }: MapViewProps) {
                 onClick={handleClusterClick(cluster, lat, lng, mapRef)}
               />
             ) : (
-              <PointMarker key={indx} lng={lng} lat={lat} />
+              <>
+                <PointMarker key={indx} lng={lng} lat={lat}>
+                  {({ close, open }) =>
+                    children && children({ data, close, open })
+                  }
+                </PointMarker>
+              </>
             )
           })}
       </GoogleMapReact>
@@ -83,8 +97,8 @@ export function MapView({ apiKey, className, mapProps, data }: MapViewProps) {
 MapView.defaultProps = {
   mapProps: {
     center: {
-      lat: 59.938043,
-      lng: 30.337157,
+      lat: 15.5,
+      lng: -98.35,
     },
     zoom: 0,
   },

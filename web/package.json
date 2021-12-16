@@ -30,6 +30,7 @@
     "postcss-loader": "^6.2.1",
     "prop-types": "15.7.2",
     "react": "17.0.2",
+    "react-detect-click-outside": "^1.1.1",
     "react-dom": "17.0.2",
     "supercluster": "^7.1.4",
     "use-supercluster": "^0.3.0",

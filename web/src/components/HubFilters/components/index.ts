@@ -1,3 +1,4 @@
 import FilterToggle from './filter-toggle'
 import FilterButton from './filter-button'
-export { FilterButton, FilterToggle }
+import MobileFilter from './mobile-filter-button'
+export { FilterButton, FilterToggle, MobileFilter }
