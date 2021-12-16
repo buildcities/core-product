@@ -29,9 +29,10 @@
 .DateRangePicker .DateInput {
   @apply w-40 h-20;
 }
+/* Remove styles from start and end date inputs */
 .DateRangePicker #start-date,
 .DateRangePicker #end-date {
-  @apply relative flex items-end bg-cardBackground w-full h-full px-4 pt-11 text-sm text-paragraph font-normal;
+  @apply relative flex items-end bg-cardBackground w-full h-full px-4 pt-11 text-sm text-paragraph font-normal caret-transparent cursor-pointer;
 }
 .DateRangePicker #start-date:focus,
 .DateRangePicker #end-date:focus {
