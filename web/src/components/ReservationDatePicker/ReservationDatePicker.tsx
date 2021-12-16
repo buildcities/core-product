@@ -61,7 +61,6 @@ const ReservationDatePicker = () => {
         onDatesChange={({ startDate, endDate }) =>
           handleDateChange(startDate, endDate)
         }
-        monthFormat="D MMMM YYYY"
         focusedInput={focus}
         displayFormat={() => 'DD/MM/YYYY'}
         onFocusChange={(focus: string) => setFocus(focus)}
