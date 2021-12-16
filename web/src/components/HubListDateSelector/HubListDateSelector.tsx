@@ -3,7 +3,7 @@ import DaySelectionRow from '../bit.dev/day-selection-row'
 import PublicHolidayToggleSwitch from '../bit.dev/public-holiday-toggle'
 
 type HubListDateSelectorProps = {
-  daysOfWeek: string[]
+  daysOfWeek?: string[]
 }
 const HubListDateSelector = ({ daysOfWeek }: HubListDateSelectorProps) => {
   return (
