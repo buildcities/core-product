@@ -1,4 +1,3 @@
-import React from 'react'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 import AddressComponent from './AddressComponent'
 import ImageViewer from 'src/components/ImageViewer/ImageViewer'
@@ -7,19 +6,11 @@ import Amenities from 'src/components/Amenities/Amenities'
 const HubDetailPage = () => {
   return (
     <SingleColumnLayout metaDescription="Hub details" metaTitle="Details">
-      <div className="container bg-gradient-to-r from-black-400">
-        <div className="flex w-full">
-          <h1 className="text-white">Awesome place to stay</h1>
-        </div>
-        <div className="mt-8">
-          <AddressComponent />
-        </div>
-        <div>
-          <ImageViewer />
-        </div>
-        <div className="mt-8">
-          <Amenities />
-        </div>
+      <div className="container">
+        <div className="Main-Image"></div>
+        <div className="Image-2"></div>
+        <div className="Image-3"></div>
+        <div className="Amenities"></div>
       </div>
     </SingleColumnLayout>
   )

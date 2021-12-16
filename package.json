@@ -20,5 +20,9 @@
   },
   "prisma": {
     "seed": "yarn rw exec seed"
+  },
+  "dependencies": {
+    "react-slick": "^0.28.1",
+    "slick-carousel": "^1.8.1"
   }
 }

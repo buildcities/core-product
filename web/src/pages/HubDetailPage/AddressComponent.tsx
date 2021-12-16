@@ -1,11 +1,11 @@
-import { MapPin } from 'src/utils/svgs'
+import MapPinTest from 'src/utils/svgs/map-pin-test'
 
 const AddressComponent = () => {
   return (
     <>
-      <div className="ml-10 inline-flex justify-between items-baseline">
-        <MapPin />
-        <span className="flex text-white font-normal inline-block items-start text-sm">
+      <div className="inline-flex justify-between items-baseline">
+        <MapPinTest />
+        <span className="flex text-white font-normal items-start text-sm">
           21 Fake Street, Melbourne, Earth
         </span>
       </div>
