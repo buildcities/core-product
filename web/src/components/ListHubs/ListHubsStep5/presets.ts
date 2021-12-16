@@ -16,3 +16,13 @@ export const radioOptions: RadioOptionProps[] = [
   { label: 'Not working on weekend', icon: 'calendar' },
   { label: 'Closed on public holidays', icon: 'wine' },
 ]
+
+export const daysOfWeek = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+]

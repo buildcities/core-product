@@ -1,16 +1,15 @@
-import { RadioControls } from '@buildcities/build-ui.components.all'
 import { Form, useForm } from '@redwoodjs/forms'
 import React from 'react'
 import { TListHubsComponentProps } from 'src/utils/types'
-import ControlledInput from '../../ControlledInput/ControlledInput'
 import FormSection from '../../FormSection/FormSection'
 import ListHubsHOC from '../../HOC/listHubsHOC'
 import Button from '../ListHubsStepButton/ListHubsStepButton'
+import HubListDateSelector from '../../HubListDateSelector/HubListDateSelector'
 
 import {
   AVAILABILITY_SECTION_TEXT,
   AVAILABILITY_SECTION_TITLE,
-  radioOptions,
+  daysOfWeek,
 } from './presets'
 
 const ListHubsStep5 = ({
@@ -30,26 +29,13 @@ const ListHubsStep5 = ({
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[632px] "
+      className="space-y-2 sm:w-auto max-w-[660px] md:pr-0 pr-4 w-screen"
     >
       <FormSection
         description={AVAILABILITY_SECTION_TEXT}
         title={AVAILABILITY_SECTION_TITLE}
       >
-        <ControlledInput name="availability">
-          {(inputProps) => {
-            return (
-              <RadioControls.RadioGroup
-                className="lg:flex space-y-4 lg:space-y-0 lg:space-x-2 "
-                inputProps={inputProps}
-              >
-                {radioOptions.map((props, key) => (
-                  <RadioControls.RadioOption key={key} {...props} />
-                ))}
-              </RadioControls.RadioGroup>
-            )
-          }}
-        </ControlledInput>
+        <HubListDateSelector daysOfWeek={daysOfWeek} />
       </FormSection>
       <Button text="Next" />
     </Form>
