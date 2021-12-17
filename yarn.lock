@@ -1327,6 +1327,7 @@
   version "7.16.5"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@babel/runtime-corejs3/-/runtime-corejs3-7.16.5.tgz#9057d879720c136193f0440bc400088212a74894"
   integrity sha1-kFfYeXIME2GT8EQLxAAIghKnSJQ=
+<<<<<<< Updated upstream
   dependencies:
     core-js-pure "^3.19.0"
     regenerator-runtime "^0.13.4"
@@ -1342,9 +1343,20 @@
   version "7.2.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@babel/runtime/-/runtime-7.2.0.tgz#b03e42eeddf5898e00646e4c840fa07ba8dcad7f"
   integrity sha1-sD5C7t31iY4AZG5MhA+ge6jcrX8=
+=======
+  dependencies:
+    core-js-pure "^3.19.0"
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.0", "@babel/runtime@^7.14.8", "@babel/runtime@^7.16.3", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
+  version "7.16.5"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@babel/runtime/-/runtime-7.16.5.tgz#7f3e34bf8bdbbadf03fbb7b1ea0d929569c9487a"
+  integrity sha1-fz40v4vbut8D+7ex6g2SlWnJSHo=
+>>>>>>> Stashed changes
   dependencies:
     regenerator-runtime "^0.12.0"
 
+<<<<<<< Updated upstream
 "@babel/runtime@7.3.4":
   version "7.3.4"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@babel/runtime/-/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
@@ -1359,6 +1371,8 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+=======
+>>>>>>> Stashed changes
 "@babel/template@^7.12.7", "@babel/template@^7.16.0", "@babel/template@^7.3.3":
   version "7.16.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@babel/template/-/template-7.16.0.tgz#d16a35ebf4cd74e202083356fab21dd89363ddd6"
@@ -2449,6 +2463,7 @@
   version "7.1.4"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@graphql-tools/graphql-tag-pluck/-/graphql-tag-pluck-7.1.4.tgz#174b69d40988c3450d310173c5be5af894929c41"
   integrity sha1-F0tp1AmIw0UNMQFzxb5a+JSSnEE=
+<<<<<<< Updated upstream
   dependencies:
     "@babel/parser" "7.16.4"
     "@babel/traverse" "7.16.3"
@@ -2465,6 +2480,24 @@
     resolve-from "5.0.0"
     tslib "~2.3.0"
 
+=======
+  dependencies:
+    "@babel/parser" "7.16.4"
+    "@babel/traverse" "7.16.3"
+    "@babel/types" "7.16.0"
+    "@graphql-tools/utils" "^8.5.1"
+    tslib "~2.3.0"
+
+"@graphql-tools/import@^6.5.7":
+  version "6.6.3"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@graphql-tools/import/-/import-6.6.3.tgz#e2983d9623d4abd7a5ef2f65f7cc8ff745a1a691"
+  integrity sha1-4pg9liPUq9el7y9l98yP90WhppE=
+  dependencies:
+    "@graphql-tools/utils" "8.5.5"
+    resolve-from "5.0.0"
+    tslib "~2.3.0"
+
+>>>>>>> Stashed changes
 "@graphql-tools/json-file-loader@^7.1.2", "@graphql-tools/json-file-loader@^7.3.2":
   version "7.3.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@graphql-tools/json-file-loader/-/json-file-loader-7.3.3.tgz#45cfde77b9dc4ab6c21575305ae537d2814d237f"
@@ -2601,9 +2634,15 @@
   integrity sha1-B214zpmCIljPgT7MHn+kYPp00FI=
 
 "@grpc/grpc-js@^1.3.2":
+<<<<<<< Updated upstream
   version "1.4.4"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@grpc/grpc-js/-/grpc-js-1.4.4.tgz#59336f13d77bc446bbdf2161564a32639288dc5b"
   integrity sha1-WTNvE9d7xEa73yFhVkoyY5KI3Fs=
+=======
+  version "1.4.5"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@grpc/grpc-js/-/grpc-js-1.4.5.tgz#0cd840b47180624eeedf066f2cdc422d052401f8"
+  integrity sha1-DNhAtHGAYk7u3wZvLNxCLQUkAfg=
+>>>>>>> Stashed changes
   dependencies:
     "@grpc/proto-loader" "^0.6.4"
     "@types/node" ">=12.12.47"
@@ -3023,6 +3062,13 @@
   dependencies:
     "@prisma/engines-version" "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
 
+"@prisma/client@^3.6.0":
+  version "3.6.0"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@prisma/client/-/client-3.6.0.tgz#68a60cd4c73a369b11f72e173e86fd6789939293"
+  integrity sha1-aKYM1Mc6NpsR9y4XPob9Z4mTkpM=
+  dependencies:
+    "@prisma/engines-version" "3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727"
+
 "@prisma/debug@3.4.2":
   version "3.4.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@prisma/debug/-/debug-3.4.2.tgz#77cfc2ddfe3b4693ea1a0217e1ae8293616e133c"
@@ -3061,6 +3107,14 @@
   version "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@prisma/engines-version/-/engines-version-3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e.tgz#254fdb80ae6db397ee1e638d12561f35d058e340"
   integrity sha1-JU/bgK5ts5fuHmONElYfNdBY40A=
+<<<<<<< Updated upstream
+=======
+
+"@prisma/engines-version@3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727":
+  version "3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@prisma/engines-version/-/engines-version-3.6.0-24.dc520b92b1ebb2d28dc3161f9f82e875bd35d727.tgz#25aa447776849a774885866b998732b37ec4f4f5"
+  integrity sha1-JapEd3aEmndIhYZrmYcys37E9PU=
+>>>>>>> Stashed changes
 
 "@prisma/engines@3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e":
   version "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
@@ -4500,9 +4554,15 @@
     "@types/ms" "*"
 
 "@types/eslint-scope@^3.7.0":
+<<<<<<< Updated upstream
   version "3.7.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@types/eslint-scope/-/eslint-scope-3.7.1.tgz#8dc390a7b4f9dd9f1284629efce982e41612116e"
   integrity sha1-jcOQp7T53Z8ShGKe/OmC5BYSEW4=
+=======
+  version "3.7.2"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@types/eslint-scope/-/eslint-scope-3.7.2.tgz#11e96a868c67acf65bf6f11d10bb89ea71d5e473"
+  integrity sha1-EelqhoxnrPZb9vEdELuJ6nHV5HM=
+>>>>>>> Stashed changes
   dependencies:
     "@types/eslint" "*"
     "@types/estree" "*"
@@ -4740,9 +4800,15 @@
   integrity sha1-h5vjrXryn0waXEM0Ib+Z+rcEcYU=
 
 "@types/node@^14.0.10":
+<<<<<<< Updated upstream
   version "14.18.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@types/node/-/node-14.18.0.tgz#98df2397f6936bfbff4f089e40e06fa5dd88d32a"
   integrity sha1-mN8jl/aTa/v/TwieQOBvpd2I0yo=
+=======
+  version "14.18.1"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/@types/node/-/node-14.18.1.tgz#459886b51f52aa923dc06b9ea81cb8b1d733e9d3"
+  integrity sha1-RZiGtR9SqpI9wGueqBy4sdcz6dM=
+>>>>>>> Stashed changes
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -5939,6 +6005,7 @@ async-each@^1.0.1:
   version "1.0.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/async-each/-/async-each-1.0.3.tgz#b727dbf87d7651602f06f4d4ac387f47d91b0cbf"
   integrity sha1-tyfb+H12UWAvBvTUrDh/R9kbDL8=
+<<<<<<< Updated upstream
 
 async-limiter@~1.0.0:
   version "1.0.1"
@@ -5951,6 +6018,8 @@ async-retry@1.2.3:
   integrity sha1-plIfM4NY0yKxoAEreQMMb0EdHOA=
   dependencies:
     retry "0.12.0"
+=======
+>>>>>>> Stashed changes
 
 async@^2.6.2:
   version "2.6.3"
@@ -6455,6 +6524,7 @@ bn.js@^5.0.0, bn.js@^5.1.1:
   version "5.2.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/bn.js/-/bn.js-5.2.0.tgz#358860674396c6997771a9d051fcc1b57d4ae002"
   integrity sha1-NYhgZ0OWxpl3canQUfzBtX1K4AI=
+<<<<<<< Updated upstream
 
 body-parser@1.18.3:
   version "1.18.3"
@@ -6471,6 +6541,8 @@ body-parser@1.18.3:
     qs "6.5.2"
     raw-body "2.3.3"
     type-is "~1.6.16"
+=======
+>>>>>>> Stashed changes
 
 body-parser@1.19.0:
   version "1.19.0"
@@ -6682,11 +6754,14 @@ buffer-indexof@^1.0.0:
   version "1.1.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/buffer-indexof/-/buffer-indexof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
   integrity sha1-Uvq8xqYG0aADAoAmSO9o9jnaJow=
+<<<<<<< Updated upstream
 
 buffer-more-ints@0.0.2:
   version "0.0.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/buffer-more-ints/-/buffer-more-ints-0.0.2.tgz#26b3885d10fa13db7fc01aae3aab870199e0124c"
   integrity sha1-JrOIXRD6E9t/wBquOquHAZngEkw=
+=======
+>>>>>>> Stashed changes
 
 buffer-xor@^1.0.3:
   version "1.0.3"
@@ -6900,6 +6975,7 @@ ccount@^1.0.0:
   version "1.1.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/ccount/-/ccount-1.1.0.tgz#246687debb6014735131be8abab2d93898f8d043"
   integrity sha1-JGaH3rtgFHNRMb6KurLZOJj40EM=
+<<<<<<< Updated upstream
 
 chalk@2.4.1:
   version "2.4.1"
@@ -6909,6 +6985,8 @@ chalk@2.4.1:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
+=======
+>>>>>>> Stashed changes
 
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.4.1:
   version "2.4.2"
@@ -7320,9 +7398,15 @@ color-name@^1.1.4, color-name@~1.1.4:
   integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
 
 colord@^2.9.1:
+<<<<<<< Updated upstream
   version "2.9.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/colord/-/colord-2.9.1.tgz#c961ea0efeb57c9f0f4834458f26cb9cc4a3f90e"
   integrity sha1-yWHqDv61fJ8PSDRFjybLnMSj+Q4=
+=======
+  version "2.9.2"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/colord/-/colord-2.9.2.tgz#25e2bacbbaa65991422c07ea209e2089428effb1"
+  integrity sha1-JeK6y7qmWZFCLAfqIJ4giUKO/7E=
+>>>>>>> Stashed changes
 
 colorette@^1.2.2:
   version "1.4.0"
@@ -7375,6 +7459,7 @@ commander@^8.3.0:
   version "8.3.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
   integrity sha1-SDfqGy2me5xhamevuw+v7lZ7ymY=
+<<<<<<< Updated upstream
 
 commands-events@1.0.4:
   version "1.0.4"
@@ -7384,6 +7469,8 @@ commands-events@1.0.4:
     "@babel/runtime" "7.2.0"
     formats "1.0.0"
     uuidv4 "2.0.0"
+=======
+>>>>>>> Stashed changes
 
 common-path-prefix@^3.0.0:
   version "3.0.0"
@@ -7545,11 +7632,14 @@ constants-browserify@^1.0.0:
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
 
+<<<<<<< Updated upstream
 content-disposition@0.5.2:
   version "0.5.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/content-disposition/-/content-disposition-0.5.2.tgz#0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4"
   integrity sha1-DPaLud318r55YcOoUXjLhdunjLQ=
 
+=======
+>>>>>>> Stashed changes
 content-disposition@0.5.3:
   version "0.5.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/content-disposition/-/content-disposition-0.5.3.tgz#e130caf7e7279087c5616c2007d0485698984fbd"
@@ -7564,7 +7654,11 @@ content-disposition@^0.5.3:
   dependencies:
     safe-buffer "5.2.1"
 
+<<<<<<< Updated upstream
 content-type@1.0.4, content-type@~1.0.4:
+=======
+content-type@~1.0.4:
+>>>>>>> Stashed changes
   version "1.0.4"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha1-4TjMdeBAxyexlm/l5fjJruJW/js=
@@ -7655,11 +7749,14 @@ core-js@3.6.5:
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
   integrity sha1-c5XcJzrzf7LlDpvT2f6EEoUjHRo=
 
+<<<<<<< Updated upstream
 core-js@^2.4.0:
   version "2.6.12"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
+=======
+>>>>>>> Stashed changes
 core-js@^3.0.0, core-js@^3.0.4, core-js@^3.19.0, core-js@^3.6.5, core-js@^3.8.2:
   version "3.20.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/core-js/-/core-js-3.20.0.tgz#1c5ac07986b8d15473ab192e45a2e115a4a95b79"
@@ -7669,6 +7766,7 @@ core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
   integrity sha1-pgQtNjTCsn6TKPg3uWX6yDgI24U=
+<<<<<<< Updated upstream
 
 cors@2.8.5:
   version "2.8.5"
@@ -7677,6 +7775,8 @@ cors@2.8.5:
   dependencies:
     object-assign "^4"
     vary "^1"
+=======
+>>>>>>> Stashed changes
 
 cosmiconfig-toml-loader@1.0.0:
   version "1.0.0"
@@ -7871,6 +7971,7 @@ crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha1-7yp6lm7BEIM4g2m6oC6+rSKbMNU=
+<<<<<<< Updated upstream
 
 crypto2@2.0.0:
   version "2.0.0"
@@ -7880,6 +7981,8 @@ crypto2@2.0.0:
     babel-runtime "6.26.0"
     node-rsa "0.4.2"
     util.promisify "1.0.0"
+=======
+>>>>>>> Stashed changes
 
 css-declaration-sorter@^6.0.3:
   version "6.1.3"
@@ -8114,6 +8217,7 @@ dataloader@2.0.0:
   version "2.0.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/dataloader/-/dataloader-2.0.0.tgz#41eaf123db115987e21ca93c005cd7753c55fe6f"
   integrity sha1-QerxI9sRWYfiHKk8AFzXdTxV/m8=
+<<<<<<< Updated upstream
 
 datasette@1.0.1:
   version "1.0.1"
@@ -8123,6 +8227,8 @@ datasette@1.0.1:
     comparejs "1.0.0"
     eventemitter2 "5.0.1"
     lodash "4.17.5"
+=======
+>>>>>>> Stashed changes
 
 date-fns@^1.27.2:
   version "1.30.1"
@@ -8677,9 +8783,15 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.4.17:
+<<<<<<< Updated upstream
   version "1.4.20"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.20.tgz#8fbf9677ccac19b4249c0a6204e0943d9d66ce30"
   integrity sha1-j7+Wd8ysGbQknApiBOCUPZ1mzjA=
+=======
+  version "1.4.22"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.22.tgz#57b7deee38b812e8b5f8f530709cfdb62a8e0bcc"
+  integrity sha1-V7fe7ji4Eui1+PUwcJz9tiqOC8w=
+>>>>>>> Stashed changes
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -9437,11 +9549,14 @@ event-target-shim@^5.0.0:
   version "5.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
   integrity sha1-XU0+vflYPWOlMzzi3rdICrKwV4k=
+<<<<<<< Updated upstream
 
 eventemitter2@5.0.1:
   version "5.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/eventemitter2/-/eventemitter2-5.0.1.tgz#6197a095d5fb6b57e8942f6fd7eaad63a09c9452"
   integrity sha1-YZegldX7a1folC9v1+qtY6CclFI=
+=======
+>>>>>>> Stashed changes
 
 eventemitter3@^3.1.0:
   version "3.1.2"
@@ -9517,6 +9632,7 @@ expect@^27.4.2:
     jest-matcher-utils "^27.4.2"
     jest-message-util "^27.4.2"
     jest-regex-util "^27.4.0"
+<<<<<<< Updated upstream
 
 "express@4.16.4 ":
   version "4.16.4"
@@ -9553,6 +9669,8 @@ expect@^27.4.2:
     type-is "~1.6.16"
     utils-merge "1.0.1"
     vary "~1.1.2"
+=======
+>>>>>>> Stashed changes
 
 express@^4.17.1:
   version "4.17.1"
@@ -9647,11 +9765,14 @@ fast-decode-uri-component@^1.0.1:
   version "1.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz#46f8b6c22b30ff7a81357d4f59abfae938202543"
   integrity sha1-Rvi2wisw/3qBNX1PWav66TggJUM=
+<<<<<<< Updated upstream
 
 fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
   integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+=======
+>>>>>>> Stashed changes
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
@@ -10010,9 +10131,15 @@ find-cache-dir@^3.3.1:
     pkg-dir "^4.1.0"
 
 find-my-way@^4.1.0:
+<<<<<<< Updated upstream
   version "4.4.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/find-my-way/-/find-my-way-4.4.0.tgz#e4a115031d1c5c538d028d06b666e2174462bc07"
   integrity sha1-5KEVAx0cXFONAo0GtmbiF0RivAc=
+=======
+  version "4.5.0"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/find-my-way/-/find-my-way-4.5.0.tgz#885ceb7a60b9be529a11dbfed02c8cf0ab7eedb7"
+  integrity sha1-iFzremC5vlKaEdv+0CyM8Kt+7bc=
+>>>>>>> Stashed changes
   dependencies:
     fast-decode-uri-component "^1.0.1"
     fast-deep-equal "^3.1.3"
@@ -10220,11 +10347,14 @@ format@^0.2.0:
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
   integrity sha1-1hcBB+nv3E7TDJ3DkBbflCtctYs=
 
+<<<<<<< Updated upstream
 formats@1.0.0:
   version "1.0.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/formats/-/formats-1.0.0.tgz#327154084786eac09d3b839cab28d150b982b163"
   integrity sha1-MnFUCEeG6sCdO4OcqyjRULmCsWM=
 
+=======
+>>>>>>> Stashed changes
 formdata-node@^4.3.1:
   version "4.3.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/formdata-node/-/formdata-node-4.3.1.tgz#e7b78a2a51f524ccc483b4d223c89690fd22061d"
@@ -11157,6 +11287,19 @@ http-errors@1.8.1, http-errors@^1.8.0:
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.1"
 
+<<<<<<< Updated upstream
+=======
+http-errors@~1.6.2:
+  version "1.6.3"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/http-errors/-/http-errors-1.6.3.tgz#8b55680bb4be283a0b5bf4ea2e38580be1d9320d"
+  integrity sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0=
+  dependencies:
+    depd "~1.1.2"
+    inherits "2.0.3"
+    setprototypeof "1.1.0"
+    statuses ">= 1.4.0 < 2"
+
+>>>>>>> Stashed changes
 http-errors@~1.7.2:
   version "1.7.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/http-errors/-/http-errors-1.7.3.tgz#6c619e4f9c60308c38519498c14fbb10aacebb06"
@@ -11988,11 +12131,14 @@ is-yarn-global@^0.3.0:
   version "0.3.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/is-yarn-global/-/is-yarn-global-0.3.0.tgz#d502d3382590ea3004893746754c89139973e232"
   integrity sha1-1QLTOCWQ6jAEiTdGdUyJE5lz4jI=
+<<<<<<< Updated upstream
 
 isarray@0.0.1:
   version "0.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
   integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
+=======
+>>>>>>> Stashed changes
 
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
@@ -12524,7 +12670,11 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
+<<<<<<< Updated upstream
 jest-worker@^27.0.2, jest-worker@^27.0.6, jest-worker@^27.4.5:
+=======
+jest-worker@^27.0.2, jest-worker@^27.4.1, jest-worker@^27.4.5:
+>>>>>>> Stashed changes
   version "27.4.5"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/jest-worker/-/jest-worker-27.4.5.tgz#d696e3e46ae0f24cff3fa7195ffba22889262242"
   integrity sha1-1pbj5Grg8kz/P6cZX/uiKIkmIkI=
@@ -12959,6 +13109,7 @@ lilconfig@^2.0.3:
   version "2.0.4"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/lilconfig/-/lilconfig-2.0.4.tgz#f4507d043d7058b380b6a8f5cb7bcd4b34cee082"
   integrity sha1-9FB9BD1wWLOAtqj1y3vNSzTO4II=
+<<<<<<< Updated upstream
 
 limes@2.0.0:
   version "2.0.0"
@@ -12967,6 +13118,8 @@ limes@2.0.0:
   dependencies:
     "@babel/runtime" "7.3.4"
     jsonwebtoken "8.5.0"
+=======
+>>>>>>> Stashed changes
 
 limiter@^1.1.5:
   version "1.1.5"
@@ -13257,11 +13410,14 @@ lodash@4.17.21, lodash@^4.0.0, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19
   version "4.17.21"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
+<<<<<<< Updated upstream
 
 lodash@4.17.5:
   version "4.17.5"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
   integrity sha1-maktZcAnLevoyWtgV7yPv6O+1RE=
+=======
+>>>>>>> Stashed changes
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -13630,11 +13786,14 @@ mime-types@2.1.34, mime-types@^2.1.12, mime-types@^2.1.27, mime-types@^2.1.30, m
   dependencies:
     mime-db "1.51.0"
 
+<<<<<<< Updated upstream
 mime@1.4.1:
   version "1.4.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
   integrity sha1-Eh+evEnjdm8xGnbh+hyAA8SwOqY=
 
+=======
+>>>>>>> Stashed changes
 mime@1.6.0:
   version "1.6.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
@@ -14065,6 +14224,7 @@ node-releases@^2.0.1:
   version "2.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/node-releases/-/node-releases-2.0.1.tgz#3d1d395f204f1f2f29a54358b9fb678765ad2fc5"
   integrity sha1-PR05XyBPHy8ppUNYuftnh2WtL8U=
+<<<<<<< Updated upstream
 
 node-rsa@0.4.2:
   version "0.4.2"
@@ -14077,6 +14237,8 @@ node-statsd@0.1.1:
   version "0.1.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/node-statsd/-/node-statsd-0.1.1.tgz#27a59348763d0af7a037ac2a031fef3f051013d3"
   integrity sha1-J6WTSHY9CvegN6wqAx/vPwUQE9M=
+=======
+>>>>>>> Stashed changes
 
 nodemon@2.0.15:
   version "2.0.15"
@@ -14663,11 +14825,14 @@ parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha1-naGee+6NEt/wUT7Vt2lXeTvC6NQ=
+<<<<<<< Updated upstream
 
 partof@1.0.0:
   version "1.0.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/partof/-/partof-1.0.0.tgz#d9d7946a14a7d9d9738a59e7c88f478ec5c964ca"
   integrity sha1-2deUahSn2dlzilnnyI9HjsXJZMo=
+=======
+>>>>>>> Stashed changes
 
 pascal-case@^3.1.2:
   version "3.1.2"
@@ -15669,6 +15834,7 @@ range-parser@^1.2.1, range-parser@~1.2.0, range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha1-PPNwI9GZ4cJNGlW4SADC8+ZGgDE=
+<<<<<<< Updated upstream
 
 raw-body@2.3.3:
   version "2.3.3"
@@ -15679,6 +15845,8 @@ raw-body@2.3.3:
     http-errors "1.6.3"
     iconv-lite "0.4.23"
     unpipe "1.0.0"
+=======
+>>>>>>> Stashed changes
 
 raw-body@2.4.0:
   version "2.4.0"
@@ -16067,6 +16235,7 @@ regenerate@^1.4.2:
   version "1.4.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha1-uTRtiCfo9aMve6KWN9OYtpAUhIo=
+<<<<<<< Updated upstream
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
@@ -16077,6 +16246,8 @@ regenerator-runtime@^0.12.0:
   version "0.12.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
   integrity sha1-+hpxVEdkwDb4xJsToIsllMn4oN4=
+=======
+>>>>>>> Stashed changes
 
 regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
   version "0.13.9"
@@ -16315,11 +16486,14 @@ reselect@^4.0.0:
   version "4.1.5"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/reselect/-/reselect-4.1.5.tgz#852c361247198da6756d07d9296c2b51eddb79f6"
   integrity sha1-hSw2EkcZjaZ1bQfZKWwrUe3befY=
+<<<<<<< Updated upstream
 
 resize-observer-polyfill@^1.5.0:
   version "1.5.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
+=======
+>>>>>>> Stashed changes
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
@@ -16404,11 +16578,14 @@ ret@~0.2.0:
   version "0.2.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/ret/-/ret-0.2.2.tgz#b6861782a1f4762dce43402a71eb7a283f44573c"
   integrity sha1-toYXgqH0di3OQ0Aqcet6KD9EVzw=
+<<<<<<< Updated upstream
 
 retry@0.12.0:
   version "0.12.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/retry/-/retry-0.12.0.tgz#1b42a6266a21f07421d1b0b54b7dc167b01c013b"
   integrity sha1-G0KmJmoh8HQh0bC1S33BZ7AcATs=
+=======
+>>>>>>> Stashed changes
 
 retry@^0.13.1:
   version "0.13.1"
@@ -16677,6 +16854,7 @@ semver@^7.2.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
   dependencies:
     lru-cache "^6.0.0"
 
+<<<<<<< Updated upstream
 send@0.16.2:
   version "0.16.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/send/-/send-0.16.2.tgz#6ecca1e0f8c156d141597559848df64730a6bbc1"
@@ -16696,6 +16874,8 @@ send@0.16.2:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
+=======
+>>>>>>> Stashed changes
 send@0.17.1:
   version "0.17.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/send/-/send-0.17.1.tgz#c1d8b059f7900f7466dd4938bdc44e11ddb376c8"
@@ -16852,11 +17032,14 @@ setprototypeof@1.2.0:
   version "1.2.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha1-ZsmiSnP5/CjL5msJ/tPTPcrxtCQ=
+<<<<<<< Updated upstream
 
 sha-1@0.1.1:
   version "0.1.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/sha-1/-/sha-1-0.1.1.tgz#2a39304bf41bbab11dd9efb7474ec25b1a92c257"
   integrity sha1-KjkwS/QburEd2e+3R07CWxqSwlc=
+=======
+>>>>>>> Stashed changes
 
 sha.js@^2.4.0, sha.js@^2.4.8:
   version "2.4.11"
@@ -17199,11 +17382,14 @@ stable@^0.1.8:
   version "0.1.8"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/stable/-/stable-0.1.8.tgz#836eb3c8382fe2936feaf544631017ce7d47a3cf"
   integrity sha1-g26zyDgv4pNv6vVEYxAXzn1Ho88=
+<<<<<<< Updated upstream
 
 stack-trace@0.0.10:
   version "0.0.10"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/stack-trace/-/stack-trace-0.0.10.tgz#547c70b347e8d32b4e108ea1a2a159e5fdde19c0"
   integrity sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=
+=======
+>>>>>>> Stashed changes
 
 stack-utils@^2.0.3:
   version "2.0.5"
@@ -17239,6 +17425,7 @@ statuses@^2.0.0:
   version "2.0.1"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/statuses/-/statuses-2.0.1.tgz#55cb000ccf1d48728bd23c685a063998cf1a1b63"
   integrity sha1-VcsADM8dSHKL0jxoWgY5mM8aG2M=
+<<<<<<< Updated upstream
 
 statuses@~1.4.0:
   version "1.4.0"
@@ -17251,6 +17438,8 @@ stethoskop@1.0.0:
   integrity sha1-uDjo9vePjmb4YTlSToBY5KL3i2I=
   dependencies:
     node-statsd "0.1.1"
+=======
+>>>>>>> Stashed changes
 
 store2@^2.12.0:
   version "2.12.0"
@@ -17832,11 +18021,19 @@ terser-webpack-plugin@^4.2.3:
     webpack-sources "^1.4.3"
 
 terser-webpack-plugin@^5.0.3, terser-webpack-plugin@^5.1.3:
+<<<<<<< Updated upstream
   version "5.2.5"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/terser-webpack-plugin/-/terser-webpack-plugin-5.2.5.tgz#ce65b9880a0c36872555c4874f45bbdb02ee32c9"
   integrity sha1-zmW5iAoMNoclVcSHT0W72wLuMsk=
   dependencies:
     jest-worker "^27.0.6"
+=======
+  version "5.3.0"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/terser-webpack-plugin/-/terser-webpack-plugin-5.3.0.tgz#21641326486ecf91d8054161c816e464435bae9f"
+  integrity sha1-IWQTJkhuz5HYBUFhyBbkZENbrp8=
+  dependencies:
+    jest-worker "^27.4.1"
+>>>>>>> Stashed changes
     schema-utils "^3.1.1"
     serialize-javascript "^6.0.0"
     source-map "^0.6.1"
@@ -17908,11 +18105,14 @@ thunky@^1.0.2:
   version "1.1.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/thunky/-/thunky-1.1.0.tgz#5abaf714a9405db0504732bbccd2cedd9ef9537d"
   integrity sha1-Wrr3FKlAXbBQRzK7zNLO3Z75U30=
+<<<<<<< Updated upstream
 
 timer2@1.0.0:
   version "1.0.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/timer2/-/timer2-1.0.0.tgz#7a2441569c6564cb891f605788eef0377d89f5de"
   integrity sha1-eiRBVpxlZMuJH2BXiO7wN32J9d4=
+=======
+>>>>>>> Stashed changes
 
 timers-browserify@^2.0.4:
   version "2.0.12"
@@ -18163,11 +18363,14 @@ tslib@~2.1.0:
   version "2.1.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
+<<<<<<< Updated upstream
 
 tsscmp@^1.0.5:
   version "1.0.6"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/tsscmp/-/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
   integrity sha1-hbmVg6w1iexL/vgltQAKqRHWBes=
+=======
+>>>>>>> Stashed changes
 
 tsutils@^3.21.0:
   version "3.21.0"
@@ -18626,11 +18829,14 @@ utils-merge@1.0.1:
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+<<<<<<< Updated upstream
 uuid@3.3.2:
   version "3.3.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha1-G0r0lV6zB3xQHCOHL8ZROBFYcTE=
 
+=======
+>>>>>>> Stashed changes
 uuid@8.3.2, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
@@ -18640,6 +18846,7 @@ uuid@^3.3.2:
   version "3.4.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
+<<<<<<< Updated upstream
 
 uuidv4@2.0.0:
   version "2.0.0"
@@ -18655,6 +18862,8 @@ uuidv4@3.0.1:
   integrity sha1-MXUbCrePUMnkLb8jFpMhCzQ1tnM=
   dependencies:
     uuid "3.3.2"
+=======
+>>>>>>> Stashed changes
 
 v8-compile-cache@^2.0.3:
   version "2.3.0"
@@ -18694,11 +18903,14 @@ value-or-promise@1.0.11, value-or-promise@^1.0.11:
   version "1.0.11"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/value-or-promise/-/value-or-promise-1.0.11.tgz#3e90299af31dd014fe843fe309cefa7c1d94b140"
   integrity sha1-PpApmvMd0BT+hD/jCc76fB2UsUA=
+<<<<<<< Updated upstream
 
 varname@2.0.3:
   version "2.0.3"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/varname/-/varname-2.0.3.tgz#05e8dc64fbb6e59170de44aad4ddeab8ab87b68e"
   integrity sha1-BejcZPu25ZFw3kSq1N3quKuHto4=
+=======
+>>>>>>> Stashed changes
 
 vary@^1, vary@~1.1.2:
   version "1.1.2"
@@ -18913,9 +19125,15 @@ webpack-dev-middleware@^4.1.0:
     schema-utils "^3.0.0"
 
 webpack-dev-middleware@^5.2.1:
+<<<<<<< Updated upstream
   version "5.2.2"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/webpack-dev-middleware/-/webpack-dev-middleware-5.2.2.tgz#eb5193faa5479ca1086b9f7bed68b89c731bff62"
   integrity sha1-61GT+qVHnKEIa5977Wi4nHMb/2I=
+=======
+  version "5.3.0"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/webpack-dev-middleware/-/webpack-dev-middleware-5.3.0.tgz#8fc02dba6e72e1d373eca361623d84610f27be7c"
+  integrity sha1-j8Atum5y4dNz7KNhYj2EYQ8nvnw=
+>>>>>>> Stashed changes
   dependencies:
     colorette "^2.0.10"
     memfs "^3.2.2"
@@ -19293,6 +19511,7 @@ write-file-atomic@^3.0.0:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
+<<<<<<< Updated upstream
 ws@6.2.0:
   version "6.2.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/ws/-/ws-6.2.0.tgz#13806d9913b2a5f3cbb9ba47b563c002cbc7c526"
@@ -19300,6 +19519,8 @@ ws@6.2.0:
   dependencies:
     async-limiter "~1.0.0"
 
+=======
+>>>>>>> Stashed changes
 ws@>=7.4.6, ws@^8.0.0, ws@^8.1.0, ws@^8.3.0:
   version "8.3.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/ws/-/ws-8.3.0.tgz#7185e252c8973a60d57170175ff55fdbd116070d"

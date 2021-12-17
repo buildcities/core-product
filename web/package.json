@@ -20,6 +20,7 @@
     "@buildcities/build-ui.tailwind-styles": "^0.0.10",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
+    "@prisma/client": "^3.6.0",
     "@redwoodjs/forms": "^0.39.3",
     "@redwoodjs/router": "^0.39.3",
     "@redwoodjs/web": "^0.39.3",
