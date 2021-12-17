@@ -16495,6 +16495,11 @@ resize-observer-polyfill@^1.5.0:
 =======
 >>>>>>> Stashed changes
 
+resize-observer-polyfill@^1.5.0:
+  version "1.5.1"
+  resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
+
 resolve-cwd@^3.0.0:
   version "3.0.0"
   resolved "https://pkgs.dev.azure.com/jbhi-fi/_packaging/jb-shopify-feed/npm/registry/resolve-cwd/-/resolve-cwd-3.0.0.tgz#0f0075f1bb2544766cf73ba6a6e2adfebcb13f2d"

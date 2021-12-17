@@ -15,6 +15,7 @@ import BigDesks from './big-desks'
 import CoffeeMachines from './coffee-machine'
 import TeaKettle from './tea-kettle'
 import EquippedKitchen from './equipped-kitchen'
+import NfcReserve from './nfc-reserve'
 
 export {
   ShieldIcon,
@@ -34,4 +35,5 @@ export {
   CoffeeMachines,
   TeaKettle,
   EquippedKitchen,
+  NfcReserve,
 }

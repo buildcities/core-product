@@ -12,52 +12,70 @@ import {
   EquippedKitchen,
 } from 'src/utils/svgs/index'
 
-const Amenities = () => {
+export type AmenitiesProps = {
+  sliderVisible?: boolean
+}
+
+const Amenities = ({ sliderVisible }) => {
   return (
     <>
-      <div className="w-full">
-        <span className="block text-white text-xs">Drinks and Snacks</span>
+      <div
+        className={`container ${
+          sliderVisible ? 'opacity-5' : 'opacity-100'
+        } transition-all w-full`}
+      >
+        <span className="block text-white sans-fira text-xs">
+          Drinks and Snacks
+        </span>
         <div className="flex mt-1 space-x-2">
-          <div>
+          <a href="_blank">
             <Snacks />
-          </div>
-          <div>
+          </a>
+          <a href="_blank">
             <TeaKettle />
-          </div>
-          <div>
+          </a>
+          <a href="_blank">
             <CoffeeMachines />
-          </div>
+          </a>
         </div>
       </div>
-      <div className="w-full mt-6">
-        <span className="flex text-white text-xs">Tech</span>
+      <div
+        className={`container ${
+          sliderVisible ? 'opacity-5' : 'opacity-100'
+        } transition-all w-full mt-6`}
+      >
+        <span className="flex text-white sans-fira text-xs">Tech</span>
         <div className="flex mt-1 space-x-2">
-          <div>
+          <a href="_blank">
             <Monitor />
-          </div>
-          <div className="relative">
+          </a>
+          <a href="_blank">
             <AirConditioner />
-          </div>
-          <div className="relative">
+          </a>
+          <a href="_blank">
             <TV />
-          </div>
-          <div className="relative">
+          </a>
+          <a href="_blank">
             <AdaptersAndChargers />
-          </div>{' '}
+          </a>
         </div>
       </div>
-      <div className="w-full mt-6">
-        <span className="flex text-white text-xs">Furniture</span>
+      <div
+        className={`container ${
+          sliderVisible ? 'opacity-5' : 'opacity-100'
+        } transition-all w-full mt-6`}
+      >
+        <span className="flex text-white sans-fira text-xs">Furniture</span>
         <div className="flex mt-1 space-x-2">
-          <div>
+          <a href="_blank">
             <BigDesks />
-          </div>
-          <div>
+          </a>
+          <a href="_blank">
             <HighChairs />
-          </div>
-          <div>
+          </a>
+          <a href="_blank">
             <EquippedKitchen />
-          </div>
+          </a>
         </div>
       </div>
     </>
