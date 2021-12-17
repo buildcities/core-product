@@ -19,12 +19,19 @@ export type AmenitiesProps = {
 const Amenities = ({ sliderVisible }) => {
   return (
     <>
+      <span
+        className={`${
+          sliderVisible ? 'opacity-5' : 'opacity-100'
+        } w-full mb-4 mt-4 text-5xl text-white font-sans font-bold whitespace-nowrap`}
+      >
+        Amenities in this place
+      </span>
       <div
         className={`container ${
           sliderVisible ? 'opacity-5' : 'opacity-100'
         } transition-all w-full`}
       >
-        <span className="block text-white sans-fira text-xs">
+        <span className="block text-white sans-fira text-xs mt-4">
           Drinks and Snacks
         </span>
         <div className="flex mt-1 space-x-2">

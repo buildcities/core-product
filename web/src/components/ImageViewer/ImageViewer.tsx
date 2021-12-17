@@ -10,11 +10,19 @@ import image7 from 'src/pages/HubDetailPage/TestImages/image7.png'
 import './slick.min.css'
 import './slick-theme.min.css'
 
-const ImageViewer = () => {
+export type ImageViewerProps = {
+  sliderVisible?: boolean
+}
+
+const ImageViewer = ({ sliderVisible }) => {
   const imageSlider = () =>
-    [image1, image6, image7, image4, image5].map((num, i) => (
-      <div key={i}>
-        <img src={num} alt={`${num}`}></img>
+    [image1, image5, image7, image4, image6].map((num, i) => (
+      <div key={i} className="rounded-lg">
+        <img
+          className="m-auto object-fill rounded-lg"
+          src={num}
+          alt={`${num}`}
+        ></img>
       </div>
     ))
 
@@ -40,7 +48,7 @@ const ImageViewer = () => {
 
   return (
     <>
-      <div className="container h-800">
+      <div className="container">
         {viewGallery && (
           <div>
             <div className="transition-all absolute h-auto top-30">
@@ -61,19 +69,19 @@ const ImageViewer = () => {
               viewGallery ? 'opacity-5' : 'opacity-100'
             } transition-all`}
           >
-            <div className="grid grid-rows-2 grid-cols-3 grid-flow-col gap-4">
+            <div className="grid w-full grid-cols-1 grid-flow-row grid-rows-3 lg:grid-rows-2 lg:grid-cols-3 lg:grid-flow-col gap-4">
               <img
-                className="object-fill row-span-2 col-span-2 text-white text-3xl"
+                className="transition-all object-fill lg:row-span-2 lg:col-span-2 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
                 src={image1}
                 alt="image1"
               ></img>
               <img
-                className="object-fill col-end-4 text-white text-3xl"
+                className="transition-all object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-gray-600 rounded-lg"
                 src={image2}
                 alt="image2"
               ></img>
               <img
-                className="object-fill col-end-4 text-white text-3xl"
+                className="transition-all object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
                 src={image3}
                 alt="image3"
               ></img>

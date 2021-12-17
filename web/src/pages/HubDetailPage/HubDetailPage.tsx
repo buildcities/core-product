@@ -25,19 +25,25 @@ const HubDetailPage = () => {
     <SingleColumnLayout metaDescription="Hub details" metaTitle="Details">
       <div className="container w-full">
         <div className="flex w-full">
-          <h1 className="text-white font-bold font-sans text-5xl ">
+          <h1
+            className={`${
+              sliderVisible ? 'opacity-5' : 'opacity-100'
+            } text-white font-bold font-sans text-5xl `}
+          >
             Awesome place to stay
           </h1>
         </div>
         <div className="mt-4">
           <AddressComponent sliderVisible={sliderVisible} />
         </div>
-        <div className="container grid grid-cols-3">
-          <div className="mt-1 col-span-2">
-            <ImageViewer />
+        <div className="container grid grid-cols-1 lg:grid-cols-3 h-full">
+          <div className="lg:mt-4 mt-1 col-span-1 lg:col-span-2">
+            <ImageViewer sliderVisible={sliderVisible} />
           </div>
           <a
-            className={`${sliderVisible ? 'opacity-5' : 'opacity-100'}`}
+            className={`${
+              sliderVisible ? 'opacity-5' : 'opacity-100'
+            } lg:mt-4 mt-2 object-contain`}
             href="_blank"
           >
             <NfcReserve />
