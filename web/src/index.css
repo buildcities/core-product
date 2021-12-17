@@ -26,12 +26,12 @@
   @apply hidden;
 }
 .DateRangePicker .DateInput {
-  @apply md:w-40 w-32 h-16;
+  @apply md:w-40 md:h-20 w-32 h-16;
 }
 /* Remove styles from start and end date inputs */
 .DateRangePicker #start-date,
 .DateRangePicker #end-date {
-  @apply relative flex items-end bg-cardBackground w-full h-full md:px-4 px-2 pt-9 text-sm text-paragraph font-normal caret-transparent cursor-pointer;
+  @apply relative flex items-end bg-cardBackground w-full h-full md:px-4 md:pt-11 px-2 pt-9 text-sm text-paragraph font-normal caret-transparent cursor-pointer;
 }
 .DateRangePicker #start-date:focus,
 .DateRangePicker #end-date:focus {
