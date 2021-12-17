@@ -1,14 +1,13 @@
 @import url('../../node_modules/@buildcities/build-ui.tailwind-styles/styles.css');
 
 /* Show  backdrop when datepicker open */
-/* open ? 'block pointer-events-auto' : 'hidden pointer-events-none' */
 .DateRangePicker + .backdrop {
   @apply block pointer-events-auto;
 }
 
 /* Override react-dates CSS for reservation picker */
 .DateRangePicker.DateRangePicker_1 {
-  @apply absolute top-8 right-8 z-10;
+  @apply absolute md:top-8 md:right-8 md:left-auto top-24 left-4 z-10;
 }
 .DateRangePicker.DateRangePicker_1 * {
   @apply border-0 bg-transparent;
@@ -17,7 +16,7 @@
 .DateRangePicker_picker {
   top: 80px !important;
   left: unset !important;
-  right: 0;
+  right: 0 !important;
 }
 .DateRangePicker.DateRangePicker_1 .DateInput {
   @apply static;
@@ -27,12 +26,12 @@
   @apply hidden;
 }
 .DateRangePicker .DateInput {
-  @apply w-40 h-20;
+  @apply md:w-40 w-32 h-16;
 }
 /* Remove styles from start and end date inputs */
 .DateRangePicker #start-date,
 .DateRangePicker #end-date {
-  @apply relative flex items-end bg-cardBackground w-full h-full px-4 pt-11 text-sm text-paragraph font-normal caret-transparent cursor-pointer;
+  @apply relative flex items-end bg-cardBackground w-full h-full md:px-4 px-2 pt-9 text-sm text-paragraph font-normal caret-transparent cursor-pointer;
 }
 .DateRangePicker #start-date:focus,
 .DateRangePicker #end-date:focus {
@@ -89,4 +88,32 @@
 .CalendarMonth_table .CalendarDay__blocked_out_of_range:active,
 .CalendarMonth_table .CalendarDay__blocked_out_of_range:hover {
   color: #777777;
+}
+
+/* Mobile arrows for calendar navigation */
+.DateRangePicker.DateRangePicker_1 .DayPickerNavigation_button__verticalDefault {
+  /* @apply absolute top-0 */
+}
+
+.DateRangePicker.DateRangePicker_1  .DayPickerNavigation__verticalDefault {
+  @apply absolute top-5 left-0 flex justify-between px-4 h-10
+}
+.DateRangePicker.DateRangePicker_1 .DayPickerNavigation_button__verticalDefault {
+  @apply w-10 h-10
+}
+.DateRangePicker.DateRangePicker_1 .DayPickerNavigation_svg__vertical {
+  @apply fill-white h-6 w-6
+}
+/* Media queries */
+@media only screen and (max-width: 767px) {
+  /* Change position of datepicker on mobile for vertical orientation */
+  .DateRangePicker_picker {
+    top: 80px !important;
+    left: -8px !important;
+    right: unset !important;
+  }
+  /* Change position of datepicker on mobile for vertical orientation */
+  .DayPicker_transitionContainer {
+    height: min-content !important;
+  }
 }
