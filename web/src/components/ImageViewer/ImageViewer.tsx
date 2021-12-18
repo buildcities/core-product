@@ -38,24 +38,26 @@ const ImageViewer = ({ sliderVisible }) => {
   }
 
   const sliderSettings = {
-    dots: true,
+    dots: `${window.innerWidth < 640 ? 'false' : 'true'}`,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerMode: true,
+    // centerMode: true,
     initialSlide: 0,
+    // slide: 'img',
+    // className: 'object-fill',
     fade: true,
   }
 
   return (
     <>
-      <div className="container">
+      <div className="container lg:absolute">
         {viewGallery && (
           <div>
-            <div className="transition-all absolute h-auto top-30">
+            <div className="transition-all absolute lg:w-screen lg:m-30h-auto top-30">
               <Slider
                 className={`${
                   viewGallery ? 'z-50' : 'z-0'
-                } opacity-100 absolute max-w-screen-lg top-0 left-0`}
+                } opacity-100 absolute lg:max-w-screen-lg max-w-screen-lg top-0 left-0`}
                 {...sliderSettings}
               >
                 {imageSlider()}
@@ -69,19 +71,19 @@ const ImageViewer = ({ sliderVisible }) => {
               viewGallery ? 'opacity-5' : 'opacity-100'
             } transition-all`}
           >
-            <div className="grid w-full grid-cols-1 grid-flow-row grid-rows-3 lg:grid-rows-2 lg:grid-cols-3 lg:grid-flow-col gap-4">
+            <div className="grid w-full grid-cols-1 grid-flow-row lg:grid-rows-2 lg:grid-cols-3 lg:grid-flow-col gap-4">
               <img
-                className="transition-all object-fill lg:row-span-2 lg:col-span-2 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
+                className="transition-all h-full object-fill lg:row-span-2 lg:col-span-2 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
                 src={image1}
                 alt="image1"
               ></img>
               <img
-                className="transition-all object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-gray-600 rounded-lg"
+                className="transition-all hidden md:block object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-gray-600 rounded-lg"
                 src={image2}
                 alt="image2"
               ></img>
               <img
-                className="transition-all object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
+                className="transition-all hidden md:block object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
                 src={image3}
                 alt="image3"
               ></img>
