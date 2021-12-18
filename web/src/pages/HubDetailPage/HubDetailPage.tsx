@@ -10,7 +10,7 @@ const HubDetailPage = () => {
   const imageRef = useRef(null)
 
   useEffect(() => {
-    window.addEventListener('click', () => {
+    window.addEventListener('mousedown', () => {
       const slider = document.querySelector('.slick-slider')
       if (slider.classList.contains('.slick-initialized')) {
         setSliderVisible(false)
@@ -20,6 +20,10 @@ const HubDetailPage = () => {
         console.log(sliderVisible)
       }
     })
+    return () =>
+      document.removeEventListener('mousedown', () =>
+        console.log('event listener removed')
+      )
   }, [])
 
   const mouseClickHandler = (event) => {
@@ -63,9 +67,9 @@ const HubDetailPage = () => {
             } lg:mt-4 mt-2 object-contain`}
             href="_blank"
           >
-            <NfcReserve />
+            {window.innerWidth > 1024 ? <NfcReserve /> : null}
           </a>
-          <div className="mt-4">
+          <div className="mt-4 mb-20">
             <Amenities sliderVisible={sliderVisible} />
           </div>
         </div>

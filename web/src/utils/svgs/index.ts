@@ -16,6 +16,10 @@ import CoffeeMachines from './coffee-machine'
 import TeaKettle from './tea-kettle'
 import EquippedKitchen from './equipped-kitchen'
 import NfcReserve from './nfc-reserve'
+import KitchenNoIcon from './kitchen-no-icon'
+import SnacksNoIcon from './snacks-no-icon'
+import TeaKettleNoIcon from './tea-kettle-no-icon'
+import CoffeeCup from './coffee-cup'
 
 export {
   ShieldIcon,
@@ -36,4 +40,8 @@ export {
   TeaKettle,
   EquippedKitchen,
   NfcReserve,
+  KitchenNoIcon,
+  SnacksNoIcon,
+  TeaKettleNoIcon,
+  CoffeeCup,
 }

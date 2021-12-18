@@ -31,26 +31,21 @@ const ImageViewer = ({ sliderVisible }: ImageViewerProps): JSX.Element => {
 
   const mouseClickHandler = (event) => {
     if (buttonRef && !buttonRef.current.contains(event.target)) {
-      imageRef.current.innerSlider.list.parentElement.classList.remove(
-        'slick-slider'
-      )
+      // imageRef.current.innerSlider.list.parentElement.classList.remove(
+      //   'slick-slider'
+      // )
       const slider = document.querySelectorAll('.slick-slider')
       slider.forEach((o) => o.classList.remove('.slick-slider'))
     }
   }
 
   useEffect(() => {
-    document.addEventListener('mousedown', (event) => mouseClickHandler(event))
+    window.addEventListener('mousedown', (event) => mouseClickHandler(event))
     return () =>
-      document.removeEventListener('mousedown', (event) =>
+      window.removeEventListener('mousedown', (event) =>
         mouseClickHandler(event)
       )
   }, [])
-
-  useEffect(() => {
-    const slickListHeight = document.querySelector('.slick-list')
-    console.log(slickListHeight)
-  }, [sliderVisible])
 
   const galleryHandler = () => {
     if (buttonRef.current) {
@@ -64,10 +59,7 @@ const ImageViewer = ({ sliderVisible }: ImageViewerProps): JSX.Element => {
     dots: `${window.innerWidth < 640 ? 'false' : 'true'}`,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // centerMode: true,
     initialSlide: 0,
-    // slide: 'img',
-    // className: 'object-fill',
     fade: true,
   }
 
@@ -75,7 +67,7 @@ const ImageViewer = ({ sliderVisible }: ImageViewerProps): JSX.Element => {
     <>
       <div className="container">
         {viewGallery && (
-          <div className="transition-all absolute lg:w-screen lg:m-30h-auto top-30 flex items-stretch">
+          <div className="transition-all lg:w-screen lg:m-30h-auto top-30 fixed items-stretch">
             <Slider
               ref={imageRef}
               className={`${
@@ -100,12 +92,12 @@ const ImageViewer = ({ sliderVisible }: ImageViewerProps): JSX.Element => {
                 alt="image1"
               ></img>
               <img
-                className="transition-all hidden md:block object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-gray-600 rounded-lg"
+                className="transition-all hidden lg:block object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-gray-600 rounded-lg"
                 src={image2}
                 alt="image2"
               ></img>
               <img
-                className="transition-all hidden md:block object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
+                className="transition-all hidden lg:block object-fill w-full lg:col-end-4 text-white text-3xl hover:border-3 hover:border-slate-600 rounded-lg"
                 src={image3}
                 alt="image3"
               ></img>
