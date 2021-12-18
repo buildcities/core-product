@@ -22,7 +22,7 @@ const Amenities = ({ sliderVisible }) => {
       <span
         className={`${
           sliderVisible ? 'opacity-5' : 'opacity-100'
-        } w-full mb-4 mt-4 text-3xl lg:text-xl text-white font-sans font-bold whitespace-nowrap`}
+        } w-full mb-4 mt-4 text-5xl text-white font-sans font-bold whitespace-nowrap`}
       >
         Amenities in this place
       </span>

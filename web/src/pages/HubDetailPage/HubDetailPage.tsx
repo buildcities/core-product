@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 import AddressComponent from './AddressComponent'
 import ImageViewer from '../../components/ImageViewer/ImageViewer'
@@ -7,6 +7,7 @@ import NfcReserve from '../../utils/svgs/nfc-reserve'
 
 const HubDetailPage = () => {
   const [sliderVisible, setSliderVisible] = useState(false)
+  const imageRef = useRef(null)
 
   useEffect(() => {
     window.addEventListener('click', () => {
@@ -19,6 +20,22 @@ const HubDetailPage = () => {
         console.log(sliderVisible)
       }
     })
+  }, [])
+
+  const mouseClickHandler = (event) => {
+    if (imageRef && !imageRef.current.contains(event.target)) {
+      const slider = document.querySelector('.slick-slider')
+      setSliderVisible(false)
+      slider.classList.remove('.slick-initalized')
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', (event) => mouseClickHandler(event))
+    return () =>
+      document.removeEventListener('mousedown', (event) =>
+        mouseClickHandler(event)
+      )
   }, [])
 
   return (
@@ -37,7 +54,7 @@ const HubDetailPage = () => {
           <AddressComponent sliderVisible={sliderVisible} />
         </div>
         <div className="container grid grid-cols-1 lg:grid-cols-3 h-full">
-          <div className="lg:mt-4 mt-1 col-span-1 lg:col-span-2">
+          <div className="lg:mt-4 mt-1 col-span-1 lg:col-span-2" ref={imageRef}>
             <ImageViewer sliderVisible={sliderVisible} />
           </div>
           <a

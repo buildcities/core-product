@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Slider from 'react-slick'
 import image1 from 'src/pages/HubDetailPage/TestImages/image1.png'
 import image2 from 'src/pages/HubDetailPage/TestImages/image2.png'
@@ -14,20 +14,43 @@ export type ImageViewerProps = {
   sliderVisible?: boolean
 }
 
-const ImageViewer = ({ sliderVisible }) => {
+const ImageViewer = ({ sliderVisible }: ImageViewerProps): JSX.Element => {
+  const [viewGallery, setViewGallery] = useState(false)
+  const buttonRef = useRef(null)
+  const imageRef = useRef(null)
   const imageSlider = () =>
     [image1, image5, image7, image4, image6].map((num, i) => (
       <div key={i} className="rounded-lg">
         <img
-          className="m-auto object-fill rounded-lg"
+          className="m-auto h-full w-auto object-fill rounded-lg"
           src={num}
           alt={`${num}`}
         ></img>
       </div>
     ))
 
-  const [viewGallery, setViewGallery] = useState(false)
-  const buttonRef = useRef(null)
+  const mouseClickHandler = (event) => {
+    if (buttonRef && !buttonRef.current.contains(event.target)) {
+      imageRef.current.innerSlider.list.parentElement.classList.remove(
+        'slick-slider'
+      )
+      const slider = document.querySelectorAll('.slick-slider')
+      slider.forEach((o) => o.classList.remove('.slick-slider'))
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', (event) => mouseClickHandler(event))
+    return () =>
+      document.removeEventListener('mousedown', (event) =>
+        mouseClickHandler(event)
+      )
+  }, [])
+
+  useEffect(() => {
+    const slickListHeight = document.querySelector('.slick-list')
+    console.log(slickListHeight)
+  }, [sliderVisible])
 
   const galleryHandler = () => {
     if (buttonRef.current) {
@@ -50,19 +73,18 @@ const ImageViewer = ({ sliderVisible }) => {
 
   return (
     <>
-      <div className="container lg:absolute">
+      <div className="container">
         {viewGallery && (
-          <div>
-            <div className="transition-all absolute lg:w-screen lg:m-30h-auto top-30">
-              <Slider
-                className={`${
-                  viewGallery ? 'z-50' : 'z-0'
-                } opacity-100 absolute lg:max-w-screen-lg max-w-screen-lg top-0 left-0`}
-                {...sliderSettings}
-              >
-                {imageSlider()}
-              </Slider>
-            </div>
+          <div className="transition-all absolute lg:w-screen lg:m-30h-auto top-30 flex items-stretch">
+            <Slider
+              ref={imageRef}
+              className={`${
+                viewGallery ? 'z-50' : 'z-0'
+              } transition-all flex items-stretch opacity-100 absolute h-full lg:max-w-screen-lg top-0 left-0`}
+              {...sliderSettings}
+            >
+              {imageSlider()}
+            </Slider>
           </div>
         )}
         <button onClick={() => galleryHandler()} ref={buttonRef}>
