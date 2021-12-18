@@ -22,7 +22,7 @@ const ImageViewer = (): JSX.Element => {
     [image1, image5, image7, image4, image6].map((num, i) => (
       <div key={i} className="rounded-lg">
         <img
-          className="m-auto h-full w-auto object-fill rounded-lg"
+          className="aspect-square m-auto h-full w-auto object-fill rounded-lg"
           src={num}
           alt={`${num}`}
         ></img>
@@ -55,17 +55,30 @@ const ImageViewer = (): JSX.Element => {
     }
   }
 
-  const sliderSettings = {
-    dots: `${window.innerWidth < 640 ? 'false' : 'true'}`,
+  const sliderSettingsDesktop = {
+    arrows: true,
     slidesToShow: 1,
+    swipeToSlide: true,
     slidesToScroll: 1,
     initialSlide: 0,
     fade: true,
+    draggable: true,
+  }
+
+  const sliderSettingsMobile = {
+    arrows: false,
+    slidesToShow: 1,
+    swipeToSlide: true,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    fade: true,
+    autoplay: true,
+    touchMove: true,
   }
 
   return (
     <>
-      <div className="container">
+      <div className="container hidden lg:block">
         {viewGallery && (
           <div className="transition-all lg:w-screen lg:m-30h-auto top-30 fixed items-stretch">
             <Slider
@@ -73,7 +86,7 @@ const ImageViewer = (): JSX.Element => {
               className={`${
                 viewGallery ? 'z-50' : 'z-0'
               } transition-all flex items-stretch opacity-100 absolute h-full lg:max-w-screen-lg top-0 left-0`}
-              {...sliderSettings}
+              {...sliderSettingsDesktop}
             >
               {imageSlider()}
             </Slider>
@@ -104,6 +117,17 @@ const ImageViewer = (): JSX.Element => {
             </div>
           </div>
         </button>
+      </div>
+      <div className="relative lg:hidden transition-all lg:w-screen lg:m-30h-auto top-30 fixed items-stretch">
+        <Slider
+          ref={imageRef}
+          className={`${
+            viewGallery ? 'z-50' : 'z-0'
+          } transition-all flex items-stretch opacity-100 absolute h-full lg:max-w-screen-lg top-0 left-0`}
+          {...sliderSettingsMobile}
+        >
+          {imageSlider()}
+        </Slider>
       </div>
     </>
   )
