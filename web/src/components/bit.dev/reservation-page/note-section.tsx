@@ -1,7 +1,7 @@
 export default function LeaveNoteSection() {
   return (
     <div className="mb-6">
-      <span className="block md:text-3xl text-2xl font-sans font-medium text-paragraph">
+      <span className="block md:text-3xl text-2xl font-sans font-medium text-paragraph md:mb-1 mb-2">
         Leave note
       </span>
       <small className="text-sm text-paragraph font-medium">
@@ -13,5 +13,5 @@ export default function LeaveNoteSection() {
         className="rounded-lg border-dashed border-2 border-gray-800 bg-cardBackground w-full h-24 p-4 mt-4 flex items-center text-paragraph"
       ></textarea>
     </div>
-  );
+  )
 }

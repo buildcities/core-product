@@ -4,7 +4,7 @@ import { EditPencil } from 'src/utils/svgs'
 export default function DateSection() {
   return (
     <div className="mb-6">
-      <div className="flex md:items-center items-end mb-4">
+      <div className="flex md:items-center items-end md:mb-4 mb-2">
         <span className="block md:text-3xl text-2xl font-sans font-medium">
           1. Dates
         </span>
