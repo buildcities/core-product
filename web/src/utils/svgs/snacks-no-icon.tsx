@@ -3,6 +3,7 @@ import React from 'react'
 export default function Component() {
   return (
     <svg
+      className="rounded-lg"
       width="65"
       height="40"
       viewBox="0 0 65 40"

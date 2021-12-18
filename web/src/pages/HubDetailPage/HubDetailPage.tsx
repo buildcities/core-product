@@ -4,6 +4,7 @@ import AddressComponent from './AddressComponent'
 import ImageViewer from '../../components/ImageViewer/ImageViewer'
 import Amenities from '../../components/Amenities/Amenities'
 import NfcReserve from '../../utils/svgs/nfc-reserve'
+import Reviews from '../../components/Reviews/Reviews'
 
 const HubDetailPage = () => {
   const [sliderVisible, setSliderVisible] = useState(false)
@@ -59,7 +60,7 @@ const HubDetailPage = () => {
         </div>
         <div className="container grid grid-cols-1 lg:grid-cols-3 h-full">
           <div className="lg:mt-4 mt-1 col-span-1 lg:col-span-2" ref={imageRef}>
-            <ImageViewer sliderVisible={sliderVisible} />
+            <ImageViewer />
           </div>
           <a
             className={`${
@@ -69,9 +70,12 @@ const HubDetailPage = () => {
           >
             {window.innerWidth > 1024 ? <NfcReserve /> : null}
           </a>
-          <div className="mt-4 mb-20">
+          <div className="mt-4 mb-4 lg:mb-20">
             <Amenities sliderVisible={sliderVisible} />
           </div>
+        </div>
+        <div className="mt-4 mb-20">
+          <Reviews sliderVisible={sliderVisible} />
         </div>
       </div>
     </SingleColumnLayout>

@@ -23,14 +23,14 @@ export type AmenitiesProps = {
 const Amenities = ({ sliderVisible }) => {
   return (
     <>
+      <span
+        className={`${
+          sliderVisible ? 'opacity-5' : 'opacity-100'
+        } w-full mb-4 mt-2 lg:mt-4 text-3xl lg:text-5xl text-white font-sans font-bold whitespace-nowrap`}
+      >
+        Amenities in this place
+      </span>
       <div className="hidden lg:block">
-        <span
-          className={`${
-            sliderVisible ? 'opacity-5' : 'opacity-100'
-          } w-full mb-4 mt-4 text-3xl lg:text-5xl text-white font-sans font-bold whitespace-nowrap`}
-        >
-          Amenities in this place
-        </span>
         <div
           className={`container ${
             sliderVisible ? 'opacity-5' : 'opacity-100'
@@ -92,20 +92,20 @@ const Amenities = ({ sliderVisible }) => {
         </div>
       </div>
 
-      <div className="bg-slate-800 block rounded-md pt-10 lg:hidden">
-        <div className="pl-10 pt-4 pb-4">
+      <div className="bg-[#171717] block rounded-lg mt-2 pt-4 lg:hidden">
+        <div className="pl-4 pt-3 pb-3">
           <div className="block">
             <CoffeeCup />
           </div>
           <div className="block mt-4">
-            <span className="text-sm font-sans text-white mb-4">
+            <span className="text-md font-sans text-white mb-4">
               Drinks and snacks
             </span>
           </div>
-          <div className="inline-flex mt-4 space-x-4">
-            <KitchenNoIcon />
+          <div className="inline-flex mt-4 rounded-lg space-x-2">
             <TeaKettleNoIcon />
             <SnacksNoIcon />
+            <KitchenNoIcon />
           </div>
         </div>
       </div>

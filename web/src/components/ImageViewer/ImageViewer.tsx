@@ -14,7 +14,7 @@ export type ImageViewerProps = {
   sliderVisible?: boolean
 }
 
-const ImageViewer = ({ sliderVisible }: ImageViewerProps): JSX.Element => {
+const ImageViewer = (): JSX.Element => {
   const [viewGallery, setViewGallery] = useState(false)
   const buttonRef = useRef(null)
   const imageRef = useRef(null)
