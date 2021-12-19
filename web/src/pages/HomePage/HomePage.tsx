@@ -2,6 +2,7 @@ import { Heading, Button } from '@buildcities/build-ui.components.all'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 import { GlobeIcon } from 'src/utils/svgs'
 import { navigate, routes } from '@redwoodjs/router'
+import ReservationDatePicker from '../../components/ReservationDatePicker'
 import {
   VERIFY_DISCORD_MEMBERSHIP_TEXT,
   VERIFY_DISCORD_CTA_TEXT,
@@ -23,6 +24,7 @@ const HomePage = () => {
         />
         <Button onClick={onClick} text={VERIFY_DISCORD_CTA_TEXT} />
       </div>
+      <ReservationDatePicker />
     </SingleColumnLayout>
   )
 }
