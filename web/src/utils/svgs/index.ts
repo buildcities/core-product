@@ -20,7 +20,7 @@ import KitchenNoIcon from './kitchen-no-icon'
 import SnacksNoIcon from './snacks-no-icon'
 import TeaKettleNoIcon from './tea-kettle-no-icon'
 import CoffeeCup from './coffee-cup'
-
+import EditPencil from './edit-pencil'
 export {
   ShieldIcon,
   UndulatingFloorIcon,
@@ -44,4 +44,5 @@ export {
   SnacksNoIcon,
   TeaKettleNoIcon,
   CoffeeCup,
+  EditPencil,
 }
