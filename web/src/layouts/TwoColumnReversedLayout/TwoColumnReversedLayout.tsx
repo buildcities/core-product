@@ -2,19 +2,19 @@ import { MetaTags } from '@redwoodjs/web'
 import React from 'react'
 import LayoutHeader from 'src/components/LayoutHeader/LayoutHeader'
 
-type TwoColumnLayoutLayoutProps = {
+type TwoColumnReversedLayoutProps = {
   children?: React.ReactNode
   sideBar?: React.ReactElement
   metaTitle?: string
   metaDescription?: string
 }
 
-const TwoColumnLayoutLayout = ({
+const TwoColumnReversedLayout = ({
   children,
   sideBar,
   metaTitle,
   metaDescription,
-}: TwoColumnLayoutLayoutProps) => {
+}: TwoColumnReversedLayoutProps) => {
   return (
     <div className="w-full">
       <MetaTags description={metaDescription} title={metaTitle} />
@@ -30,4 +30,4 @@ const TwoColumnLayoutLayout = ({
   )
 }
 
-export default TwoColumnLayoutLayout
+export default TwoColumnReversedLayout
