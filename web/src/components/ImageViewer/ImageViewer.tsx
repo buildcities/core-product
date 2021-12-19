@@ -80,7 +80,7 @@ const ImageViewer = (): JSX.Element => {
     <>
       <div className="container hidden lg:block">
         {viewGallery && (
-          <div className="transition-all lg:w-screen lg:m-30h-auto top-30 fixed items-stretch">
+          <div className="transition-all lg:w-screen top-0 fixed">
             <Slider
               ref={imageRef}
               className={`${
