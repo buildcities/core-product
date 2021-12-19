@@ -7,6 +7,5 @@
   },
   "[prisma]": {
     "editor.formatOnSave": true
-  },
-  "tailwindCSS.emmetCompletions": true
+  }
 }

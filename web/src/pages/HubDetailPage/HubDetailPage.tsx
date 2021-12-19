@@ -13,7 +13,10 @@ const HubDetailPage = () => {
   useEffect(() => {
     window.addEventListener('mousedown', () => {
       const slider = document.querySelector('.slick-slider')
-      if (slider.classList.contains('.slick-initialized')) {
+      if (
+        slider.classList.contains('.slick-initialized') &&
+        window.innerWidth > 1024
+      ) {
         setSliderVisible(false)
         console.log(sliderVisible)
       } else {
@@ -49,7 +52,9 @@ const HubDetailPage = () => {
         <div className="flex w-full">
           <h1
             className={`${
-              sliderVisible ? 'opacity-5' : 'opacity-100'
+              sliderVisible && window.innerWidth > 1024
+                ? 'opacity-5'
+                : 'opacity-100'
             } text-white font-bold font-sans text-5xl `}
           >
             Awesome place to stay
@@ -64,7 +69,9 @@ const HubDetailPage = () => {
           </div>
           <a
             className={`${
-              sliderVisible ? 'opacity-5' : 'opacity-100'
+              sliderVisible ?? window.innerWidth > 1024
+                ? 'opacity-5'
+                : 'opacity-100'
             } lg:mt-4 mt-2 object-contain`}
             href="_blank"
           >
