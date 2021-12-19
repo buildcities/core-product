@@ -12,12 +12,11 @@ const continentSelector = (store) => ({
 const ViewHubsPage = () => {
   const { continents, isMapView, selectedContinent } =
     useStore(continentSelector)
-
   return (
     <SingleColumnLayout metaDescription="List of hubs" metaTitle="Hubs">
       <HubFilters
         filters={continents}
-        className="absolute right-0 z-20 top-[65px] bg-cardBackground "
+        className="absolute right-0 z-10 top-[65px] bg-cardBackground "
       />
       {isMapView ? (
         <MapView />

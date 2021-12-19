@@ -24,7 +24,7 @@ const MapView = () => {
       toastId = toast.loading('Loading Data')
     } else {
       toast.dismiss(toastId)
-      setData(data.hubs)
+      setData(data?.hubs || [])
       const { lat, lng } = pick(data?.hubs[0]?.location, ['lat', 'lng'])
       if (mapRef && mapRef.current && lat && lng) {
         mapRef.current.panTo({ lat, lng })

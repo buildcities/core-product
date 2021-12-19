@@ -58,7 +58,11 @@ export function MapView({
     >
       <GoogleMapReact
         onChange={onChange}
-        bootstrapURLKeys={{ key: apiKey }}
+        bootstrapURLKeys={{
+          key: apiKey,
+          libraries: ['places'],
+          version: 'weekly',
+        }}
         defaultCenter={mapProps?.center}
         defaultZoom={mapProps?.zoom}
         options={{ styles: darkStyle }}

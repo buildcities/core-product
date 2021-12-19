@@ -81,7 +81,6 @@ export function GoogleAddressAutocomplete({
 
   const prepareResult = async (address) => {
     const results = await geocodeByAddress(address)
-    console.log(results)
     const country = results[0].address_components.find(
       (item) => item.types[0] == 'country'
     ).long_name

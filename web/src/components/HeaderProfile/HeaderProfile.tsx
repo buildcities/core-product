@@ -1,32 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Menu, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
 import classNames from 'classnames'
+import { Paragraph } from '@buildcities/build-ui.components.all'
 
-type TUserNav = {
-  name: string
-  href?: string
-}
+
 
 type HeaderProfileTypes = {
   userNavigation?: TUserNav[]
   profileUrl?: string
 }
 
-const _userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
-
 const HeaderProfile = ({ userNavigation, profileUrl }: HeaderProfileTypes) => {
   return (
-    <Menu as="div" className="ml-3 relative">
-      <div>
-        <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          <span className="sr-only">Open user menu</span>
-          <img className="h-8 w-8 rounded-full" src={profileUrl} alt="" />
-        </Menu.Button>
-      </div>
+    <Menu as="div" className="ml-3 relative w-max">
+      <Menu.Button className="max-w-xs bg-black flex items-center text-sm rounded-full focus:outline-none focus:ring-2  focus:ring-offset-2 focus:ring-indigo-500">
+        <span className="sr-only">Open user menu</span>
+        <img className="w-12 rounded-full" src={profileUrl} alt="" />
+      </Menu.Button>
+
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -36,32 +28,31 @@ const HeaderProfile = ({ userNavigation, profileUrl }: HeaderProfileTypes) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-          {userNavigation.map((item) => (
-            <Menu.Item key={item.name}>
-              {({ active }) => (
-                <a
-                  href={item.href}
-                  className={classNames(
-                    active ? 'bg-gray-100' : '',
-                    'block px-4 py-2 text-sm text-gray-700'
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-background ring-1 ring-black ring-opacity-5 focus:outline-none">
+          {userNavigation?.length &&
+            userNavigation.map((item) => {
+              const wrapper = { as: 'button' as any }
+              const Wrapper = item.as || wrapper.as
+              return (
+                <Menu.Item key={item.name}>
+                  {() => (
+                    <Wrapper
+                      to={item?.href}
+                      onClick={item?.onClick}
+                      className={classNames(
+                        'block px-4 py-2 hover:text-selected text-mainText-lighter'
+                      )}
+                    >
+                      <Paragraph className="w-full" text={item.name} />
+                    </Wrapper>
                   )}
-                >
-                  {item.name}
-                </a>
-              )}
-            </Menu.Item>
-          ))}
+                </Menu.Item>
+              )
+            })}
         </Menu.Items>
       </Transition>
     </Menu>
   )
-}
-
-HeaderProfile.defaultProps = {
-  userNavigation: _userNavigation,
-  profileUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 
 export default HeaderProfile
