@@ -31,7 +31,7 @@ const ListReservations = ({ data, type }: ListReservationsProps) => {
     <div className="2xl:min-w-max flex text-sm text-white mb-7 transition-all duration-300">
       {type === 'unapproved' && (
         <table className="w-full">
-          <thead className="flex items-center justify-between pb-4 px-6 xl:flex-nowrap flex-wrap">
+          <thead className="sm:flex hidden items-center justify-between pb-4 px-6 xl:flex-nowrap flex-wrap">
             <tr className="flex justify-center xl:w-1/5 w-1/3">
               {USER_HEADING_TEXT}
             </tr>
