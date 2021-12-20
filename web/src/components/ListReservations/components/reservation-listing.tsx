@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ReservationButton from 'src/components/bit.dev/reservation-dashboard/reservation-button'
+import ReservationActionButton from 'src/components/bit.dev/reservation-dashboard/reservation-button'
 import { Button } from '@buildcities/build-ui.components.all'
 
 type ReservationListingProps = {
@@ -24,7 +24,7 @@ const ReservationListing = ({
     <>
       {type === 'unapproved' && (
         <tr className="flex items-center justify-between xl:flex-nowrap flex-wrap bg-cardBackground rounded-xl mb-4 px-6 py-4">
-          <td className="flex items-center xl:w-1/5 sm:w-1/3 sm:justify-start justify-center w-full">
+          <td className="flex items-center xl:w-1/5 sm:w-1/3 sm:justify-start sm:mb-0 mb-4 justify-center w-full">
             <img
               src={avatar}
               alt={`${address}'s avatar`}
@@ -35,17 +35,18 @@ const ReservationListing = ({
               {discordName.length > 0 && <span>{discordName}</span>}
             </div>
           </td>
-          <td className="flex justify-center xl:w-1/5 sm:w-1/3 w-1/2">
+          <td className="flex relative sm:justify-center justify-end xl:w-1/5 sm:w-1/3 sm:mb-0 sm:pr-0 pr-4 mb-4 w-1/2">
             {checkIn}
+            <span className="sm:hidden block absolute -right-2">to</span>
           </td>
-          <td className="flex justify-center xl:w-1/5 sm:w-1/3 w-1/2">
+          <td className="flex sm:justify-center justify-start xl:w-1/5 sm:w-1/3 sm:mb-0 sm:pl-0 pl-4 mb-4 w-1/2">
             {checkOut}
           </td>
           <td className="flex xl:justify-center xl:pr-0 pr-2 justify-end xl:w-1/5 w-1/2">
-            <ReservationButton type="Reject" />
+            <ReservationActionButton type="Reject" />
           </td>
           <td className="flex xl:justify-end xl:pl-0 pl-2 justify-start xl:w-1/5 w-1/2">
-            <ReservationButton type="Accept" />
+            <ReservationActionButton type="Accept" />
           </td>
         </tr>
       )}
@@ -56,7 +57,7 @@ const ReservationListing = ({
           onMouseLeave={() => setOverlay(false)}
         >
           <div
-            className={`absolute top-0 right-0 w-3/5 flex items-center justify-end h-full transition-opacity duration-300 bg-cardBackground px-6 py-4 ${
+            className={`absolute top-0 right-0 w-1/2 flex items-center justify-end h-full transition-opacity duration-300 bg-cardBackground px-6 py-4 ${
               overlay
                 ? 'opacity-100 pointer-events-auto'
                 : 'opacity-0 pointer-events-none'

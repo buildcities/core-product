@@ -17,7 +17,7 @@ export default function ReservationSelectionButton({
   return (
     <button
       type="button"
-      className={`flex items-center justify-center text-white bg-cardBackground p-2.5 border hover:border-[#7B61FF] rounded-lg transition-colors duration-300 ${className} ${
+      className={`flex items-center justify-center text-white bg-cardBackground p-2.5 border hover:border-[#7B61FF] rounded-lg transition-colors duration-300 sm:text-sm text-xs  ${className} ${
         selected === text ? 'border-[#7B61FF]' : 'border-transparent'
       }`}
       onClick={_setClosed}

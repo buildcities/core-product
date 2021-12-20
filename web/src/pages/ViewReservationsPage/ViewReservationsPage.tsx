@@ -1,7 +1,6 @@
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
-import GrayButton from 'src/components/bit.dev/reservation-dashboard/gray-button'
+import ReservationSelectionButton from 'src/components/bit.dev/reservation-dashboard/reservation-selection-button'
 import AcceptAllButton from 'src/components/bit.dev/reservation-dashboard/accept-all-button'
-
 import {
   RESERVATION_BUTTON_TEXT,
   PROPERTIES_BUTTON_TEXT,
@@ -23,22 +22,23 @@ const ViewReservationsPage = () => {
   return (
     <>
       <SingleColumnLayout metaTitle="View all reservations">
-        <div className="flex justify-between mb-6">
-          <div className="flex mr-20">
-            <GrayButton
-              className="mr-7"
+        <div className="flex sm:justify-between justify-start mb-6">
+          <div className="flex">
+            <ReservationSelectionButton
+              className="sm:mr-7 mr-4"
               selected={selected}
               setSelected={setSelected}
               text={RESERVATION_BUTTON_TEXT}
             />
-            <GrayButton
+            <ReservationSelectionButton
+              className="sm:mr-7 mr-4"
               selected={selected}
               setSelected={setSelected}
               text={PROPERTIES_BUTTON_TEXT}
             />
           </div>
           <div>
-            <GrayButton
+            <ReservationSelectionButton
               selected={selected}
               setSelected={setSelected}
               text={ADD_HUB_BUTTON_TEXT}
@@ -46,21 +46,29 @@ const ViewReservationsPage = () => {
           </div>
         </div>
         <div className="flex justify-between">
-          <div className="mr-20">
-            <h1 className="text-mainText font-sans font-medium md:text-5xl text-3xl mb-2">
+          <div className="mr-10">
+            <h1 className="text-mainText font-sans font-medium lg:text-5xl text-2xl mb-2">
               {RESERVATION_TITLE}
             </h1>
-            <h2 className="text-paragraph font-sans font-medium md:text-3xl text-2xl mb-14">
-              {WAITING_FOR_APPROVAL_TEXT}
-            </h2>
+            {reservationsUnapprovedData.length && (
+              <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-2xl mb-14">
+                {WAITING_FOR_APPROVAL_TEXT}
+              </h2>
+            )}
           </div>
           <AcceptAllButton />
         </div>
-        <Reservations data={reservationsUnapprovedData} type="unapproved" />
-        <h2 className="text-paragraph font-sans font-medium md:text-3xl text-2xl mb-2">
-          {CURRENT_RESERVATIONS_TEXT}
-        </h2>
-        <Reservations data={reservationsApprovedData} type="approved" />
+        {reservationsUnapprovedData.length && (
+          <Reservations data={reservationsUnapprovedData} type="unapproved" />
+        )}
+        {reservationsApprovedData.length && (
+          <>
+            <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-2xl mb-2">
+              {CURRENT_RESERVATIONS_TEXT}
+            </h2>
+            <Reservations data={reservationsApprovedData} type="approved" />
+          </>
+        )}
       </SingleColumnLayout>
     </>
   )
