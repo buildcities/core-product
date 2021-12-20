@@ -52,7 +52,7 @@ const ReservationListing = ({
       )}
       {type === 'approved' && (
         <div
-          className="relative flex items-center justify-between bg-cardBackground rounded-xl px-6 py-4 transition-all duration-300 hover:drop-shadow-[0_0px_10px_rgba(123,97,255,0.5)]"
+          className="relative flex items-center justify-between bg-cardBackground rounded-xl px-6 py-4 transition-all duration-300 hover:drop-shadow-[0_0px_10px_rgba(123,97,255,0.5)] cursor-pointer"
           onMouseEnter={() => setOverlay(true)}
           onMouseLeave={() => setOverlay(false)}
         >
