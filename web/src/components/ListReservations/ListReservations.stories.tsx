@@ -1,7 +1,7 @@
-import ListReservations from './ListReservations'
+// import ListReservations from './ListReservations'
 
 export const generated = () => {
-  return <ListReservations />
+  // return <ListReservations />
 }
 
 export default { title: 'Components/ListReservations' }
