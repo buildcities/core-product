@@ -47,17 +47,17 @@ const ViewReservationsPage = () => {
         </div>
         <div className="flex justify-between">
           <div className="mr-20">
-            <h1 className="text-mainText font-sans font-medium text-5xl mb-2">
+            <h1 className="text-mainText font-sans font-medium md:text-5xl text-3xl mb-2">
               {RESERVATION_TITLE}
             </h1>
-            <h2 className="text-paragraph font-sans font-medium text-3xl mb-14">
+            <h2 className="text-paragraph font-sans font-medium md:text-3xl text-2xl mb-14">
               {WAITING_FOR_APPROVAL_TEXT}
             </h2>
           </div>
           <AcceptAllButton />
         </div>
         <Reservations data={reservationsUnapprovedData} type="unapproved" />
-        <h2 className="text-paragraph font-sans font-medium text-3xl mb-2">
+        <h2 className="text-paragraph font-sans font-medium md:text-3xl text-2xl mb-2">
           {CURRENT_RESERVATIONS_TEXT}
         </h2>
         <Reservations data={reservationsApprovedData} type="approved" />

@@ -23,8 +23,8 @@ const ReservationListing = ({
   return (
     <>
       {type === 'unapproved' && (
-        <tr className="flex items-center justify-between bg-cardBackground rounded-xl mb-4 px-6 py-4">
-          <td className="flex items-center justify-start w-1/5">
+        <tr className="flex items-center justify-between xl:flex-nowrap flex-wrap bg-cardBackground rounded-xl mb-4 px-6 py-4">
+          <td className="flex items-center justify-start xl:w-1/5 w-1/3">
             <img
               src={avatar}
               alt={`${address}'s avatar`}
@@ -35,12 +35,12 @@ const ReservationListing = ({
               {discordName.length > 0 && <span>{discordName}</span>}
             </div>
           </td>
-          <td className="flex justify-center w-1/5">{checkIn}</td>
-          <td className="flex justify-center w-1/5">{checkOut}</td>
-          <td className="flex justify-end w-1/5">
+          <td className="flex justify-center xl:w-1/5 w-1/3">{checkIn}</td>
+          <td className="flex justify-center xl:w-1/5 w-1/3">{checkOut}</td>
+          <td className="flex xl:justify-center xl:pr-0 pr-2 justify-end xl:w-1/5 w-1/2">
             <ReservationButton type="Reject" />
           </td>
-          <td className="flex justify-end w-1/5">
+          <td className="flex xl:justify-end xl:pl-0 pl-2 justify-start xl:w-1/5 w-1/2">
             <ReservationButton type="Accept" />
           </td>
         </tr>
