@@ -8,7 +8,7 @@ import User7 from 'src/components/ListReservations/user7.png'
 
 export const RESERVATION_TITLE = 'All reservations'
 export const WAITING_FOR_APPROVAL_TEXT = 'Waiting for approval'
-export const CURRENT_RESERVATIONS_TEXT = 'Waiting for approval'
+export const CURRENT_RESERVATIONS_TEXT = 'Current Reservations'
 export const RESERVATION_BUTTON_TEXT = 'Reservations'
 export const PROPERTIES_BUTTON_TEXT = 'My properties'
 export const ADD_HUB_BUTTON_TEXT = 'Add another hub'

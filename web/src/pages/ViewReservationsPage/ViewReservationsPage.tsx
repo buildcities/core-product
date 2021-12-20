@@ -51,7 +51,7 @@ const ViewReservationsPage = () => {
               {RESERVATION_TITLE}
             </h1>
             {reservationsUnapprovedData.length && (
-              <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-2xl mb-14">
+              <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl lg:mb-14 mb-7">
                 {WAITING_FOR_APPROVAL_TEXT}
               </h2>
             )}
@@ -63,7 +63,7 @@ const ViewReservationsPage = () => {
         )}
         {reservationsApprovedData.length && (
           <>
-            <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-2xl mb-2">
+            <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl mb-2">
               {CURRENT_RESERVATIONS_TEXT}
             </h2>
             <Reservations data={reservationsApprovedData} type="approved" />
