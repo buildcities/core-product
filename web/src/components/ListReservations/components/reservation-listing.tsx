@@ -1,5 +1,6 @@
-import React from 'react'
+import { useState } from 'react'
 import ReservationButton from 'src/components/bit.dev/reservation-dashboard/reservation-button'
+import { Button } from '@buildcities/build-ui.components.all'
 
 type ReservationListingProps = {
   address: string
@@ -7,6 +8,7 @@ type ReservationListingProps = {
   checkOut: string
   discordName: string
   avatar: string
+  type: string
 }
 
 const ReservationListing = ({
@@ -15,29 +17,69 @@ const ReservationListing = ({
   checkOut,
   discordName,
   avatar,
+  type,
 }: ReservationListingProps) => {
+  const [overlay, setOverlay] = useState<boolean>(false)
   return (
-    <tr className="flex items-center justify-between bg-cardBackground rounded-xl mb-4 px-6 py-4">
-      <td className="flex items-center justify-center w-1/5">
-        <img
-          src={avatar}
-          alt={`${address}'s avatar`}
-          className="w-16 h-16 border border-white rounded-full"
-        />
-        <div className="flex flex-col items-start ml-4">
-          <span>{address}</span>
-          {discordName.length > 0 && <span>{discordName}</span>}
+    <>
+      {type === 'unapproved' && (
+        <tr className="flex items-center justify-between bg-cardBackground rounded-xl mb-4 px-6 py-4">
+          <td className="flex items-center justify-start w-1/5">
+            <img
+              src={avatar}
+              alt={`${address}'s avatar`}
+              className="w-16 h-16 border border-white rounded-full"
+            />
+            <div className="flex flex-col items-start ml-4">
+              <span>{address}</span>
+              {discordName.length > 0 && <span>{discordName}</span>}
+            </div>
+          </td>
+          <td className="flex justify-center w-1/5">{checkIn}</td>
+          <td className="flex justify-center w-1/5">{checkOut}</td>
+          <td className="flex justify-end w-1/5">
+            <ReservationButton type="Reject" />
+          </td>
+          <td className="flex justify-end w-1/5">
+            <ReservationButton type="Accept" />
+          </td>
+        </tr>
+      )}
+      {type === 'approved' && (
+        <div
+          className="relative flex items-center justify-between bg-cardBackground rounded-xl px-6 py-4 transition-all duration-300 hover:drop-shadow-[0_0px_10px_rgba(123,97,255,0.5)]"
+          onMouseEnter={() => setOverlay(true)}
+          onMouseLeave={() => setOverlay(false)}
+        >
+          <div
+            className={`absolute top-0 right-0 w-3/5 flex items-center justify-end h-full transition-opacity duration-300 bg-cardBackground px-6 py-4 ${
+              overlay
+                ? 'opacity-100 pointer-events-auto'
+                : 'opacity-0 pointer-events-none'
+            }`}
+          >
+            <Button text="Send message" style="primary" className="w-44 h-11" />
+          </div>
+          <div className="flex items-center">
+            <img
+              src={avatar}
+              alt={`${address}'s avatar`}
+              className="w-16 h-16 border border-white rounded-full"
+            />
+            <div className="flex flex-col items-start ml-4">
+              <span>{address}</span>
+              {discordName.length > 0 && <span>{discordName}</span>}
+            </div>
+          </div>
+          <div>
+            <span>{checkIn}</span>
+          </div>
+          <div>
+            <span>{checkOut}</span>
+          </div>
         </div>
-      </td>
-      <td className="flex justify-center w-1/5">{checkIn}</td>
-      <td className="flex justify-center w-1/5">{checkOut}</td>
-      <td className="flex justify-center w-1/5">
-        <ReservationButton type="Reject" />
-      </td>
-      <td className="flex justify-center w-1/5">
-        <ReservationButton type="Accept" />
-      </td>
-    </tr>
+      )}
+    </>
   )
 }
 
