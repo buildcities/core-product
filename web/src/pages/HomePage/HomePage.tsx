@@ -30,12 +30,12 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    if (data) {
+    if (data && !loading) {
       if (data?.isDiscordMember?.isMember) {
         navigate(routes.viewHubs())
       }
     }
-    if (error) {
+    if (error && !loading) {
       toastId = toast.error(error.message, { id: toastId })
       logOut()
     }

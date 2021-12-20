@@ -1,21 +1,10 @@
 import type { Prisma } from '@prisma/client'
+import type { ResolverArgs } from '@redwoodjs/graphql-server'
 
 import { db } from 'src/lib/db'
 
-export const hubs = ({ filter, skip, take }) => {
-  const where = filter
-    ? {
-        location: {
-          path: ['continent'],
-          equals: filter,
-        },
-      }
-    : {}
-  return db.hub.findMany({
-    where,
-    skip: skip || 0,
-    take: take || 20,
-  })
+export const hubs = () => {
+  return db.hub.findMany()
 }
 
 export const hub = ({ id }: Prisma.HubWhereUniqueInput) => {
@@ -49,4 +38,13 @@ export const deleteHub = ({ id }: Prisma.HubWhereUniqueInput) => {
   return db.hub.delete({
     where: { id },
   })
+}
+
+export const Hub = {
+  reservations: (_obj, { root }: ResolverArgs<ReturnType<typeof hub>>) =>
+    db.hub.findUnique({ where: { id: root.id } }).reservations(),
+  owner: (_obj, { root }: ResolverArgs<ReturnType<typeof hub>>) =>
+    db.hub.findUnique({ where: { id: root.id } }).owner(),
+  reviews: (_obj, { root }: ResolverArgs<ReturnType<typeof hub>>) =>
+    db.hub.findUnique({ where: { id: root.id } }).reviews(),
 }

@@ -11,6 +11,10 @@ export const schema = gql`
     description: String
     status: Status
     createdAt: DateTime!
+    reservations: [Reservation]!
+    owner: User!
+    ownerId: Int!
+    reviews: [Review]!
   }
 
   enum Status {
@@ -34,6 +38,7 @@ export const schema = gql`
     rules: JSON
     description: String
     status: Status
+    ownerId: Int!
   }
 
   input UpdateHubInput {
@@ -46,6 +51,7 @@ export const schema = gql`
     rules: JSON
     description: String
     status: Status
+    ownerId: Int
   }
 
   type Mutation {
