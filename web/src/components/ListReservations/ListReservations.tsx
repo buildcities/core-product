@@ -6,20 +6,6 @@ import {
   CHECKOUT_HEADING_TEXT,
 } from './presets'
 
-// type ListingData = {
-//   address: string
-//   checkIn: string
-//   checkOut: string
-//   discordName: string
-//   avatar: string
-// }
-
-// type Items = {
-//   items: {
-//     [key: string]: ListingData
-//   }
-// }
-
 // Fix later
 type ListReservationsProps = {
   data: any
