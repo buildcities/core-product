@@ -8,8 +8,8 @@ type MessagesProps = {
 const Messages = ({ data }: MessagesProps) => {
   return (
     <>
-      <h1 className="text-white text-2xl font-sans mb-10">Messages</h1>
-      <div className="block text-sm text-white mb-4 transition-all duration-300">
+      <h1 className="text-white text-2xl font-sans mb-4">Messages</h1>
+      <div className="block text-sm text-white transition-all duration-300 rounded-xl">
         {data.map((listing) =>
           Object.keys(listing).map((listingName, index) => (
             <Message {...listing[listingName]} key={index} />

@@ -11,12 +11,14 @@ export const messagesData = [
       address: '0x000...0212',
       message: 'Sure Johnny, bring good attitude and winning smile',
       date: '24/11/2021',
+      active: true,
     },
     message2: {
       avatar: User2,
       address: '0x000...0212',
-      message: 'No problems, See ya!',
+      message: 'No problems, no worries! See ya!',
       date: '20/12/2021',
+      active: false,
     },
   },
 ]
