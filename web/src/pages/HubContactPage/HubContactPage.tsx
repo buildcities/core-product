@@ -20,19 +20,20 @@ const HubContactPage = () => {
           <div className="grid grid-cols-3 ml-96">
             <img className="col-span-1" src={image1} alt={`${image1}`}></img>
             <div className="col-span-2">
-              <span className="text-white font-bold text-3xl font-sans ml-6">
+              <span className="text-white mb-4 font-bold text-3xl font-sans ml-6">
                 Awesome place to stay
               </span>
-              <div className="inline-flex ml-6 mt-1">
-                <div className="mt-[2px] mb-0">
+              <div className="inline-flex ml-6 mt-2">
+                <div className="mt-0 mb-0">
                   <MapPin />
                 </div>
-                <div className="ml-2 text-white">{location}</div>
+                <div className="ml-2 text-white text-sm">{location}</div>
               </div>
               <div className="text-white ml-6">
                 <CheckinDates />
               </div>
             </div>
+            <div className="text-white mt-12">1</div>
           </div>
         </div>
       </TwoColumnLayoutLayout>
