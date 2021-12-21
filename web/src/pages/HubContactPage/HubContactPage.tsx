@@ -29,11 +29,11 @@ const HubContactPage = () => {
                 </div>
                 <div className="ml-2 text-white text-sm">{location}</div>
               </div>
-              <div className="text-white ml-6">
+              <div className="text-white ml-6 mr-16">
                 <CheckinDates />
               </div>
             </div>
-            <div className="text-white mt-12">1</div>
+            <div className="text-white mt-12"></div>
           </div>
         </div>
       </TwoColumnLayoutLayout>

@@ -4,7 +4,7 @@ const CheckinDates = () => {
   return (
     <div className="mb-6">
       <div className="flex md:items-center items-end md:mb-2 mb-1"></div>
-      <div className="flex rounded-lg bg-cardBackground border border-gray-400 w-full md:h-28 h-12">
+      <div className="flex rounded-lg bg-cardBackground border border-gray-400  w-full md:h-28 h-12">
         <div className="md:p-4 pt-1 border-r border-gray-400 w-1/2">
           <span className="block md:text-2xl text-sm font-sans md:mb-2.5 md:font-normal font-bold">
             {CHECK_IN_TEXT}
@@ -13,7 +13,7 @@ const CheckinDates = () => {
             10/10/22
           </span>
         </div>
-        <div className="md:p-4 pt-1">
+        <div className="md:p-4 w-max-1/2pt-1">
           <span className="block md:text-2xl text-sm font-sans md:mb-2.5 md:font-normal font-bold">
             {CHECK_OUT_TEXT}
           </span>
