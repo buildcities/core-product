@@ -19,7 +19,7 @@ const TwoColumnLayoutLayout = ({
     <div className="w-full">
       <MetaTags description={metaDescription} title={metaTitle} />
       <LayoutHeader />
-      <nav className=" hidden md:block border-r h-full pt-10  pr-4 sm:pr-8 md:px-20 lg:px-28  text-white  fixed overflow-y-auto w-full max-w-sm lg:max-w-[420px] border-outline">
+      <nav className=" hidden md:block border-r h-full pt-10 pr-4 sm:pr-8 md:pl-20 lg:pl-28  text-white  fixed overflow-y-auto w-full max-w-sm lg:max-w-[500px] border-outline">
         {sideBar}
       </nav>
 

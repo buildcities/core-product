@@ -1,10 +1,11 @@
 type MessageProps = {
-  avatar: string
-  address: string
-  message: string
+  avatar?: string
+  address?: string
+  message?: string
+  date?: string
 }
 
-const Message = ({ avatar, address, message }: MessageProps) => {
+const Message = ({ date, avatar, address, message }: MessageProps) => {
   return (
     <>
       <div className="block bg-[#171717] rounded-xl">
@@ -23,6 +24,9 @@ const Message = ({ avatar, address, message }: MessageProps) => {
             <p className="truncate text-ellipsis no">{message}</p>
           </div>
           <div className="right-0 mr-0 left-auto"></div>
+        </div>
+        <div className="ml-auto justify-right flex mr-0 pr-0 mb-0 text-xs text-grey-500">
+          {date}
         </div>
       </div>
     </>
