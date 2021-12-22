@@ -5,28 +5,28 @@ import {
 } from '@buildcities/build-ui.components.all'
 import classNames from 'classnames'
 type HubDetailsProps = {
-  title: string
-  subTitle: string
+  name: string
+  location: string
   className?: string
-  type?: string
+  type?: 'H1' | 'H2' | 'H3' | 'H4' | 'H5'
 }
 
-export default function Header({
-  title,
-  subTitle,
+export default function HubDetails({
+  name,
+  location,
   className,
   type,
 }: HubDetailsProps) {
   return (
     <div className={classNames('pb-6', className)}>
-      <Heading text={title} type={type} />
+      <Heading text={name} type={type} />
       <span className="flex">
         <IconItem icon="pin" />
-        <Paragraph text={subTitle} />
+        <Paragraph text={location} />
       </span>
     </div>
   )
 }
-Header.defaultProps = {
+HubDetails.defaultProps = {
   type: 'H1',
 }

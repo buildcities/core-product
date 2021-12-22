@@ -28,8 +28,8 @@ describe('reservations', () => {
       input: {
         checkInDate: '2021-12-20T14:41:32Z',
         checkOutDate: '2021-12-20T14:41:32Z',
-        hubId: scenario.reservation.two.hubId,
-        ownerId: scenario.reservation.two.ownerId,
+        hub: scenario.reservation.two.hub,
+        owner: scenario.reservation.two.owner,
       },
     })
 

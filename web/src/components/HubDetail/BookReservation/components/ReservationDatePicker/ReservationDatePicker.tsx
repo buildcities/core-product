@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Heading } from '@buildcities/build-ui.components.all'
 import 'react-dates/initialize'
 declare let window: any
@@ -7,15 +9,31 @@ import {
   FocusedInputShape,
 } from 'react-dates'
 import { useEffect, useState } from 'react'
-import * as moment from 'moment'
+import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
+import classNames from 'classnames'
 
 // Move to presets.ts in relevant folder later
 const DATES_TEXT = 'Select dates'
 const CHECK_IN_TEXT = 'Check in'
 const CHECK_OUT_TEXT = 'Check out'
 
-const ReservationDatePicker = () => {
+type ReservationDatePickerProps = {
+  className?: string
+  onDateChange?: (
+    startDate: moment.Moment | null,
+    endDate: moment.Moment | null
+  ) => void
+  hide?: boolean
+  onFocus?: (focus: boolean) => void
+}
+
+const ReservationDatePicker = ({
+  className,
+  onDateChange,
+  hide,
+  onFocus,
+}: ReservationDatePickerProps) => {
   const [endDate, setEndDate] = useState<moment.Moment | null>(null)
   const [startDate, setStartDate] = useState<moment.Moment | null>(null)
   const [focus, setFocus] = useState<FocusedInputShape | null>(null)
@@ -27,6 +45,7 @@ const ReservationDatePicker = () => {
   const handleDateChange = (startDate, endDate) => {
     setEndDate(endDate)
     setStartDate(startDate)
+    onDateChange && onDateChange(startDate, endDate)
   }
 
   const applyStyles = () => {
@@ -49,8 +68,10 @@ const ReservationDatePicker = () => {
   useEffect(() => {
     if (focus) {
       setOpen(true)
+      onFocus && onFocus(true)
     } else {
       setOpen(false)
+      onFocus && onFocus(false)
     }
   }, [focus])
 
@@ -61,13 +82,20 @@ const ReservationDatePicker = () => {
   })
 
   return (
-    <div className="relative mt-10 bg-background md:w-[654px] md:h-[453px] w-[316px] h-[796px]">
+    <div
+      className={classNames(
+        'relative mt-10  bg-opacity-95 md:w-[654px] md:h-[453px] w-[316px] h-[796px]  ',
+        { 'hidden ': hide },
+        { 'bg-background': focus },
+        className
+      )}
+    >
       <div
         className={`${
           open || isMobile()
             ? 'block pointer-events-auto'
             : 'hidden pointer-events-none'
-        } absolute top-0 left-0 w-full h-full z-0 md:pt-10 md:px-8 p-4 border border-white`}
+        } absolute top-0 left-0 w-full h-full z-0 md:pt-10 md:px-8 p-4 border border-transparent`}
       >
         <Heading
           type="H3"

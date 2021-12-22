@@ -24,8 +24,8 @@ describe('reviews', () => {
     const result = await createReview({
       input: {
         comments: 'String',
-        ownerId: scenario.review.two.ownerId,
-        hubId: scenario.review.two.hubId,
+        owner: scenario.review.two.owner,
+        hub: scenario.review.two.hub,
       },
     })
 

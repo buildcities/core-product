@@ -1,6 +1,4 @@
 export const DATES_SECTION_TITLE = '1. Dates'
-export const CHECK_IN_TEXT = 'Check in'
-export const CHECK_OUT_TEXT = 'Check out'
 export const QR_CODE_SECTION_TITLE = '2. Your QR code'
 export const QR_CODE_SECTION_TEXT =
   'This code should be used as identifier, so keep it safe.'

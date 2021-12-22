@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { Paragraph } from '@buildcities/build-ui.ui.base.paragraph'
-import className from 'classnames'
 import { Heading } from '@buildcities/build-ui.components.all'
 import classNames from 'classnames'
 

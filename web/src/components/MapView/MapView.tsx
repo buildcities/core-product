@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { MapView as MapViewComponent } from 'src/components/bit.dev/map-view'
 import { useQuery, CellSuccessProps } from '@redwoodjs/web'
@@ -16,7 +17,7 @@ let toastId
 const MapView = () => {
   const [_data, setData] = useState([])
   const selectedContinent = useStore((store) => store.selectedContinent)
-  const mapRef = useRef()
+  const mapRef = useRef<any>()
   const { loading, data, refetch } =
     useQuery<CellSuccessProps<HubsQuery>>(HUBS_QUERY)
   useEffect(() => {

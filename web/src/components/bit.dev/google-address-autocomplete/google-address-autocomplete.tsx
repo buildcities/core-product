@@ -32,6 +32,7 @@ const renderFunc =
         <TextInput
           icon="search"
           name="address-search"
+          placeholder="Search for a location"
           inputProps={getInputProps()}
         />
         <div

@@ -2,7 +2,7 @@ import { Form, TextField, useForm } from '@redwoodjs/forms'
 import FormSection from '../../FormSection/FormSection'
 import { SelectInput, TextInput } from '@buildcities/build-ui.components.all'
 import Button from '../ListHubsStepButton/ListHubsStepButton'
-import { GoogleAddressAutocomplete } from '../../bit.dev/google-address-autocomplete/google-address-autocomplete'
+import { GoogleAddressAutocomplete } from 'src/components/bit.dev/google-address-autocomplete/google-address-autocomplete'
 import {
   hubTypes,
   HUB_TYPE_SECTION_TEXT,
@@ -46,7 +46,7 @@ const ListHubsStep2 = ({
             <GoogleAddressAutocomplete
               apiKey={process.env.G_PLACES_API_KEY}
               inputProps={inputProps}
-              defaultValue={{ title: 'Lagos,Nigeria' }}
+              defaultValue={{ title: '' }}
             />
           )}
         </ControlledInput>
@@ -67,7 +67,7 @@ const ListHubsStep2 = ({
         title={HUB_TYPE_SECTION_TITLE}
         description={HUB_TYPE_SECTION_TEXT}
       >
-        <FormField className="mb-8" label="Estate" name={'type.estate'}>
+        <FormField className="mb-4" label="Estate" name={'type.estate'}>
           <ControlledInput defaultValue={hubTypes[0].value} name="type.estate">
             {(inputProps) => (
               <SelectInput options={hubTypes} inputProps={inputProps} />

@@ -3,8 +3,20 @@ import type { ResolverArgs } from '@redwoodjs/graphql-server'
 
 import { db } from 'src/lib/db'
 
-export const hubs = () => {
-  return db.hub.findMany()
+export const hubs = ({ filter, skip, take }) => {
+  const where = filter
+    ? {
+        location: {
+          path: ['continent'],
+          equals: filter,
+        },
+      }
+    : {}
+  return db.hub.findMany({
+    where,
+    skip: skip || 0,
+    take: take || 20,
+  })
 }
 
 export const hub = ({ id }: Prisma.HubWhereUniqueInput) => {

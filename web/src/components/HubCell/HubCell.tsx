@@ -8,6 +8,10 @@ export const QUERY = gql`
       amenities
       location
       images
+      name
+      reviews {
+        comments
+      }
     }
   }
 `

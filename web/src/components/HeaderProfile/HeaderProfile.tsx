@@ -3,8 +3,7 @@ import { Menu, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import { Paragraph } from '@buildcities/build-ui.components.all'
-
-
+import { TUserNav } from 'src/utils/types'
 
 type HeaderProfileTypes = {
   userNavigation?: TUserNav[]

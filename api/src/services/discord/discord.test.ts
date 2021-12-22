@@ -44,7 +44,7 @@ describe('discord: Empty arguments', () => {
 })
 
 describe('discord:validate membership', () => {
-  scenario('should return true if member exists in Db', () => {
+  scenario('should return true if member exists in Db', async () => {
     expect(
       isDiscordMember({
         userId: '877980735972180049',

@@ -1,9 +1,10 @@
+import skipAuth from 'src/directives/skipAuth/skipAuth'
 import { hubs, hub, createHub, updateHub, deleteHub } from './hubs'
 import type { StandardScenario } from './hubs.scenarios'
 
 describe('hubs', () => {
   scenario('returns all hubs', async (scenario: StandardScenario) => {
-    const result = await hubs()
+    const result = await hubs({ filter: null, skip: null, take: null })
 
     expect(result.length).toEqual(Object.keys(scenario.hub).length)
   })
@@ -16,7 +17,7 @@ describe('hubs', () => {
 
   scenario('creates a hub', async (scenario: StandardScenario) => {
     const result = await createHub({
-      input: { ownerId: scenario.hub.two.ownerId },
+      input: { owner: scenario.hub.two.owner },
     })
 
     expect(result.ownerId).toEqual(scenario.hub.two.ownerId)
@@ -26,7 +27,7 @@ describe('hubs', () => {
     const original = await hub({ id: scenario.hub.one.id })
     const result = await updateHub({
       id: original.id,
-      input: { ownerId: scenario.hub.two.ownerId },
+      input: { owner: scenario.hub.two.owner },
     })
 
     expect(result.ownerId).toEqual(scenario.hub.two.ownerId)

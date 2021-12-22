@@ -1,8 +1,8 @@
-import { CHECK_IN_TEXT, CHECK_OUT_TEXT, DATES_SECTION_TITLE } from './presets'
-import { EditPencil } from 'src/utils/svgs'
+import { DATES_SECTION_TITLE } from './presets'
 import { Heading } from '@buildcities/build-ui.components.all'
 import classNames from 'classnames'
 import { PageSection } from 'src/components/bit.dev/page-section'
+import { CHECKIN_TEXT, CHECKOUT_TEXT } from '../../common/preset'
 
 const DateViewer: React.FC<{
   title: string
@@ -32,8 +32,8 @@ export default function DateSection({
   return (
     <PageSection title={DATES_SECTION_TITLE}>
       <div className="border flex bg-cardBackground divide-x justify-evenly divide-[#343434] border-[#343434] rounded-lg">
-        <DateViewer content={checkInDate} title={CHECK_IN_TEXT} />
-        <DateViewer content={checkOutDate} title={CHECK_OUT_TEXT} />
+        <DateViewer content={checkInDate} title={CHECKIN_TEXT} />
+        <DateViewer content={checkOutDate} title={CHECKOUT_TEXT} />
       </div>
     </PageSection>
   )

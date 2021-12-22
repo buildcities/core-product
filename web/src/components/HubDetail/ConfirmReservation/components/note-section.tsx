@@ -4,10 +4,14 @@ import { TextAreaField, Form } from '@redwoodjs/forms'
 import ReservationButtons from './reservation-buttons'
 
 type LeaveNoteSectionProps = {
-  onClickConfirm: () => void
+  onClickConfirm?: () => void
+  onClickContact?: () => void
 }
 
-export default function LeaveNoteSection() {
+export default function LeaveNoteSection({
+  onClickConfirm,
+  onClickContact,
+}: LeaveNoteSectionProps) {
   return (
     <Form>
       <PageSection description={NOTE_SECTION_TEXT} title={NOTE_SECTION_TITLE}>
@@ -16,7 +20,10 @@ export default function LeaveNoteSection() {
           name="note"
         />
       </PageSection>
-      <ReservationButtons />
+      <ReservationButtons
+        onClickContact={onClickContact}
+        onClickConfirm={onClickConfirm}
+      />
     </Form>
   )
 }
