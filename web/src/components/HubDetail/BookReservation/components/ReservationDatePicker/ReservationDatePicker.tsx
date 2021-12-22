@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
+import React from 'react'
 import { Heading } from '@buildcities/build-ui.components.all'
 import 'react-dates/initialize'
 declare let window: any

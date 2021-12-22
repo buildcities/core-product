@@ -128,5 +128,5 @@ export function GoogleAddressAutocomplete({
 }
 
 GoogleAddressAutocomplete.defaultProps = {
-  defaultValue: { title: 'Lagos, Nigeria', lat: '', lng: '' },
+  defaultValue: { title: '', lat: '', lng: '' },
 }

@@ -1,4 +1,3 @@
-import skipAuth from 'src/directives/skipAuth/skipAuth'
 import { hubs, hub, createHub, updateHub, deleteHub } from './hubs'
 import type { StandardScenario } from './hubs.scenarios'
 
