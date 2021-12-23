@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 //import { amenitiesProps } from 'src/components/ListHubsStep3/presets'
 import { amenitiesProps } from 'src/components/ListHubs/ListHubsStep3/presets'
 import { TUpdateStepDataActionProps } from './stores/hubStepsStore'
@@ -16,4 +17,11 @@ export type ThubListData = {
   images?: string | []
   availability?: string
   rules?: { default?: string[]; custom: 'string' }
+}
+
+export type TUserNav = {
+  name: string
+  href?: string
+  as?: any
+  onClick?: () => void
 }

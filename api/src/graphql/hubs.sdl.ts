@@ -11,6 +11,10 @@ export const schema = gql`
     description: String
     status: Status
     createdAt: DateTime!
+    reservations: [Reservation]!
+    owner: User!
+    ownerId: Int!
+    reviews: [Review]!
   }
 
   enum Status {
@@ -20,7 +24,7 @@ export const schema = gql`
   }
 
   type Query {
-    hubs: [Hub!]! @requireAuth
+    hubs(filter: String, skip: Int, take: Int): [Hub!]! @requireAuth
     hub(id: Int!): Hub @requireAuth
   }
 
@@ -34,6 +38,7 @@ export const schema = gql`
     rules: JSON
     description: String
     status: Status
+    ownerId: Int!
   }
 
   input UpdateHubInput {
@@ -46,6 +51,7 @@ export const schema = gql`
     rules: JSON
     description: String
     status: Status
+    ownerId: Int
   }
 
   type Mutation {
