@@ -12,6 +12,7 @@ export type MapViewProps = {
   className?: string
   mapProps?: Record<string, unknown>
   data?: TPoiInputData[]
+  onMapReady?: (payload: unknown) => void
   children?: (payload?: Record<string, unknown>) => React.ReactElement
 }
 
@@ -20,6 +21,7 @@ export function MapView({
   className,
   mapProps,
   data,
+  onMapReady,
   children,
 }: MapViewProps) {
   const mapRef = useRef()
@@ -56,13 +58,18 @@ export function MapView({
     >
       <GoogleMapReact
         onChange={onChange}
-        bootstrapURLKeys={{ key: apiKey }}
+        bootstrapURLKeys={{
+          key: apiKey,
+          libraries: ['places'],
+          version: 'weekly',
+        }}
         defaultCenter={mapProps?.center}
         defaultZoom={mapProps?.zoom}
         options={{ styles: darkStyle }}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map }) => {
           mapRef.current = map
+          onMapReady && onMapReady(map)
         }}
       >
         {clusters?.length &&
