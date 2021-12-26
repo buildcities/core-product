@@ -19,13 +19,11 @@ const HubContactPage = () => {
         sideBar={<MessagesLeft data={messagesData} />}
       >
         <MetaTags title="HubContact" />
-        <div>
-          <MessagesRight
-            data={[dataUser, dataOwner]}
-            locationImage={locationImage}
-            dataContact={dataContact}
-          />
-        </div>
+        <MessagesRight
+          data={[dataUser, dataOwner]}
+          locationImage={locationImage}
+          dataContact={dataContact}
+        />
       </TwoColumnLayoutLayout>
     </>
   )
