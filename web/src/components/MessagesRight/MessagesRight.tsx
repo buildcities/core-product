@@ -15,7 +15,6 @@ const MessagesRight = ({
   dataContact,
   locationImage,
 }: MessagesRightProps) => {
-  console.log(dataContact)
   return (
     <>
       <MessagesHeader
