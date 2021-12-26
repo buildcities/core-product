@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import MessageThread from './MessageThread'
+import UserMessage from './UserMessage'
 
-describe('MessageThread', () => {
+describe('UserMessage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<MessageThread />)
+      render(<UserMessage />)
     }).not.toThrow()
   })
 })

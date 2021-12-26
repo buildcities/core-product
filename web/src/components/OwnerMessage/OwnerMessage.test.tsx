@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import ThreadMessages from './ThreadMessages'
+import OwnerMessage from './OwnerMessage'
 
-describe('ThreadMessages', () => {
+describe('OwnerMessage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ThreadMessages />)
+      render(<OwnerMessage />)
     }).not.toThrow()
   })
 })
