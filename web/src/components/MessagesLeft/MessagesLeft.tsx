@@ -1,11 +1,11 @@
 import React from 'react'
 import Message from './Message/Message'
 
-type MessagesProps = {
+type MessagesLeftProps = {
   data
 }
 
-const Messages = ({ data }: MessagesProps) => {
+const MessagesLeft = ({ data }: MessagesLeftProps) => {
   return (
     <>
       <h1 className="text-white text-2xl font-sans mb-4">Messages</h1>
@@ -20,4 +20,4 @@ const Messages = ({ data }: MessagesProps) => {
   )
 }
 
-export default Messages
+export default MessagesLeft

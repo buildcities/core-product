@@ -1,5 +1,5 @@
-import User1 from 'src/components/Messages/user1.png'
-import User2 from 'src/components/Messages/user2.png'
+import User1 from 'src/components/MessagesLeft/user1.png'
+import User2 from 'src/components/MessagesLeft/user2.png'
 
 export const ADDRESS = '0x000...0212'
 export const MESSAGE = 'Sure Johnny, bring good attitude and winning smile'

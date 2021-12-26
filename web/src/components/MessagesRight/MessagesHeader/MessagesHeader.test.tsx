@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import Messages from './Messages'
+import MessagesHeader from './MessagesHeader'
 
-describe('Messages', () => {
+describe('MessagesHeader', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Messages />)
+      render(<MessagesHeader />)
     }).not.toThrow()
   })
 })

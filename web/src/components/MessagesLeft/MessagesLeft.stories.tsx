@@ -1,7 +1,7 @@
-import Messages from './Messages'
+import MessagesLeft from './MessagesLeft'
 
 export const generated = () => {
-  return <Messages />
+  return <MessagesLeft />
 }
 
 export default { title: 'Components/Messages' }

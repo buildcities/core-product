@@ -14,7 +14,6 @@ type UserMessageProps = {
 const UserMessage = ({ time, message, address, avatar }: UserMessageProps) => {
   return (
     <>
-      {console.log(time, message, address, avatar)}
       <div className="text-[#777777] text-xs flex justify-center font-sans mx-auto mb-2 pt-4">
         {time}
       </div>
