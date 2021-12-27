@@ -10,6 +10,8 @@ import {
 } from '../../components/MessagesRight/presets'
 import locationImage from './locationImage.png'
 
+console.log(dataRightSide, messagesData)
+
 const HubContactPage = () => {
   return (
     <>

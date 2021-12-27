@@ -10,7 +10,7 @@ type MessagesHeaderProps = {
 const MessagesHeader = ({ location, locationImage }: MessagesHeaderProps) => {
   console.log(location)
   return (
-    <div className="grid grid-flow-col-dense grid-cols-3 grid-rows-1 ml-96">
+    <div className="grid grid-flow-col-dense grid-cols-3 grid-rows-1">
       <div className="col-span1">
         <img src={locationImage} alt={`${locationImage}`}></img>
       </div>

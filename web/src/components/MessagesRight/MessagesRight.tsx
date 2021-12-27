@@ -14,26 +14,23 @@ const MessagesRight = ({
   dataContact,
   locationImage,
 }: MessagesRightProps) => {
-  console.log(data)
   return (
     <>
-      <MessagesHeader
-        location={dataContact[0].location}
-        locationImage={locationImage}
-      />
-      <div className="ml-96 mr-4">
-        <div className="text-white w-full">
-          {data.map((listing) =>
-            Object.keys(listing).map((listingName, index) => (
-              <UserMessage
-                locationImage={locationImage}
-                location={location}
-                {...listing[listingName]}
-                key={index}
-              />
-            ))
-          )}
-        </div>
+      <div className="w-full">
+        <MessagesHeader
+          location={dataContact[0].location}
+          locationImage={locationImage}
+        />
+        {data.map((listing) =>
+          Object.keys(listing).map((listingName, index) => (
+            <UserMessage
+              locationImage={locationImage}
+              location={location}
+              {...listing[listingName]}
+              key={index}
+            />
+          ))
+        )}
         <MessageInput
           avatar={data[0].message1.avatar}
           address={data[0].message1.address}
