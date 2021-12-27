@@ -9,8 +9,8 @@ type MessageInputProps = {
 
 const MessageInput = ({ avatar, address }: MessageInputProps) => {
   return (
-    <div className="relative">
-      <div className="block fixed bottom-[30px] w-1/2 max-w-[816px] mr-96 items-bottom bg-[#171717] rounded-xl px-4 py-2">
+    <div className="flex">
+      <div className="block fixed bottom-[30px] w-1/2 max-w-[814px] items-bottom bg-[#171717] rounded-xl px-4 py-2">
         <div className="flex items-end justify-left">
           <div className="items-center grid grid-rows-2 grid-flow-col text-left border-solid border-1 border-white">
             <img
