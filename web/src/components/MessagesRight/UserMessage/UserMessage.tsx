@@ -4,7 +4,7 @@ export const ADDRESS = '0x000...0212'
 export const MESSAGE = 'Sure Johnny, bring good attitude and winning smile'
 
 type UserMessageProps = {
-  userdata?: any
+  userdata
   time?: string
   message?: string
   address?: string

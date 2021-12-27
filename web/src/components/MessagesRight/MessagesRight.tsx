@@ -15,6 +15,7 @@ const MessagesRight = ({
   dataContact,
   locationImage,
 }: MessagesRightProps) => {
+  console.log(data)
   return (
     <>
       <MessagesHeader
@@ -49,6 +50,7 @@ const MessagesRight = ({
         <MessageInput
           avatar={data[0][0].message1.avatar}
           address={data[0][0].message1.address}
+          type={data[0][0].message1.type}
         />
       </div>
     </>

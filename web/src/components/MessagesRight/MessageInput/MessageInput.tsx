@@ -1,9 +1,10 @@
 import React from 'react'
 
 type MessageInputProps = {
-  data?: any
-  avatar?: any
+  data?: Array<string>
+  avatar?: string
   address?: string
+  type?: string
 }
 
 const MessageInput = ({ avatar, address }: MessageInputProps) => {
@@ -18,9 +19,11 @@ const MessageInput = ({ avatar, address }: MessageInputProps) => {
               className="row-span-2 mr-4 mt-1 mb-1 w-16 h-16 border border-white rounded-full my-auto"
             />
             <div className="w-full grow right-auto left-0 overflow-hidden row-span-2 col-span-1 text-white items-start">
-              <p className="truncate text-ellipsis text-[#E8E8E8] text-sm no">
-                Type a message
-              </p>
+              <input
+                className="truncate text-ellipsis text-[#E8E8E8] text-sm no bg-[#171717] border-0"
+                placeholder="Type a message"
+                type="text"
+              ></input>
             </div>
             <div className="right-0 mr-0 left-auto"></div>
             <div className="ml-auto justify-items-end text-xs row-end-3 text-gray-700 "></div>
