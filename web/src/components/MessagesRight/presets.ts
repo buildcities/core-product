@@ -24,7 +24,7 @@ export const dataRightSide = [
       avatar: Owner1,
       name: 'lelele.eth',
       message: 'Sure Johny, bring good attitude and smile!',
-      date: '20/12/2021',
+      time: '11:21pm',
       type: 'owner',
     },
     message3: {
