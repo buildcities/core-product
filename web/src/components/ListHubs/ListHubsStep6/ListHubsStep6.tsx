@@ -2,7 +2,11 @@ import { Form, TextAreaField, useForm } from '@redwoodjs/forms'
 import React from 'react'
 import SelectButtons from '../../SelectButtons/SelectButtons'
 import FormSection from '../../FormSection/FormSection'
-import { TextInputArea } from '@buildcities/build-ui.components.all'
+import {
+  TextInputArea,
+  Card,
+  Paragraph,
+} from '@buildcities/build-ui.components.all'
 import ListHubsHOC from '../../HOC/listHubsHOC'
 import {
   RULES_SECTION_TITLE,
@@ -24,15 +28,20 @@ const ListHubsStep6 = ({ data, stepId, updateStepData, onFormSubmit }) => {
     <Form
       formMethods={formMethods}
       onSubmit={onSubmit}
-      className="space-y-2 w-auto max-w-[660px]"
+      className="space-y-2 w-full max-w-[660px]"
     >
       <FormSection description={RULES_SECTION_TEXT} title={RULES_SECTION_TITLE}>
         <SelectButtons
-          label=" "
-          className="mb-4"
+          className="space-y-4"
           selectProps={selectOptions}
           name="rules.default"
-        />
+        >
+          {({ label }) => (
+            <Card text="" className="" isActive>
+              <Paragraph className="text-mainText mt-2" text={label} />
+            </Card>
+          )}
+        </SelectButtons>
       </FormSection>
       <FormSection
         description={CUSTOM_RULES_SECTION_TEXT}

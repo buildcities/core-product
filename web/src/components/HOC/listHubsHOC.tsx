@@ -6,6 +6,8 @@ import { TListHubsComponentProps } from 'src/utils/types'
 import { useMutation } from '@redwoodjs/web'
 import { CREATE_HUB } from './mutation'
 import { toast } from '@redwoodjs/web/toast'
+import { getUserId } from 'src/utils/functions'
+import { useAuth } from '@redwoodjs/auth'
 
 export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
   const HOCComponent = ({ stepId }: { stepId?: number }) => {
@@ -16,19 +18,33 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
     const getStepsData = useStore(
       useCallback((state) => state.getStepsData, [])
     )
+    const { userMetadata } = useAuth()
 
     const setIsBusy = useStore(useCallback((state) => state.setIsBusy, []))
 
-    const [create, { loading }] = useMutation(CREATE_HUB)
+    const [create, { loading, error }] = useMutation(CREATE_HUB)
+
+    useEffect(() => {
+      if (error) {
+        console.log(error)
+      }
+      return () => {}
+    }, [error])
 
     const onFormSubmit = useCallback(() => {
       if (_stepId == 5) {
+        //console.log(getStepsData(getUserId(userMetadata)))
         //upload to cloud repo here at step 6
-        toast.promise(create({ variables: { input: getStepsData() } }), {
-          loading: 'loading',
-          success: 'Hub successfully added!',
-          error: 'Opps! Hub listing failed to post!',
-        })
+        toast.promise(
+          create({
+            variables: { input: getStepsData(getUserId(userMetadata)) },
+          }),
+          {
+            loading: 'loading',
+            success: 'Hub successfully added!',
+            error: 'Opps! Hub listing failed to post!',
+          }
+        )
         //console.log(getStepsData())
       }
       navigate(routes.listHubs({ stepId: _stepId + 1 }))

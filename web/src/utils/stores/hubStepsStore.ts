@@ -11,19 +11,23 @@ export type TUpdateStepDataActionProps = {
 }
 
 interface TStore {
+  getCurrentHubName: () => string
   listHubsSteps: TListHubsSteps[]
   stepId?: number
   isBusy?: boolean
   updateStepData: ({ stepId, data, status }: TUpdateStepDataActionProps) => void
-  getStepsData: () => ThubListData
+  getStepsData: (ownerId: string) => ThubListData
   setIsBusy: (isBusy: boolean) => void
 }
 
 export const useStore = create<TStore>((set, get) => ({
   listHubsSteps,
-  getStepsData: () =>
+  getCurrentHubName: () => {
+    return get().listHubsSteps[1].data.name
+  },
+  getStepsData: (ownerId) =>
     get().listHubsSteps.reduce((acc, val) => {
-      return { ...acc, ...val.data }
+      return { ...acc, ...val.data, ownerId }
     }, {}),
   updateStepData: (props) =>
     set(

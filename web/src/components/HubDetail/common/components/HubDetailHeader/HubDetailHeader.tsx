@@ -19,10 +19,10 @@ const HubDetailHeader = ({
   subTitleClass,
 }: HubDetailHeaderProps) => {
   return (
-    <div className={classNames('pb-6', containerClass)}>
+    <div className={classNames('pb-6 text-mainText', containerClass)}>
       <Heading className={className} text={title} type="H1" />
-      <span className="flex">
-        <IconItem icon="pin" />
+      <span className="flex items-center">
+        <IconItem icon="pin" className="w-5 h-5 mr-2" />
         <Paragraph className={subTitleClass} text={subTitle} />
       </span>
     </div>

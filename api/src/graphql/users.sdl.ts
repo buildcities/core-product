@@ -1,6 +1,5 @@
 export const schema = gql`
   type User {
-    id: Int!
     uuid: String!
     guildId: String!
     createdAt: DateTime!

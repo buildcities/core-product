@@ -1,6 +1,8 @@
-import type { FindHubQuery } from 'types/graphql'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { FindHubQuery, Hub } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
-
+import BookReservation from 'src/components/HubDetail/BookReservation/BookReservation'
+import { useStore } from 'src/utils/stores/bookReservationStore'
 export const QUERY = gql`
   query FindHubQuery($id: Int!) {
     hub: hub(id: $id) {
@@ -25,5 +27,14 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ hub }: CellSuccessProps<FindHubQuery>) => {
-  return <div>{JSON.stringify(hub)}</div>
+  const setSelectedHub = useStore((store) => store.setSelectedHub)
+  setSelectedHub(hub as Hub)
+  return (
+    <BookReservation
+      name={hub.name}
+      location={hub?.location?.city as string}
+      images={hub?.images as any}
+      amenities={hub?.amenities}
+    />
+  )
 }

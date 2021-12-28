@@ -1,24 +1,10 @@
-import BookReservation from 'src/components/HubDetail/BookReservation/BookReservation'
+import BookReservationCell from 'src/components/HubCell'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 
-const images = [
-  {
-    dataURL:
-      'https://images.pexels.com/photos/1444424/pexels-photo-1444424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  },
-  {
-    dataURL:
-      'https://images.pexels.com/photos/1517145/pexels-photo-1517145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  },
-  {
-    dataURL:
-      'https://images.pexels.com/photos/1827054/pexels-photo-1827054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-  },
-]
-const ConfirmReservationPage = () => {
+const ConfirmReservationPage = ({ id }) => {
   return (
     <SingleColumnLayout metaTitle="Confirm-reservation">
-      <BookReservation images={images} />
+      <BookReservationCell id={id} />
     </SingleColumnLayout>
   )
 }

@@ -27,13 +27,15 @@ const ListHubsPage = ({ stepId }: ListHubsPageProps) => {
       metaTitle="List Hubs"
       sideBar={<Steps steps={hubSteps} />}
     >
-      {(!stepId || stepId == 0) && <ListHubsStep1 stepId={stepId} />}
-      {stepId == 1 && <ListHubsStep2 stepId={stepId} />}
-      {stepId == 2 && <ListHubsStep3 stepId={stepId} />}
-      {stepId == 3 && <ListHubsStep4 stepId={stepId} />}
-      {stepId == 4 && <ListHubsStep5 stepId={stepId} />}
-      {stepId == 5 && <ListHubsStep6 stepId={stepId} />}
-      {stepId == 6 && <ListHubsStep7 stepId={stepId} />}
+      <div className="mb-5">
+        {(!stepId || stepId == 0) && <ListHubsStep1 stepId={stepId} />}
+        {stepId == 1 && <ListHubsStep2 stepId={stepId} />}
+        {stepId == 2 && <ListHubsStep3 stepId={stepId} />}
+        {stepId == 3 && <ListHubsStep4 stepId={stepId} />}
+        {stepId == 4 && <ListHubsStep5 stepId={stepId} />}
+        {stepId == 5 && <ListHubsStep6 stepId={stepId} />}
+        {stepId == 6 && <ListHubsStep7 stepId={stepId} />}
+      </div>
     </TwoColumnLayoutLayout>
   )
 }

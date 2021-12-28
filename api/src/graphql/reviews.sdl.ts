@@ -5,7 +5,7 @@ export const schema = gql`
     comments: String!
     owner: User!
     hub: Hub!
-    ownerId: Int!
+    ownerId: String!
     hubId: Int!
   }
 
@@ -17,14 +17,14 @@ export const schema = gql`
   input CreateReviewInput {
     rating: Int!
     comments: String!
-    ownerId: Int!
+    ownerId: String!
     hubId: Int!
   }
 
   input UpdateReviewInput {
     rating: Int
     comments: String
-    ownerId: Int
+    ownerId: String
     hubId: Int
   }
 

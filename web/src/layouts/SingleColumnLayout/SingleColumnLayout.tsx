@@ -19,7 +19,7 @@ const SingleColumnLayout = ({
       <LayoutHeader />
 
       <main className="max-w-7xl  pt-10 mx-auto flex flex-cols ">
-        <div className="max-w-7xl mx-auto  px-4 sm:px-6  lg:px-8">
+        <div className="max-w-7xl mx-auto mb-5 px-4 sm:px-6  lg:px-8">
           {children}
         </div>
       </main>

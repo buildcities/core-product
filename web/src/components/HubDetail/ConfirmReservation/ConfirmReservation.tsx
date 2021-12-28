@@ -21,25 +21,29 @@ const ConfirmReservation = ({
   image,
   onQRDownload,
 }: ConfirmReservationProps) => {
-  const { checkInDate, checkOutDate } = useStore((store) => ({ ...store }))
-
+  const { checkInDate, checkOutDate, selectedHub } = useStore((store) => ({
+    ...store,
+  }))
+  const _image = selectedHub?.images[0]['dataURL'] || image
   return (
-    <HubDetailContainer
-      subTitle={location}
-      title={name}
-      renderRight={() => (
-        <>
-          <DateSection
-            checkInDate={checkInDate.format(DATE_FORMAT)}
-            checkOutDate={checkOutDate.format(DATE_FORMAT)}
-          />
-          <QRCodeSection onQRDownload={onQRDownload} code="test code" />
-          <LeaveNoteSection />
-        </>
-      )}
-    >
-      <HubImage altText={name} hubImage={image} />
-    </HubDetailContainer>
+    <>
+      <HubDetailContainer
+        subTitle={(selectedHub?.location?.city as string) || location}
+        title={selectedHub?.name || name}
+        renderRight={() => (
+          <>
+            <DateSection
+              checkInDate={checkInDate.format(DATE_FORMAT)}
+              checkOutDate={checkOutDate.format(DATE_FORMAT)}
+            />
+            <QRCodeSection onQRDownload={onQRDownload} code="test code" />
+            <LeaveNoteSection />
+          </>
+        )}
+      >
+        <HubImage altText={name || name} hubImage={_image} />
+      </HubDetailContainer>
+    </>
   )
 }
 

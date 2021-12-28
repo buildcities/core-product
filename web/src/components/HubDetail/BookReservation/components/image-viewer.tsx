@@ -1,5 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import classNames from 'classnames'
-import React from 'react'
+import React, { useCallback, useState } from 'react'
+import ModalView from 'src/components/bit.dev/modalview'
+import ImageGallery from '../../common/components/ImageGallery/ImageGallery'
 
 type ImageViewerProps = {
   images: { dataURL: string }[]
@@ -7,34 +10,48 @@ type ImageViewerProps = {
 }
 
 export default function ImageViewer({ images, className }: ImageViewerProps) {
+  const [open, setOpen] = useState(false)
+  const _onClick = useCallback(() => setOpen(true), [open])
   return (
-    <div
-      className={classNames(
-        'grid grid-cols-1 md:grid-cols-3 md:gap-4 xs:gap-y-4',
-        className
-      )}
-    >
-      {images?.length &&
-        images.map((item, indx) => (
-          <button
-            key={indx}
-            className={classNames(
-              'h-max',
-              indx == 0 ? 'md:col-span-2 md:row-span-2' : ''
-            )}
-          >
-            <img
+    <div>
+      <div
+        className={classNames(
+          ' grid grid-cols-1 md:grid-cols-3 md:gap-4 xs:gap-y-4',
+          className
+        )}
+      >
+        {images?.length &&
+          images.slice(0, 3).map((item, indx) => (
+            <button
+              key={indx}
+              onClick={_onClick}
               className={classNames(
-                indx == 0
-                  ? 'md:w-[520px] md:h-[460px]'
-                  : 'md:h-[222px] md:w-[250px] md:block hidden',
-                'object-fill object-center rounded-lg'
+                'h-max',
+                indx == 0 ? 'md:col-span-2 md:row-span-2' : ''
               )}
-              src={item.dataURL}
-              alt=""
-            />
-          </button>
-        ))}
+            >
+              <div className="relative group">
+                <img
+                  className={classNames(
+                    indx == 0
+                      ? 'md:w-[520px] md:h-[460px]'
+                      : 'md:h-[222px] md:w-[250px] md:block hidden',
+                    'object-cover w-full  rounded-lg group-hover:opacity-75'
+                  )}
+                  src={item.dataURL}
+                  alt=""
+                />
+                <div
+                  aria-hidden="true"
+                  className="bg-gradient-to-b from-transparent to-black opacity-50 absolute top-0 w-full h-full"
+                />
+              </div>
+            </button>
+          ))}
+      </div>
+      <ModalView open={open} setOpen={setOpen}>
+        <ImageGallery />
+      </ModalView>
     </div>
   )
 }

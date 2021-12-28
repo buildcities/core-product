@@ -87,13 +87,11 @@ export function MapView({
                 onClick={handleClusterClick(cluster, lat, lng, mapRef)}
               />
             ) : (
-              <>
-                <PointMarker key={indx} lng={lng} lat={lat}>
-                  {({ close, open }) =>
-                    children && children({ data, close, open })
-                  }
-                </PointMarker>
-              </>
+              <PointMarker key={indx} lng={lng} lat={lat}>
+                {({ close, open }) =>
+                  children && children({ data, close, open })
+                }
+              </PointMarker>
             )
           })}
       </GoogleMapReact>

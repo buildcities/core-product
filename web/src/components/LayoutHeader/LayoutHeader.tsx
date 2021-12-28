@@ -27,7 +27,11 @@ const LayoutHeader = ({ showMenu }: LayoutHeaderProps) => {
         </button>
       )}
       <Link to={routes.viewHubs()} className="flex-grow ">
-        <Heading type="H4" text={'build_'} className="text-white block  " />
+        <Heading
+          type="H4"
+          text={'build_'}
+          className="text-white block font-fira "
+        />
       </Link>
 
       <div className="flex-shrink  justify-self-end">

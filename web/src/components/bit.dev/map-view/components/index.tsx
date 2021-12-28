@@ -1,4 +1,4 @@
-import { Disclosure } from '@headlessui/react'
+import { Popover } from '@headlessui/react'
 import classnames from 'classnames'
 import React from 'react'
 import { getClusterSize, TPointReturnValue } from '../utils'
@@ -55,7 +55,7 @@ export const ClusterMarker = ({
 
 export const PointMarker: React.FC<MarkerProps> = ({ children }) => {
   return (
-    <Disclosure>
+    <Popover>
       {({ open }) => (
         <div className="relative group">
           <div
@@ -64,7 +64,7 @@ export const PointMarker: React.FC<MarkerProps> = ({ children }) => {
               open ? 'bg-selected' : 'bg-blue-500'
             )}
           ></div>
-          <Disclosure.Button
+          <Popover.Button
             className={classnames(
               'p-1 relative rounded-full w-5 h-5  group-hover:bg-selected',
               open ? 'bg-selected' : 'bg-normal'
@@ -76,12 +76,12 @@ export const PointMarker: React.FC<MarkerProps> = ({ children }) => {
                 open ? 'bg-[#AE9EFF]' : 'bg-white'
               )}
             />
-          </Disclosure.Button>
-          <Disclosure.Panel>
+          </Popover.Button>
+          <Popover.Panel>
             {({ close, open }) => children({ close, open })}
-          </Disclosure.Panel>
+          </Popover.Panel>
         </div>
       )}
-    </Disclosure>
+    </Popover>
   )
 }
