@@ -30,7 +30,7 @@ const HomePage = () => {
     await logIn({ provider, scopes })
   }
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (data) {
       if (data?.isDiscordMember?.isMember) {
         console.log(data?.isDiscordMember?.isMember)
@@ -43,7 +43,7 @@ const HomePage = () => {
       logOut()
     }
     toastId && toast.dismiss(toastId)
-  }, [data, error])
+  }, [data, error]) */
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -54,6 +54,15 @@ const HomePage = () => {
           guildId: process.env.BUILD_DISCORD_GUILD_ID,
         }),
       })
+        .then((result) => {
+          if (result.data?.isDiscordMember?.isMember) {
+            navigate(routes.viewHubs())
+            toastId && toast.dismiss(toastId)
+          }
+        })
+        .catch(() => {
+          toastId = toast.error(error.message, { id: toastId })
+        })
     }
   }, [isAuthenticated])
 
