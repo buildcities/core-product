@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Heading, Button } from '@buildcities/build-ui.components.all'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
