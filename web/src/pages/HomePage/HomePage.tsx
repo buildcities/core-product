@@ -37,7 +37,7 @@ const HomePage = () => {
     }
     if (error) {
       toastId = toast.error(error.message, { id: toastId })
-      logOut()
+      //logOut()
     }
     toastId && toast.dismiss(toastId)
   }, [data, error])
