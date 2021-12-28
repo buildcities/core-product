@@ -33,12 +33,14 @@ const HomePage = () => {
   useEffect(() => {
     if (data) {
       if (data?.isDiscordMember?.isMember) {
+        console.log(data?.isDiscordMember?.isMember)
         navigate(routes.viewHubs())
       }
     }
     if (error) {
       toastId = toast.error(error.message, { id: toastId })
-      //logOut()
+      //console.log(error.message)
+      logOut()
     }
     toastId && toast.dismiss(toastId)
   }, [data, error])
@@ -59,19 +61,14 @@ const HomePage = () => {
     <SingleColumnLayout metaTitle="Home">
       <div className="flex flex-col  justify-center items-center">
         <GlobeIcon className=" w-[140px] md:w-[185px] mb-6 md:mb-8 lg:w-[285px]" />
-        {(!isAuthenticated || (data && !data.isDiscordMember.isMember)) && (
-          <Heading
-            type="H3"
-            className="text-mainText mb-6 md:mb-8 H5 md:H4 lg:H3 text-center block max-w-[464px]"
-            text={VERIFY_DISCORD_MEMBERSHIP_TEXT}
-          />
-        )}
-        {data && !data.isDiscordMember.isMember && (
-          <Button onClick={onClick} text={VERIFY_DISCORD_CTA_TEXT} />
-        )}
-        {!isAuthenticated && (
-          <Button onClick={onClick} text={LOGIN_DISCORD_CTA_TEXT} />
-        )}
+
+        <Heading
+          type="H3"
+          className="text-mainText mb-6 md:mb-8 H5 md:H4 lg:H3 text-center block max-w-[464px]"
+          text={VERIFY_DISCORD_MEMBERSHIP_TEXT}
+        />
+
+        <Button onClick={onClick} text={LOGIN_DISCORD_CTA_TEXT} />
       </div>
       )
     </SingleColumnLayout>
