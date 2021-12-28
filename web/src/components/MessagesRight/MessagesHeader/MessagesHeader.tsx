@@ -8,14 +8,13 @@ type MessagesHeaderProps = {
 }
 
 const MessagesHeader = ({ location, locationImage }: MessagesHeaderProps) => {
-  console.log(location)
   return (
     <div className="grid grid-flow-col-dense grid-cols-3 grid-rows-1">
-      <div className="col-span1">
+      <div className="col-span-1">
         <img src={locationImage} alt={`${locationImage}`}></img>
       </div>
       <div className="col-span-2">
-        <span className="text-white mb-4 font-bold text-3xl font-sans ml-6">
+        <span className="text-white mb-4 font-bold md:text-xl lg:text-3xl font-sans ml-6">
           Awesome place to stay
         </span>
         <div className="inline-flex ml-6 mt-2">
@@ -24,7 +23,7 @@ const MessagesHeader = ({ location, locationImage }: MessagesHeaderProps) => {
           </div>
           <div className="ml-2 text-white text-sm">{location}</div>
         </div>
-        <div className="text-white ml-6 mr-20">
+        <div className="text-white ml-6">
           <CheckInDates />
         </div>
       </div>

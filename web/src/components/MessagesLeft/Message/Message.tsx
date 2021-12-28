@@ -10,6 +10,7 @@ const Message = ({ date, avatar, address, message, active }: MessageProps) => {
   return (
     <>
       <div
+        id="activeLeft"
         className={`${
           active ? 'bg-[#171717]' : 'bg-inherit'
         } rounded-xl w-full p-4 grid grid-rows-2 grid-flow-col text-left border-solid border-white border-1 mb-4`}

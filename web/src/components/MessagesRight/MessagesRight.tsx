@@ -2,6 +2,7 @@ import React from 'react'
 import UserMessage from './UserMessage/UserMessage'
 import MessagesHeader from './MessagesHeader/MessagesHeader'
 import MessageInput from './MessageInput/MessageInput'
+import MobileMsgHeader from '../MessagesLeft/MobileMsgHeader/MobileMsgHeader'
 
 type MessagesRightProps = {
   data
@@ -16,7 +17,8 @@ const MessagesRight = ({
 }: MessagesRightProps) => {
   return (
     <>
-      <div className="w-full">
+      <div className="w-full h-full relative">
+        {window.innerWidth < 768 && <MobileMsgHeader data={data} />}
         <MessagesHeader
           location={dataContact[0].location}
           locationImage={locationImage}
