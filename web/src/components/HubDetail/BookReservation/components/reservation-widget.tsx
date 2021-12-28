@@ -11,7 +11,7 @@ type ReservatioWidgetProps = {
   onClick?: () => void
 }
 
-export default function ReservatioWidget({
+export default function ReservationWidget({
   className,
   onClick,
 }: ReservatioWidgetProps) {

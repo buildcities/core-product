@@ -11,6 +11,7 @@ export type TListHubsComponentProps = {
 }
 
 export type ThubListData = {
+  name?: string
   location?: string
   type?: { estate?: string; seats?: string | number }
   amenities?: amenitiesProps

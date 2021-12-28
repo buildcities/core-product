@@ -82,12 +82,16 @@ export function GoogleAddressAutocomplete({
 
   const prepareResult = async (address) => {
     const results = await geocodeByAddress(address)
+    console.log(results)
     const country = results[0].address_components.find(
       (item) => item.types[0] == 'country'
     ).long_name
+    const city = results[0].address_components.find(
+      (item) => item.types[0] == 'administrative_area_level_1'
+    ).long_name
     const continent = continentsByCountry[country]
     const { lat, lng } = await getLatLng(results[0])
-    return { title: address, lat, lng, country, continent }
+    return { title: address, lat, lng, country, continent, city }
   }
 
   useEffect(() => {

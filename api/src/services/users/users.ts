@@ -7,19 +7,19 @@ export const users = () => {
   return db.user.findMany()
 }
 
-export const user = ({ id }: Prisma.UserWhereUniqueInput) => {
+export const user = ({ uuid }: Prisma.UserWhereUniqueInput) => {
   return db.user.findUnique({
-    where: { id },
+    where: { uuid },
   })
 }
 
 export const User = {
   userRoles: (_obj, { root }: ResolverArgs<ReturnType<typeof user>>) =>
-    db.user.findUnique({ where: { id: root.id } }).userRoles(),
+    db.user.findUnique({ where: { uuid: root.uuid } }).userRoles(),
   reservations: (_obj, { root }: ResolverArgs<ReturnType<typeof user>>) =>
-    db.user.findUnique({ where: { id: root.id } }).reservations(),
+    db.user.findUnique({ where: { uuid: root.uuid } }).reservations(),
   hubs: (_obj, { root }: ResolverArgs<ReturnType<typeof user>>) =>
-    db.user.findUnique({ where: { id: root.id } }).hubs(),
+    db.user.findUnique({ where: { uuid: root.uuid } }).hubs(),
   reviews: (_obj, { root }: ResolverArgs<ReturnType<typeof user>>) =>
-    db.user.findUnique({ where: { id: root.id } }).reviews(),
+    db.user.findUnique({ where: { uuid: root.uuid } }).reviews(),
 }

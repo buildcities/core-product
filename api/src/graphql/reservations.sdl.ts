@@ -9,7 +9,7 @@ export const schema = gql`
     hub: Hub!
     hubId: Int!
     owner: User!
-    ownerId: Int!
+    ownerId: String!
   }
 
   type Query {
@@ -23,7 +23,7 @@ export const schema = gql`
     notes: String
     updateddAt: DateTime!
     hubId: Int!
-    ownerId: Int!
+    ownerId: String!
   }
 
   input UpdateReservationInput {
@@ -32,7 +32,7 @@ export const schema = gql`
     notes: String
     updateddAt: DateTime
     hubId: Int
-    ownerId: Int
+    ownerId: String
   }
 
   type Mutation {
