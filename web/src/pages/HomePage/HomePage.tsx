@@ -30,25 +30,21 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    if (data && !loading) {
+    if (data) {
       if (data?.isDiscordMember?.isMember) {
         navigate(routes.viewHubs())
       }
     }
-    if (error && !loading) {
+    if (error) {
       toastId = toast.error(error.message, { id: toastId })
       logOut()
     }
-    if (loading) {
-      toastId = toast.loading('Verifying membership', { id: toastId })
-    } else {
-      toast.dismiss(toastId)
-    }
-  }, [data, error, loading])
+    toastId && toast.dismiss(toastId)
+  }, [data, error])
 
   useEffect(() => {
     if (isAuthenticated) {
-      //logOut()
+      toastId = toast.loading('validating discord membership!')
       validateMembership({
         variables: prepareQueryVars({
           session: client.auth.currentSession,
