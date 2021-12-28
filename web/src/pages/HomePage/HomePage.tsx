@@ -56,9 +56,10 @@ const HomePage = () => {
       })
         .then((result) => {
           if (result.data?.isDiscordMember?.isMember) {
+            console.log(result.data?.isDiscordMember?.isMember)
             navigate(routes.viewHubs())
-            toastId && toast.dismiss(toastId)
           }
+          toastId && toast.dismiss(toastId)
         })
         .catch(() => {
           toastId = toast.error(error.message, { id: toastId })
