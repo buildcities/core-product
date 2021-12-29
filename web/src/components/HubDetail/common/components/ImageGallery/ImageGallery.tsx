@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import classNames from 'classnames'
 import { useStore } from 'src/utils/stores/bookReservationStore'
 import HubDetailHeader from '../HubDetailHeader/HubDetailHeader'
 type ImageGalleryProps = {
@@ -14,7 +15,12 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         subTitle={selectedHub?.location?.country as string}
         title={selectedHub?.name}
       />
-      <div className="grid sm:grid-cols-2 gap-4 ">
+      <div
+        className={classNames(
+          'grid  gap-4 ',
+          _images.length < 2 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'
+        )}
+      >
         {_images.map((item, key) => (
           <div key={key}>
             <img
