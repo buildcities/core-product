@@ -1,5 +1,4 @@
 import React from 'react'
-import prev from '../leftChevron.png'
 
 type MobileMsgHeaderProps = {
   data?: any

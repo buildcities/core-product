@@ -14,7 +14,7 @@ const MessagesHeader = ({ location, locationImage }: MessagesHeaderProps) => {
         <img src={locationImage} alt={`${locationImage}`}></img>
       </div>
       <div className="col-span-2">
-        <span className="text-white mb-4 font-bold md:text-xl lg:text-3xl font-sans ml-6">
+        <span className="text-white mb-4 font-bold md:text-xl lg:text-3xl whitespace-nowrap font-sans ml-6">
           Awesome place to stay
         </span>
         <div className="inline-flex ml-6 mt-2">

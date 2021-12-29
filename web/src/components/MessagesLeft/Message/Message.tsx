@@ -1,3 +1,5 @@
+import React, { useRef, useEffect, useState } from 'react'
+
 type MessageProps = {
   avatar?: string
   address?: string
@@ -7,13 +9,23 @@ type MessageProps = {
 }
 
 const Message = ({ date, avatar, address, message, active }: MessageProps) => {
+  // const [active, setActive] = useState(null)
+  const buttonRef = useRef()
+
+  const handleClick = (buttonRef) => {
+    const messagesLeft = document.querySelectorAll('button')
+    messagesLeft.forEach((o) => o.classList.remove('bg-[#171717]'))
+    buttonRef.current.classList.add('bg-[#171717]')
+    buttonRef.current.active = true
+  }
+
   return (
     <>
-      <div
+      <button
+        ref={buttonRef}
+        onClick={() => handleClick(buttonRef)}
         id="activeLeft"
-        className={`${
-          active ? 'bg-[#171717]' : 'bg-inherit'
-        } rounded-xl w-full p-4 grid grid-rows-2 grid-flow-col text-left border-solid border-white border-1 mb-4`}
+        className={`ease-in-out duration-300 rounded-xl w-full p-4 hover:bg-neutral-500 grid grid-rows-2 grid-flow-col text-left mb-4`}
       >
         <img
           src={avatar}
@@ -32,7 +44,7 @@ const Message = ({ date, avatar, address, message, active }: MessageProps) => {
         <div className="ml-auto pt-2 justify-items-end text-xs row-end-3 text-gray-700 ">
           <p className="pt-1">{date}</p>
         </div>
-      </div>
+      </button>
     </>
   )
 }
