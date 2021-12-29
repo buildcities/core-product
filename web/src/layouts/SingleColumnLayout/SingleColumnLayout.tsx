@@ -14,7 +14,7 @@ const SingleColumnLayout = ({
   metaDescription,
 }: SingleColumnLagyoutProps) => {
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <MetaTags description={metaDescription} title={metaTitle} />
       <LayoutHeader />
 

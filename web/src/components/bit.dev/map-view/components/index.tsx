@@ -35,7 +35,7 @@ export const ClusterMarker = ({
           height: size,
         }}
         className="absolute opacity-75 group-hover:bg-selected group-hover:opacity-100
-          blur rounded-full bg-blue-500"
+          blur rounded-full bg-notSelected"
       ></div>
       <button
         style={{
@@ -43,9 +43,9 @@ export const ClusterMarker = ({
           height: size,
         }}
         onClick={onClick}
-        className="p-1 relative rounded-full text-xs font-bold text-mainText group-hover:bg-selected bg-normal"
+        className="p-1 relative rounded-full text-xs font-bold text-mainText group-hover:bg-selected bg-notSelected"
       >
-        <div className="bg-cardBackground h-full justify-center flex items-center rounded-full">
+        <div className="bg-white h-full justify-center flex items-center rounded-full">
           {pointCount}
         </div>
       </button>
@@ -61,13 +61,13 @@ export const PointMarker: React.FC<MarkerProps> = ({ children }) => {
           <div
             className={classnames(
               'absolute opacity-75 blur rounded-full w-5 h-5  group-hover:bg-selected',
-              open ? 'bg-selected' : 'bg-blue-500'
+              open ? 'bg-blue' : 'bg-blue'
             )}
           ></div>
           <Popover.Button
             className={classnames(
               'p-1 relative rounded-full w-5 h-5  group-hover:bg-selected',
-              open ? 'bg-selected' : 'bg-normal'
+              open ? 'bg-blue' : 'bg-blue'
             )}
           >
             <div

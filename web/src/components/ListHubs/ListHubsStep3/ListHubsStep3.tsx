@@ -62,24 +62,28 @@ const ListHubsStep3 = ({
               label="Drinks and snacks"
               amenities={amenities.refreshments}
               name="amenities.refreshments"
+              cardProps={{ icon: 'pizza', text: '', isActive: false }}
             />
             <GroupedAmenities
               className="mb-4"
               label="Tech"
               amenities={amenities.tech}
               name="amenities.tech"
+              cardProps={{ icon: 'desktop', text: '', isActive: false }}
             />
             <GroupedAmenities
               className="mb-4"
               label="Furniture"
               amenities={amenities.furniture}
               name="amenities.furniture"
+              cardProps={{ icon: 'bed', text: '', isActive: false }}
             />
             <GroupedAmenities
               className="mb-4 relative"
               label="Other amenities"
               amenities={amenities.other}
               name="amenities.other"
+              cardProps={{ icon: 'paw', text: '', isActive: false }}
             >
               <CustomAmenities
                 onDelete={onDelete}

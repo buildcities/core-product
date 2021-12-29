@@ -16,7 +16,10 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
     <div>
       <div
         className={classNames(
-          ' grid grid-cols-1 md:grid-cols-3 md:gap-4 xs:gap-y-4',
+          ' grid  ',
+          images.length < 2
+            ? 'grid-cols-1'
+            : ' grid-cols-1 md:grid-cols-3 md:gap-4 xs:gap-y-4',
           className
         )}
       >
@@ -27,15 +30,19 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
               onClick={_onClick}
               className={classNames(
                 'h-max',
-                indx == 0 ? 'md:col-span-2 md:row-span-2' : ''
+                indx == 0 && images.length > 1
+                  ? 'md:col-span-2 md:row-span-2'
+                  : ''
               )}
             >
               <div className="relative group">
                 <img
                   className={classNames(
-                    indx == 0
-                      ? 'md:w-[520px] md:h-[460px]'
-                      : 'md:h-[222px] md:w-[250px] md:block hidden',
+                    images.length > 1
+                      ? indx == 0
+                        ? 'md:w-[520px] md:h-[460px]'
+                        : 'md:h-[222px] md:w-[250px] md:block hidden'
+                      : '',
                     'object-cover w-full  rounded-lg group-hover:opacity-75'
                   )}
                   src={item.dataURL}
