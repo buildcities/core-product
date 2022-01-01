@@ -9,6 +9,7 @@ import ControlledInput from '../ControlledInput/ControlledInput'
 
 type FilterButtonsProps = {
   selectProps: FilterButtonProps[] | string[]
+  controlledProps?: Record<string, undefined>
   className?: string
   name: string
   children?: (payload: unknown) => React.ReactElement
@@ -19,6 +20,7 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
   selectProps,
   name,
   className,
+  controlledProps,
   children,
   renderPeer,
 }) => {
@@ -30,7 +32,7 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({
           const _props = isString(props) ? { label: props } : props
           return (
             <div key={index} className="mr-2 mb-2">
-              <ControlledInput name={_name}>
+              <ControlledInput {...controlledProps} name={_name}>
                 {(inputProps) => {
                   return children ? (
                     children({ ..._props, ...inputProps })

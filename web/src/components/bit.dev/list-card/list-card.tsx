@@ -11,6 +11,7 @@ export type PictureCardProps = {
   src?: string
   title: string
   subTitle?: string
+  ownerId?: string
   icon?: string
   className?: string
   isActive?: boolean

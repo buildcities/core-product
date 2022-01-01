@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Steps } from '@buildcities/build-ui.ui.base.steps'
 import TwoColumnLayoutLayout from 'src/layouts/TwoColumnLayoutLayout/TwoColumnLayoutLayout'
 import { useStore } from 'src/utils/stores/hubStepsStore'
@@ -15,11 +16,17 @@ type ListHubsPageProps = {
 }
 
 const ListHubsPage = ({ stepId }: ListHubsPageProps) => {
-  const hubSteps = useStore((state) => state.listHubsSteps)
+  const { hubSteps, prepareSteps } = useStore((state) => ({
+    hubSteps: state.listHubsSteps,
+    prepareSteps: state.prepareSteps,
+  }))
 
   useEffect(() => {
-    console.log('re-rendered')
-    return () => {}
+    prepareSteps()
+    return () => {
+      //console.log('i have left')
+      //reset(true)
+    }
   }, [])
 
   return (

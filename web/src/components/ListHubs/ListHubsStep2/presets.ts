@@ -15,4 +15,7 @@ export const hubTypes = [
   { label: 'Warehouse', value: 'warehouse' },
   { label: 'Factory', value: 'factory' },
   { label: 'Residential', value: 'residential' },
+  { label: 'Cafe', value: 'cafe' },
+  { label: 'Lounge', value: 'lounge' },
+  { label: 'Other', value: 'other' },
 ]

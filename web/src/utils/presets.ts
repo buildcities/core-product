@@ -4,7 +4,51 @@ import { ThubListData } from './types'
 
 export interface TListHubsSteps extends ListHubStepProps {
   data?: ThubListData
+  onClick?: () => void
 }
+
+export const editHubListSteps: TListHubsSteps[] = [
+  {
+    name: '1. Property type',
+    icon: 'home',
+    status: 'upcoming',
+    route: null,
+    as: 'button',
+    data: undefined,
+  },
+  {
+    name: '2. Amenities',
+    icon: 'bed',
+    status: 'upcoming',
+    route: null,
+    as: 'button',
+    data: undefined,
+  },
+  {
+    name: '3. Photos',
+    icon: 'images',
+    status: 'upcoming',
+    route: null,
+    as: 'button',
+    data: undefined,
+  },
+  {
+    name: '4. Dates',
+    icon: 'calendar',
+    status: 'upcoming',
+    route: null,
+    as: 'button',
+    data: undefined,
+  },
+  {
+    name: '5. Rules',
+    icon: 'list',
+    status: 'upcoming',
+    route: null,
+    as: 'button',
+    data: undefined,
+  },
+]
 
 export const listHubsSteps: TListHubsSteps[] = [
   {
@@ -13,7 +57,7 @@ export const listHubsSteps: TListHubsSteps[] = [
     status: 'upcoming',
     route: routes?.listHubs({ stepId: 0 }),
     as: Link,
-    data: { type: { estate: '', seats: 0 } },
+    data: undefined,
   },
   {
     name: '2. Property type',
@@ -21,7 +65,7 @@ export const listHubsSteps: TListHubsSteps[] = [
     status: 'upcoming',
     route: routes?.listHubs({ stepId: 1 }),
     as: Link,
-    data: { type: { estate: '', seats: 0 } },
+    data: { type: { estate: '', seats: undefined } },
   },
   {
     name: '3. Amenities',

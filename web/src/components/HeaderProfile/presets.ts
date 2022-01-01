@@ -6,6 +6,6 @@ export const prepareHeaderMenu: (logOut: () => Promise<void>) => TUserNav[] = (
   return [
     { name: 'Your Profile', href: '#' },
     { name: 'Reservations', href: '#' },
-    { name: 'Sign out', onClick: () => logOut && logOut() },
+    { name: 'Sign out', onClick: logOut },
   ]
 }

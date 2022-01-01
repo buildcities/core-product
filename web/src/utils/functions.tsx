@@ -5,6 +5,7 @@ export const prepareHubForView = (hub: Hub) => ({
   title: hub.name,
   subTitle: hub.location?.country,
   src: hub?.images?.[0]['dataURL'],
+  ownerId: hub?.ownerId,
 })
 
 export const getUserId = (userMetaData: { user_metadata: { provider_id } }) => {

@@ -20,7 +20,7 @@ const HubDetailContainer = ({
         subTitle={subTitle}
         title={title}
       />
-      <div className="flex flex-shrink flex-col lg:flex-row lg:justify-end lg:space-x-10 text-mainText">
+      <div className="flex flex-shrink flex-col lg:flex-row lg:justify-end lg:space-x-5 text-mainText">
         {children}
         <div className="flex-shrink h-max lg:max-w-[372px] mt-4 lg:mt-0 ">
           {renderRight && renderRight()}
