@@ -17,12 +17,16 @@ import {
 import { useEffect } from 'react'
 import { prepareQueryVars } from './utils'
 import { navigate, routes } from '@redwoodjs/router'
+import { useStore } from 'src/utils/stores/authStore'
 
 let toastId
 
 const HomePage = () => {
-  const { logIn } = useAuth()
-  const { isAuthenticated, logOut, client } = useAuth()
+  const { setUser, clearUser } = useStore((store) => ({
+    setUser: store.setUser,
+    clearUser: store.clearUser,
+  }))
+  const { isAuthenticated, logOut, client, currentUser, logIn } = useAuth()
   const [validateMembership, { data, loading, error }] =
     useLazyQuery(DISCORD_MEMBER_QUERY)
 
@@ -30,24 +34,10 @@ const HomePage = () => {
     await logIn({ provider, scopes })
   }
 
-  /* useEffect(() => {
-    if (data) {
-      if (data?.isDiscordMember?.isMember) {
-        console.log(data?.isDiscordMember?.isMember)
-        navigate(routes.viewHubs())
-      }
-    }
-    if (error) {
-      toastId = toast.error(error.message, { id: toastId })
-      //console.log(error.message)
-      logOut()
-    }
-    toastId && toast.dismiss(toastId)
-  }, [data, error]) */
-
   useEffect(() => {
     if (isAuthenticated) {
       toastId = toast.loading('validating discord membership!')
+
       validateMembership({
         variables: prepareQueryVars({
           session: client.auth.currentSession,
@@ -56,14 +46,19 @@ const HomePage = () => {
       })
         .then((result) => {
           if (result.data?.isDiscordMember?.isMember) {
-            console.log(result.data?.isDiscordMember?.isMember)
             navigate(routes.viewHubs())
           }
           toastId && toast.dismiss(toastId)
+          if (result.error) {
+            logOut().then(clearUser)
+          }
         })
         .catch(() => {
           toastId = toast.error(error.message, { id: toastId })
+          logOut().then(clearUser)
         })
+    } else {
+      clearUser()
     }
   }, [isAuthenticated])
 
@@ -80,7 +75,6 @@ const HomePage = () => {
 
         <Button onClick={onClick} text={LOGIN_DISCORD_CTA_TEXT} />
       </div>
-      )
     </SingleColumnLayout>
   )
 }

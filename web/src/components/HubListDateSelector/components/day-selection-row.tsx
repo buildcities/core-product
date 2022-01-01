@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import ToggleSwitch from './toggle-switch'
 import TimePicker from './time-picker'
 import TwentyFourHRSelector from './checkbox'
+import { useWatch } from '@redwoodjs/forms'
 
 type DaySelectionRowProps = {
   day?: string
@@ -9,24 +9,26 @@ type DaySelectionRowProps = {
 
 /* w-full xl:mb-4 mb-8 2xl:flex-nowrap flex-wrap */
 const DaySelectionRow = ({ day }: DaySelectionRowProps) => {
-  const [closed, setClosed] = useState(false)
+  const open = useWatch({ name: `availability.${day}.open` })
+  const is24Hrs = useWatch({ name: `availability.${day}.is24Hrs` })
+
   return (
-    <div className=" justify-between text-mainText items-center space-x-3 flex">
+    <div className=" justify-start text-mainText items-center space-x-3 flex">
       <div className=" flex space-x-4">
         <div className="w-12 md:w-24 font-dmSans font-bold text-lg leading-[28.64px] flex-shrink-0">
           <span className="hidden md:block">{day}</span>
           <span className="block md:hidden">{day.substring(0, 3)}</span>
         </div>
-        <ToggleSwitch day={day} setClosed={setClosed} closed={closed} />
+        <ToggleSwitch name={`availability.${day}.open`} />
       </div>
       <div
         className={`${
-          closed
+          open
             ? 'opacity-100 pointer-events-auto 2xl:h-auto h-12'
             : 'opacity-0 pointer-events-none 2xl:h-auto h-0'
         } flex items-center space-x-4 transition-all duration-300`}
       >
-        <TimePicker day={day} />
+        {!is24Hrs && <TimePicker day={day} />}
         <TwentyFourHRSelector day={day} />
       </div>
     </div>

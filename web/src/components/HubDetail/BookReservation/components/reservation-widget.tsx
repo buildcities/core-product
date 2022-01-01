@@ -20,7 +20,7 @@ export default function ReservationWidget({
   return (
     <div
       className={classNames(
-        'h-[182px]  bg-cardBackground flex-grow flex-shrink-0 p-6 text-mainText rounded-md sm:rounded-lg ',
+        'h-[182px]  bg-cardBackground flex-grow flex-shrink-0 p-4 text-mainText rounded-md sm:rounded-lg ',
         className
       )}
     >
@@ -30,14 +30,14 @@ export default function ReservationWidget({
         className="flex w-full text-left justify-evenly border  mt-6 px-[18px] rounded-lg divide-x divide-[#343434] border-[#343434]"
       >
         <div className="flex-shrink-0  py-4   mr-4 sm:mr-8 flex-1">
-          <Heading type="H4" text={CHECKIN_TEXT} />
+          <Heading type="H5" text={CHECKIN_TEXT} />
           <Paragraph
             className="text-paragraph "
             text={checkInDate?.format(DATE_FORMAT) || ADD_DATE_TEXT}
           />
         </div>
-        <div className="flex-shrink-0 pl-4 flex-1 py-4 mr-2 ">
-          <Heading type="H4" text={CHECKOUT_TEXT} />
+        <div className="flex-shrink-0 pl-4  py-4 mr-2 ">
+          <Heading type="H5" text={CHECKOUT_TEXT} />
           <Paragraph
             className="text-paragraph"
             text={checkOutDate?.format(DATE_FORMAT) || ADD_DATE_TEXT}

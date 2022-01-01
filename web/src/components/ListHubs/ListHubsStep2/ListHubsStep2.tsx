@@ -44,15 +44,17 @@ const ListHubsStep2 = ({
         description={LOCATION_SECTION_TEXT}
         title={LOCATION_SECTION_TITLE}
       >
-        <ControlledInput name="location">
-          {(inputProps) => (
-            <GoogleAddressAutocomplete
-              apiKey={process.env.G_PLACES_API_KEY}
-              inputProps={inputProps}
-              defaultValue={{ title: '' }}
-            />
-          )}
-        </ControlledInput>
+        <FormField label="Location" name={'location'}>
+          <ControlledInput rules={{ required: true }} name="location">
+            {(inputProps) => (
+              <GoogleAddressAutocomplete
+                apiKey={process.env.G_PLACES_API_KEY}
+                inputProps={inputProps}
+                defaultValue={{ title: '' }}
+              />
+            )}
+          </ControlledInput>
+        </FormField>
       </PageSection>
       <PageSection
         description={HUB_NAME_SECTION_TEXT}
@@ -60,7 +62,10 @@ const ListHubsStep2 = ({
       >
         <FormField label="Hub name" name={'name'}>
           <TextInput
-            inputProps={{ placeholder: 'Type your fancy name' }}
+            inputProps={{
+              placeholder: 'Type your fancy name',
+              validation: { required: true },
+            }}
             as={TextField}
             name="name"
           />
@@ -74,6 +79,7 @@ const ListHubsStep2 = ({
           <FormField className="mb-4" label="Estate" name={'type.estate'}>
             <ControlledInput
               defaultValue={hubTypes[0].value}
+              rules={{ required: true }}
               name="type.estate"
             >
               {(inputProps) => (
@@ -83,7 +89,7 @@ const ListHubsStep2 = ({
           </FormField>
           <FormField label="Available seats" name={'type.seats'}>
             <TextInput
-              inputProps={{ placeholder: 5 }}
+              inputProps={{ placeholder: 5, validation: { required: true } }}
               as={TextField}
               name="type.seats"
             />

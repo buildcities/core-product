@@ -16,17 +16,19 @@ const FormField: React.FC<FormFieldProps> = ({
   className,
 }) => {
   return (
-    <div className={classNames('flex-1 flex items-center', className)}>
-      <Label
-        name={name}
-        className={classNames('text-paragraph mr-8 w-16 font-sans font-bold')}
-        errorClassName="text-error"
-      >
-        {label}
-      </Label>
+    <div className={classNames('flex-1 flex items-center ', className)}>
+      {label && (
+        <Label
+          name={name}
+          className={classNames('text-paragraph mr-8 w-16 font-sans font-bold')}
+          errorClassName="text-error mr-8 w-16 font-sans font-bold"
+        >
+          {label}
+        </Label>
+      )}
       <div className="flex-1">
         {children}
-        <FieldError className="text-error" name={name}>
+        <FieldError className="text-error text-xs" name={name}>
           {error}
         </FieldError>
       </div>

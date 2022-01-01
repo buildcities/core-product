@@ -9,21 +9,26 @@ import { useStore } from 'src/utils/stores/bookReservationStore'
 import Amenities from './components/amenities'
 import { amenitiesProps } from 'src/components/ListHubs/ListHubsStep3/presets'
 import { navigate, routes } from '@redwoodjs/router'
+import AdminControls from 'src/components/AdminControls/AdminControls'
 
 type BookReservationProps = {
   images: { dataURL: string }[]
   name?: string
   location?: string
+  ownerId?: string
   amenities?: amenitiesProps
 }
 
 const BookReservation = ({
   images,
   name,
+  ownerId,
   location,
   amenities,
 }: BookReservationProps) => {
-  const setBookingDate = useStore((store) => store.setBookingDate)
+  const { setBookingDate, checkInDate, checkOutDate } = useStore((store) => ({
+    ...store,
+  }))
   const [hide, setHide] = useState(true)
 
   const onClick = () => {
@@ -34,7 +39,7 @@ const BookReservation = ({
     (focus: boolean) => {
       if (!focus && !hide) {
         setHide(true)
-        navigate(routes.confirmReservation())
+        checkInDate && checkOutDate && navigate(routes.confirmReservation())
       }
     },
     [hide]
@@ -61,7 +66,8 @@ const BookReservation = ({
           </div>
         )}
       >
-        <div className="flex space-y-8 flex-col">
+        <div className="flex relative space-y-8 flex-col">
+          <AdminControls ownerId={ownerId} className="absolute z-10 top-10" />
           <ImageViewer images={images} />
           <Amenities amenities={amenities} />
         </div>

@@ -1,12 +1,7 @@
-import { Form, TextAreaField, useForm } from '@redwoodjs/forms'
+import { Form, HiddenField, TextAreaField, useForm } from '@redwoodjs/forms'
 import React from 'react'
-import SelectButtons from '../../SelectButtons/SelectButtons'
 import FormSection from '../../FormSection/FormSection'
-import {
-  TextInputArea,
-  Card,
-  Paragraph,
-} from '@buildcities/build-ui.components.all'
+import { TextInputArea, Paragraph } from '@buildcities/build-ui.components.all'
 import ListHubsHOC from '../../HOC/listHubsHOC'
 import {
   RULES_SECTION_TITLE,
@@ -21,6 +16,7 @@ const ListHubsStep6 = ({ data, stepId, updateStepData, onFormSubmit }) => {
   const formMethods = useForm({ defaultValues: data })
 
   const onSubmit = (data) => {
+    console.log(data)
     updateStepData({ data, stepId })
     onFormSubmit && onFormSubmit()
   }
@@ -31,17 +27,24 @@ const ListHubsStep6 = ({ data, stepId, updateStepData, onFormSubmit }) => {
       className="space-y-2 w-full max-w-[660px]"
     >
       <FormSection description={RULES_SECTION_TEXT} title={RULES_SECTION_TITLE}>
-        <SelectButtons
-          className="space-y-4"
-          selectProps={selectOptions}
-          name="rules.default"
-        >
-          {({ label }) => (
-            <Card text="" className="" isActive>
-              <Paragraph className="text-mainText mt-2" text={label} />
-            </Card>
-          )}
-        </SelectButtons>
+        <div className="space-y-4">
+          {selectOptions.map((option, index) => (
+            <div
+              key={index}
+              className="border s p-3 border-selected rounded-lg w-full bg-cardBackground"
+            >
+              <Paragraph
+                type="P2"
+                className="text-mainText"
+                text={option.label}
+              />
+              <HiddenField
+                defaultValue={option.label}
+                name={`rules.default.${index}`}
+              />
+            </div>
+          ))}
+        </div>
       </FormSection>
       <FormSection
         description={CUSTOM_RULES_SECTION_TEXT}

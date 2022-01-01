@@ -14,6 +14,7 @@ const Routes = () => {
     <Router>
       <Route path="/" page={HomePage} name="home" />
       <Private unauthenticated="home">
+        <Route path="/edit-hub/{id:Int}" page={EditHubPage} name="editHub" />
         <Route path="/book-reservation/{id:Int}" page={BookReservationPage} name="bookReservation" />
         <Route path="/confirm-reservation" page={ConfirmReservationPage} name="confirmReservation" />
         <Route path="/view-hubs" page={ViewHubsPage} name="viewHubs" />

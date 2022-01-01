@@ -16,7 +16,7 @@ export type ThubListData = {
   type?: { estate?: string; seats?: string | number }
   amenities?: amenitiesProps
   images?: string | []
-  availability?: string
+  availability?: Record<string, undefined>
   rules?: { default?: string[]; custom: 'string' }
 }
 

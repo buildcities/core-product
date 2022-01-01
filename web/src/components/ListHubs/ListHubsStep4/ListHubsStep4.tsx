@@ -15,6 +15,7 @@ import { ImagePicker } from 'src/components/bit.dev/image-picker'
 import { useAuth } from '@redwoodjs/auth'
 import { useStore } from 'src/utils/stores/hubStepsStore'
 import { camelCase } from 'lodash'
+import FormField from 'src/components/FormField/FormField'
 const storeSelector = (store) => store.getCurrentHubName
 const ListHubsStep4 = ({
   stepId,
@@ -43,22 +44,24 @@ const ListHubsStep4 = ({
         description={PHOTOS_SECTION_TEXT}
         title={PHOTOS_SECTION_TITLE}
       >
-        <ControlledInput name="images">
-          {(inputProps) => (
-            <ImagePicker
-              firebaseConfigOptions={{
-                apiKey: process.env.FB_API_KEY,
-                appId: process.env.FB_APP_ID,
-                authDomain: process.env.FB_AUTH_DOMAIN,
-                projectId: process.env.FB_PROJECT_ID,
-                storageBucket: process.env.FB_STORAGE_BUCKET,
-              }}
-              images={[]}
-              folderPath={folderPath}
-              inputProps={inputProps}
-            />
-          )}
-        </ControlledInput>
+        <FormField label="" name={'images'}>
+          <ControlledInput rules={{ required: true }} name="images">
+            {(inputProps) => (
+              <ImagePicker
+                firebaseConfigOptions={{
+                  apiKey: process.env.FB_API_KEY,
+                  appId: process.env.FB_APP_ID,
+                  authDomain: process.env.FB_AUTH_DOMAIN,
+                  projectId: process.env.FB_PROJECT_ID,
+                  storageBucket: process.env.FB_STORAGE_BUCKET,
+                }}
+                images={[]}
+                folderPath={folderPath}
+                inputProps={inputProps}
+              />
+            )}
+          </ControlledInput>
+        </FormField>
       </FormSection>
       <FormSection
         description={DESCRIPTION_SECTION_TEXT}

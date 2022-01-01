@@ -16,7 +16,7 @@
     "build": "webpack --config ../node_modules/@redwoodjs/core/config/webpack.production.js"
   },
   "dependencies": {
-    "@buildcities/build-ui.components.all": "^0.0.31",
+    "@buildcities/build-ui.components.all": "^0.0.32",
     "@buildcities/build-ui.tailwind-styles": "^0.0.12",
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
