@@ -23,7 +23,7 @@ const LayoutHeader = ({ showMenu }: LayoutHeaderProps) => {
   useEffect(() => {
     userMetadata && setUser(userMetadata?.user_metadata)
     return () => {
-      console.log('auth exiting')
+      //console.log('auth exiting')
     }
   }, [])
 

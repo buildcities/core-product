@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import BookReservationCell from 'src/components/HubCell'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 

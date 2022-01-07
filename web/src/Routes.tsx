@@ -14,9 +14,10 @@ const Routes = () => {
     <Router>
       <Route path="/" page={HomePage} name="home" />
       <Private unauthenticated="home">
+        <Route path="/change-booking/{id:String}" page={ChangeBookingPage} name="changeBooking" />
         <Route path="/edit-hub/{id:Int}" page={EditHubPage} name="editHub" />
         <Route path="/book-reservation/{id:Int}" page={BookReservationPage} name="bookReservation" />
-        <Route path="/confirm-reservation" page={ConfirmReservationPage} name="confirmReservation" />
+        <Route path="/confirm-reservation/{id:String}" page={ConfirmReservationPage} name="confirmReservation" />
         <Route path="/view-hubs" page={ViewHubsPage} name="viewHubs" />
         <Route path="/list-hubs" page={ListHubsPage} name="listHubs" />
         <Route path="/list-hubs/{stepId:Int}" page={ListHubsPage} name="listHubs" />

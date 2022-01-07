@@ -6,3 +6,4 @@ export const CTA_TEXT = 'Download code'
 export const NOTE_SECTION_TITLE = 'Leave note'
 export const NOTE_SECTION_TEXT =
   'If you didn’t find right rules that suits you, feel free to type your own that build_citizens have to respect.'
+export const QR_ID = 'QRCode'

@@ -1,11 +1,11 @@
 export const schema = gql`
   type Reservation {
-    id: Int!
+    id: String!
     checkInDate: DateTime!
     checkOutDate: DateTime!
     notes: String
     createdAt: DateTime!
-    updateddAt: DateTime!
+    updatedAt: DateTime
     hub: Hub!
     hubId: Int!
     owner: User!
@@ -14,14 +14,14 @@ export const schema = gql`
 
   type Query {
     reservations: [Reservation!]! @requireAuth
-    reservation(id: Int!): Reservation @requireAuth
+    reservation(id: String!): Reservation @requireAuth
   }
 
   input CreateReservationInput {
     checkInDate: DateTime!
     checkOutDate: DateTime!
     notes: String
-    updateddAt: DateTime!
+    updatedAt: DateTime
     hubId: Int!
     ownerId: String!
   }
@@ -30,15 +30,17 @@ export const schema = gql`
     checkInDate: DateTime
     checkOutDate: DateTime
     notes: String
-    updateddAt: DateTime
+    updatedAt: DateTime
     hubId: Int
     ownerId: String
   }
 
   type Mutation {
     createReservation(input: CreateReservationInput!): Reservation! @requireAuth
-    updateReservation(id: Int!, input: UpdateReservationInput!): Reservation!
-      @requireAuth
-    deleteReservation(id: Int!): Reservation! @requireAuth
+    updateReservation(
+      id: String!
+      input: UpdateReservationInput!
+    ): Reservation! @requireAuth
+    deleteReservation(id: String!): Reservation! @requireAuth
   }
 `

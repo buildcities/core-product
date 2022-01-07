@@ -31,12 +31,12 @@ model Hub {
 }
 
 model Reservation{
-  id Int @id @default(autoincrement())
+  id String @id @unique
   checkInDate DateTime
   checkOutDate DateTime
   notes String?
   createdAt DateTime @default(now())
-  updateddAt DateTime @default(now())
+  updatedAt DateTime @default(now())
   hub Hub @relation(fields: [hubId],references:[id])
   hubId Int
   owner User @relation(fields: [ownerId],references:[uuid])
@@ -67,8 +67,9 @@ model UserRole {
 model User {
   uuid String @id @unique
   guildId String
+  userName String?
   createdAt DateTime @default(now())
-  updateddAt DateTime @default(now())
+  updatedAt DateTime? @default(now())
   userRoles UserRole[]
   reservations Reservation[]
   hubs Hub[]

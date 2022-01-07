@@ -2,8 +2,9 @@ export const schema = gql`
   type User {
     uuid: String!
     guildId: String!
+    userName: String
     createdAt: DateTime!
-    updateddAt: DateTime!
+    updatedAt: DateTime!
     userRoles: [UserRole]!
     reservations: [Reservation]!
     hubs: [Hub]!
@@ -17,12 +18,12 @@ export const schema = gql`
   input CreateUserInput {
     uuid: String!
     guildId: String!
-    updateddAt: DateTime!
+    updatedAt: DateTime!
   }
 
   input UpdateUserInput {
     uuid: String
     guildId: String
-    updateddAt: DateTime
+    updatedAt: DateTime
   }
 `

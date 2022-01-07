@@ -4,6 +4,7 @@ import SpiralIcon from './spiral'
 import GlobeIcon from './globe'
 import MapMarkerIcon from './map-marker'
 import EditPencil from './edit-pencil'
+import HeyIcon from './hey'
 export {
   ShieldIcon,
   UndulatingFloorIcon,
@@ -11,4 +12,5 @@ export {
   GlobeIcon,
   MapMarkerIcon,
   EditPencil,
+  HeyIcon,
 }

@@ -7,4 +7,6 @@ export const LOGIN_DISCORD_CTA_TEXT = 'Login with Discord!'
 
 export const provider = 'discord'
 
-export const scopes = 'guilds guilds.join guilds.members.read connections'
+export const scopes = 'guilds guilds.members.read'
+
+//previous scopes:'guilds guilds.join guilds.members.read connections'
