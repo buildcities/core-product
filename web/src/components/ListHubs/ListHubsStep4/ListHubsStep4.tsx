@@ -29,7 +29,7 @@ const ListHubsStep4 = ({
   const getCurrentHubName = useStore(storeSelector)
   const hubName = camelCase(getCurrentHubName())
   const folderPath = `${process.env.IMAGE_PICKER_ROOT_FOLDER}/${userMetadata?.email}/${hubName}`
-  console.log(folderPath)
+  //console.log(folderPath)
   const onSubmit = (data) => {
     updateStepData({ data, stepId })
     onFormSubmit && onFormSubmit()

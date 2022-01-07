@@ -23,7 +23,7 @@ interface CreateReservationArgs {
 export const createReservation = ({ input }: CreateReservationArgs) => {
   const id = generateId()
   return db.reservation.create({
-    data: { ...input, ...{ id } },
+    data: { ...input, ...{ id } }, 
   })
 }
 
