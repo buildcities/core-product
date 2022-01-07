@@ -1,10 +1,10 @@
-import ConfirmReservation from 'src/components/HubDetail/ConfirmReservation/ConfirmReservation'
+import ConfirmReservationCell from 'src/components/ConfirmReservationCell'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 
-const ConfirmReservationPage = () => {
+const ConfirmReservationPage = ({ id }: { id: string }) => {
   return (
     <SingleColumnLayout metaTitle="Confirm-reservation">
-      <ConfirmReservation />
+      <ConfirmReservationCell id={id} />
     </SingleColumnLayout>
   )
 }

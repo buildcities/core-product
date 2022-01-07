@@ -5,7 +5,7 @@ import ConfirmReservationPage from './ConfirmReservationPage'
 describe('ConfirmReservationPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ConfirmReservationPage />)
+      render(<ConfirmReservationPage id="id" />)
     }).not.toThrow()
   })
 })

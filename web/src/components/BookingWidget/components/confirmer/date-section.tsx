@@ -3,7 +3,7 @@ import EditPencil from 'src/utils/svgs/edit-pencil'
 import { Heading } from '@buildcities/build-ui.components.all'
 import classNames from 'classnames'
 import { PageSection } from 'src/components/bit.dev/page-section'
-import { CHECKIN_TEXT, CHECKOUT_TEXT } from '../../common/preset'
+import { CHECKIN_TEXT, CHECKOUT_TEXT } from '../preset'
 import { Link, routes } from '@redwoodjs/router'
 
 const DateViewer: React.FC<{
@@ -25,7 +25,7 @@ const DateViewer: React.FC<{
 export type DateSectionProps = {
   checkInDate: string
   checkOutDate: string
-  id?: number
+  id?: string
 }
 
 export default function DateSection({
@@ -37,7 +37,7 @@ export default function DateSection({
     <PageSection className="relative" title={DATES_SECTION_TITLE}>
       <>
         <Link
-          to={routes.bookReservation({ id })}
+          to={routes.changeBooking({ id })}
           className="absolute top-2 left-28 hover:text-selected"
         >
           <EditPencil />

@@ -3,28 +3,39 @@ import {
   QR_CODE_SECTION_TEXT,
   QR_CODE_SECTION_TITLE,
   CTA_TEXT,
+  QR_ID,
 } from './presets'
-import QRCode from 'react-qr-code'
+import QRCode from 'qrcode.react'
 import { Paragraph } from '@buildcities/build-ui.components.all'
 type QRCodeSectionProps = {
   code: string
-  onQRDownload?: () => void
 }
 const QRCodeViewer: React.FC<{ code: string }> = ({ code }) => (
   <div className="bg-white   p-3 rounded-md">
     <div className="md:block hidden">
-      <QRCode size={120} value={code} />
+      <QRCode includeMargin id={QR_ID} size={120} value={code} />
     </div>
     <div className="md:hidden">
-      <QRCode size={90} value={code} />
+      <QRCode includeMargin id={QR_ID} size={90} value={code} />
     </div>
   </div>
 )
 
-export default function QRCodeSection({
-  code,
-  onQRDownload,
-}: QRCodeSectionProps) {
+export default function QRCodeSection({ code }: QRCodeSectionProps) {
+  const handleQRDownload = () => {
+    const canvas = document.getElementById(QR_ID) as HTMLCanvasElement
+    //console.log(canvas)
+    const pngUrl = canvas
+      .toDataURL('image/png')
+      .replace('image/png', 'image/octet-stream')
+    const downloadLink = document.createElement('a')
+    downloadLink.href = pngUrl
+    downloadLink.download = `${code}.png`
+    document.body.appendChild(downloadLink)
+    downloadLink.click()
+    document.body.removeChild(downloadLink)
+  }
+
   return (
     <PageSection title={QR_CODE_SECTION_TITLE}>
       <div className="flex justify-evenly items-center space-x-4 rounded-lg bg-cardBackground py-3 px-[17px]">
@@ -35,7 +46,7 @@ export default function QRCodeSection({
             text={QR_CODE_SECTION_TEXT}
           />
           <button
-            onClick={onQRDownload}
+            onClick={handleQRDownload}
             type="button"
             className="flex flex-grow items-center justify-center rounded-lg border px-2 border-blue h-12 w-full max-w-44 transition-colors duration-300 hover:bg-blue"
           >

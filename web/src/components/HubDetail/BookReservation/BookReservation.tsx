@@ -1,22 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useState } from 'react'
 import HubDetailContainer from '../common/components/HubDetailContainer/HubDetailContainer'
 import ImageViewer from './components/image-viewer'
-import ReservatioWidget from './components/reservation-widget'
-import OwnerScoreWidget from './components/owner-score'
-import ReservationDatePicker from './components/ReservationDatePicker/ReservationDatePicker'
-import { useStore } from 'src/utils/stores/bookReservationStore'
 import Amenities from './components/amenities'
 import { amenitiesProps } from 'src/components/ListHubs/ListHubsStep3/presets'
-import { navigate, routes } from '@redwoodjs/router'
 import AdminControls from 'src/components/AdminControls/AdminControls'
 
-type BookReservationProps = {
-  images: { dataURL: string }[]
+import { navigate, routes, useLocation, useParams } from '@redwoodjs/router'
+import BookingWidget from 'src/components/BookingWidget/BookingWidget'
+import { useEffect } from 'react'
+import { useStore } from 'src/utils/stores/bookReservationStore'
+
+export type BookReservationProps = {
+  images?: { dataURL: string }[]
   name?: string
   location?: string
   ownerId?: string
   amenities?: amenitiesProps
+  checkInDate?: moment.Moment | string | null
+  checkOutDate?: moment.Moment | string | null
 }
 
 const BookReservation = ({
@@ -25,25 +26,31 @@ const BookReservation = ({
   ownerId,
   location,
   amenities,
+  checkInDate,
+  checkOutDate,
 }: BookReservationProps) => {
-  const { setBookingDate, checkInDate, checkOutDate } = useStore((store) => ({
-    ...store,
-  }))
-  const [hide, setHide] = useState(true)
+  const { pathname } = useLocation()
+  const setBookingDate = useStore((store) => store.setBookingDate)
 
-  const onClick = () => {
-    setHide(false)
+  const bookingMode =
+    pathname?.match('change-booking')?.length > 0 ? 'edit' : 'create'
+
+  const { id: hubId } = useParams()
+
+  const onEdit = () => {
+    navigate(routes.editHub({ id: +hubId }))
   }
-
-  const handleFocus = useCallback(
-    (focus: boolean) => {
-      if (!focus && !hide) {
-        setHide(true)
-        checkInDate && checkOutDate && navigate(routes.confirmReservation())
-      }
-    },
-    [hide]
-  )
+  useEffect(() => {
+    if (bookingMode == 'edit' && checkOutDate && checkInDate) {
+      setBookingDate(
+        checkInDate as moment.Moment,
+        checkOutDate as moment.Moment
+      )
+    } else {
+      setBookingDate(null, null)
+    }
+    return () => {}
+  }, [])
 
   return (
     <>
@@ -51,25 +58,17 @@ const BookReservation = ({
         subTitle={location}
         title={name}
         renderRight={() => (
-          <div className="space-y-[17px]">
-            <div className="relative">
-              <ReservatioWidget onClick={onClick} />
-              <div className="absolute right-6 top-6">
-                <ReservationDatePicker
-                  onDateChange={setBookingDate}
-                  onFocus={handleFocus}
-                  hide={hide}
-                />
-              </div>
-            </div>
-            <OwnerScoreWidget />
-          </div>
+          <BookingWidget id={hubId} bookingMode={bookingMode} type="book" />
         )}
       >
         <div className="flex relative space-y-8 flex-col">
-          <AdminControls ownerId={ownerId} className="absolute z-10 top-10" />
           <ImageViewer images={images} />
           <Amenities amenities={amenities} />
+          <AdminControls
+            onEdit={onEdit}
+            ownerId={ownerId}
+            className="absolute z-10 top-0"
+          />
         </div>
       </HubDetailContainer>
     </>

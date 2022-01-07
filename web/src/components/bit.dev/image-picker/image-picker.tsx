@@ -120,17 +120,19 @@ export function ImagePicker({
   }
 
   useEffect(() => {
-    if (firebaseConfigOptions && _folderPath && !_images?.length) {
+    if (firebaseConfigOptions && _folderPath) {
       if (getApps().length === 0) {
         initializeApp(firebaseConfigOptions)
       } else {
         getApp()
       }
       //list images
-      getImageListFromCloud(_folderPath).then((results) => {
-        setImages(results)
-        publishOnChangeEvent(results)
-      })
+      if (!_images?.length) {
+        getImageListFromCloud(_folderPath).then((results) => {
+          setImages(results)
+          publishOnChangeEvent(results)
+        })
+      }
     }
     return () => {}
   }, [])
