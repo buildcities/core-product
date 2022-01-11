@@ -7,13 +7,16 @@ import classNames from 'classnames'
 import React, { RefObject } from 'react'
 
 export type PictureCardProps = {
+  id?: number | string
   src?: string
   title: string
   subTitle?: string
+  ownerId?: string
   icon?: string
   className?: string
   isActive?: boolean
   ref?: RefObject<undefined>
+  onClick?: (payload: string | number) => void
 }
 
 export default function PictureCard({
@@ -24,19 +27,25 @@ export default function PictureCard({
   className,
   isActive,
   ref,
+  onClick,
+  id,
 }: PictureCardProps) {
+  const _onClick = () => {
+    onClick && onClick(id)
+  }
   return (
-    <div
+    <button
+      onClick={_onClick}
       ref={ref}
       className={classNames(
-        'bg-cardBackground max-w-[276px] border-2  cursor-pointer text-mainText hover:border-selected rounded-md md:rounded-lg h-[365px]',
+        'bg-cardBackground min-w-[276px] border-2 text-left  cursor-pointer text-mainText hover:border-selected rounded-md md:rounded-lg h-[365px]',
         isActive ? 'border-selected' : 'border-transparent',
         className
       )}
     >
       <img
         alt="hub "
-        className="object-cover rounded-t-md md:rounded-t-lg aspect-auto h-[276px] w-[276px]"
+        className="object-cover rounded-t-md md:rounded-t-lg aspect-auto h-[276px] w-full"
         src={src}
       />
       <div className="m-4">
@@ -51,7 +60,7 @@ export default function PictureCard({
         </span>
         <Heading type="H4" text={title} />
       </div>
-    </div>
+    </button>
   )
 }
 

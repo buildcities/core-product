@@ -9,6 +9,7 @@ import { PopUpDetail } from './components/pop-up-detail'
 import { pick } from 'lodash'
 import { HUBS_QUERY } from 'src/utils/graphql/queries/hubs'
 import { useStore } from 'src/utils/stores/viewHubsStore'
+import { navigate, routes } from '@redwoodjs/router'
 
 /* todo: import data from db with graphql filter  with store state  */
 
@@ -44,6 +45,10 @@ const MapView = () => {
     mapRef.current = map
   }
 
+  const onClick = (id: number) => {
+    navigate(routes.bookReservation({ id }))
+  }
+
   return (
     <MapViewComponent
       onMapReady={_onMapReady}
@@ -55,10 +60,17 @@ const MapView = () => {
         open,
         close,
       }: {
-        data?: { name: string; country: string; images: { dataURL: string }[] }
+        data?: {
+          id: number
+          name: string
+          country: string
+          images: { dataURL: string }[]
+        }
         close?: () => void
         open: boolean
-      }) => <PopUpDetail data={data} close={close} open={open} />}
+      }) => (
+        <PopUpDetail onClick={onClick} data={data} close={close} open={open} />
+      )}
     </MapViewComponent>
   )
 }

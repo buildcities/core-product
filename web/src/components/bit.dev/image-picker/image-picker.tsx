@@ -120,17 +120,19 @@ export function ImagePicker({
   }
 
   useEffect(() => {
-    if (firebaseConfigOptions && _folderPath && !_images?.length) {
+    if (firebaseConfigOptions && _folderPath) {
       if (getApps().length === 0) {
         initializeApp(firebaseConfigOptions)
       } else {
         getApp()
       }
       //list images
-      getImageListFromCloud(_folderPath).then((results) => {
-        setImages(results)
-        publishOnChangeEvent(results)
-      })
+      if (!_images?.length) {
+        getImageListFromCloud(_folderPath).then((results) => {
+          setImages(results)
+          publishOnChangeEvent(results)
+        })
+      }
     }
     return () => {}
   }, [])
@@ -147,7 +149,9 @@ export function ImagePicker({
         {({ imageList, onImageUpload, onImageUpdate, onImageRemove }) => (
           // write your building UI
           <>
-            <ul className={classNames('columns-2xl')}>
+            <ul
+              className={classNames(' sm:columns-2 columns-xl gap-5 space-y-5')}
+            >
               {imageList.map((image: ImageType, index) => (
                 <ImageCard
                   loading={image.loading}

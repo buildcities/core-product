@@ -1,8 +1,11 @@
+import ConfirmReservationCell from 'src/components/ConfirmReservationCell'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
 
-const ConfirmReservationPage = () => {
+const ConfirmReservationPage = ({ id }: { id: string }) => {
   return (
-    <SingleColumnLayout metaTitle="Confirm-reservation"></SingleColumnLayout>
+    <SingleColumnLayout metaTitle="Confirm-reservation">
+      <ConfirmReservationCell id={id} />
+    </SingleColumnLayout>
   )
 }
 

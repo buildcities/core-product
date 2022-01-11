@@ -19,37 +19,37 @@ model Hub {
   type Json?
   amenities Json?
   images Json?
-  availability String?
+  availability Json?
   rules Json?
   description String?
   status Status? @default(PENDING)
   createdAt DateTime @default(now())
   reservations Reservation[]
-  owner User @relation(fields: [ownerId],references:[id])
-  ownerId Int
+  owner User @relation(fields: [ownerId],references:[uuid])
+  ownerId String
   reviews Review[]
 }
 
 model Reservation{
-  id Int @id @default(autoincrement())
+  id String @id @unique
   checkInDate DateTime
   checkOutDate DateTime
   notes String?
   createdAt DateTime @default(now())
-  updateddAt DateTime @default(now())
+  updatedAt DateTime @default(now())
   hub Hub @relation(fields: [hubId],references:[id])
   hubId Int
-  owner User @relation(fields: [ownerId],references:[id])
-  ownerId Int
+  owner User @relation(fields: [ownerId],references:[uuid])
+  ownerId String
 }
 
 model Review {
   id Int @id @default(autoincrement())
   rating Int @default(0)
   comments String
-  owner User @relation(fields:[ownerId],references: [id])
+  owner User @relation(fields:[ownerId],references: [uuid])
   hub Hub  @relation(fields:[hubId],references: [id])
-  ownerId Int
+  ownerId String
   hubId Int
 }
 
@@ -59,17 +59,17 @@ model UserRole {
   createdAt DateTime @default(now())
   updateddAt DateTime @default(now())
   name String
-  user User? @relation(fields: [userId],references:[id])
-  userId Int
+  user User? @relation(fields: [userId],references:[uuid])
+  userId String
   @@unique([name,userId])
 }
 
 model User {
-  id Int  @id @default(autoincrement())
-  uuid String @unique
+  uuid String @id @unique
   guildId String
+  userName String?
   createdAt DateTime @default(now())
-  updateddAt DateTime @default(now())
+  updatedAt DateTime? @default(now())
   userRoles UserRole[]
   reservations Reservation[]
   hubs Hub[]

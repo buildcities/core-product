@@ -11,11 +11,12 @@ export type TListHubsComponentProps = {
 }
 
 export type ThubListData = {
+  name?: string
   location?: string
   type?: { estate?: string; seats?: string | number }
   amenities?: amenitiesProps
   images?: string | []
-  availability?: string
+  availability?: Record<string, undefined>
   rules?: { default?: string[]; custom: 'string' }
 }
 

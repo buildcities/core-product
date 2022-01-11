@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Heading, Button } from '@buildcities/build-ui.components.all'
 import SingleColumnLayout from 'src/layouts/SingleColumnLayout/SingleColumnLayout'
@@ -16,12 +17,16 @@ import {
 import { useEffect } from 'react'
 import { prepareQueryVars } from './utils'
 import { navigate, routes } from '@redwoodjs/router'
+import { useStore } from 'src/utils/stores/authStore'
 
 let toastId
 
 const HomePage = () => {
-  const { logIn } = useAuth()
-  const { isAuthenticated, logOut, client } = useAuth()
+  const { setUser, clearUser } = useStore((store) => ({
+    setUser: store.setUser,
+    clearUser: store.clearUser,
+  }))
+  const { isAuthenticated, logOut, client, currentUser, logIn } = useAuth()
   const [validateMembership, { data, loading, error }] =
     useLazyQuery(DISCORD_MEMBER_QUERY)
 
@@ -30,31 +35,30 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    if (data && !loading) {
-      if (data?.isDiscordMember?.isMember) {
-        navigate(routes.viewHubs())
-      }
-    }
-    if (error && !loading) {
-      toastId = toast.error(error.message, { id: toastId })
-      logOut()
-    }
-    if (loading) {
-      toastId = toast.loading('Verifying membership', { id: toastId })
-    } else {
-      toast.dismiss(toastId)
-    }
-  }, [data, error, loading])
-
-  useEffect(() => {
     if (isAuthenticated) {
-      //logOut()
+      toastId = toast.loading('validating discord membership!')
+
       validateMembership({
         variables: prepareQueryVars({
           session: client.auth.currentSession,
           guildId: process.env.BUILD_DISCORD_GUILD_ID,
         }),
       })
+        .then((result) => {
+          if (result.data?.isDiscordMember?.isMember) {
+            navigate(routes.viewHubs())
+          }
+          toastId && toast.dismiss(toastId)
+          if (result.error) {
+            logOut().then(clearUser)
+          }
+        })
+        .catch(() => {
+          toastId = toast.error(error.message, { id: toastId })
+          logOut().then(clearUser)
+        })
+    } else {
+      clearUser()
     }
   }, [isAuthenticated])
 
@@ -62,21 +66,15 @@ const HomePage = () => {
     <SingleColumnLayout metaTitle="Home">
       <div className="flex flex-col  justify-center items-center">
         <GlobeIcon className=" w-[140px] md:w-[185px] mb-6 md:mb-8 lg:w-[285px]" />
-        {(!isAuthenticated || (data && !data.isDiscordMember.isMember)) && (
-          <Heading
-            type="H3"
-            className="text-mainText mb-6 md:mb-8 H5 md:H4 lg:H3 text-center block max-w-[464px]"
-            text={VERIFY_DISCORD_MEMBERSHIP_TEXT}
-          />
-        )}
-        {data && !data.isDiscordMember.isMember && (
-          <Button onClick={onClick} text={VERIFY_DISCORD_CTA_TEXT} />
-        )}
-        {!isAuthenticated && (
-          <Button onClick={onClick} text={LOGIN_DISCORD_CTA_TEXT} />
-        )}
+
+        <Heading
+          type="H3"
+          className="text-mainText mb-6 md:mb-8 H5 md:H4 lg:H3 text-center block max-w-[464px]"
+          text={VERIFY_DISCORD_MEMBERSHIP_TEXT}
+        />
+
+        <Button onClick={onClick} text={LOGIN_DISCORD_CTA_TEXT} />
       </div>
-      )
     </SingleColumnLayout>
   )
 }

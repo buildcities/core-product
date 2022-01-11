@@ -1,4 +1,4 @@
-import { SelectButtonProps } from '@buildcities/build-ui.components.all'
+import { FilterButtonProps } from '@buildcities/build-ui.components.all'
 
 export const AMENITIES_SECTION_TITLE = 'What amenities are offered?'
 export const AMENITIES_SECTION_TEXT =
@@ -8,47 +8,43 @@ export const ADD_AMENITIES_SECTION_TITLE = 'Add more amenities'
 export const ADD_AMENITIES_SECTION_TEXT = 'Use earch bellow and add more.'
 
 export type amenitiesProps = {
-  refreshments: SelectButtonProps[] | string[]
-  tech: SelectButtonProps[] | string[]
-  furniture: SelectButtonProps[] | string[]
-  other: SelectButtonProps[] | string[]
+  refreshments?: FilterButtonProps[] | string[]
+  tech?: FilterButtonProps[] | string[]
+  furniture?: FilterButtonProps[] | string[]
+  other?: FilterButtonProps[] | string[]
+  custom?: FilterButtonProps[] | string[]
 }
 
 export const amenities: amenitiesProps = {
   refreshments: [
-    { label: 'Tea kettle', icon: 'cafe' },
-    { label: 'Snacks  ', icon: 'pizza' },
-    { label: 'Coffee machine  ', icon: 'cafe' },
+    { label: 'Tea kettle' },
+    { label: 'Snacks' },
+    { label: 'Coffee machine' },
   ],
   tech: [
-    { label: 'Monitor', icon: 'desktop' },
-    { label: 'Airconditioner', icon: 'snow' },
+    { label: 'Monitor' },
+    { label: 'Airconditioning' },
     {
       label: 'Adapters and chargers',
-
-      icon: 'battery-charging',
     },
-    { label: 'Tv', icon: 'tv' },
-    { label: 'Printers', icon: 'print' },
+    { label: 'Tv' },
+    { label: 'Printers' },
   ],
   furniture: [
-    { label: 'Big desks', icon: 'cafe' },
-    { label: 'Equiped kitchen', icon: 'restaurant' },
-    { label: 'High chairs', icon: 'cafe' },
+    { label: 'Big desks' },
+    { label: 'Equipped kitchen' },
+    { label: 'High chairs' },
     {
       label: 'Standing desks',
-
-      icon: 'cafe',
     },
   ],
   other: [
-    { label: 'Pet friendly environment', icon: 'paw' },
-    { label: 'Office supplies', icon: 'filing' },
-    { label: 'Free parking', icon: 'car' },
+    { label: 'Pet friendly environment' },
+    { label: 'Office supplies' },
+    { label: 'Free parking' },
     {
       label: 'A barbecue grill',
-
-      icon: 'grid',
     },
   ],
+  custom: [],
 }

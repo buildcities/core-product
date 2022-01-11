@@ -1,6 +1,5 @@
-import { MetaTags } from '@redwoodjs/web'
 import React from 'react'
-import LayoutHeader from 'src/components/LayoutHeader/LayoutHeader'
+import BaseLayout from '../BaseLayout/BaseLayout'
 
 type SingleColumnLagyoutProps = {
   children?: React.ReactNode
@@ -14,16 +13,13 @@ const SingleColumnLayout = ({
   metaDescription,
 }: SingleColumnLagyoutProps) => {
   return (
-    <div className="w-full">
-      <MetaTags description={metaDescription} title={metaTitle} />
-      <LayoutHeader />
-
+    <BaseLayout metaTitle={metaTitle} metaDescription={metaDescription}>
       <main className="max-w-7xl  pt-10 mx-auto flex flex-cols ">
-        <div className="w-full max-w-7xl mx-auto  px-4 sm:px-6  lg:px-8">
+        <div className="max-w-7xl w-full mx-auto mb-5 px-4 sm:px-6  lg:px-8">
           {children}
         </div>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 

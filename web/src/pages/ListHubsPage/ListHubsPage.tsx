@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Steps } from '@buildcities/build-ui.ui.base.steps'
 import TwoColumnLayoutLayout from 'src/layouts/TwoColumnLayoutLayout/TwoColumnLayoutLayout'
 import { useStore } from 'src/utils/stores/hubStepsStore'
@@ -15,11 +16,17 @@ type ListHubsPageProps = {
 }
 
 const ListHubsPage = ({ stepId }: ListHubsPageProps) => {
-  const hubSteps = useStore((state) => state.listHubsSteps)
+  const { hubSteps, prepareSteps } = useStore((state) => ({
+    hubSteps: state.listHubsSteps,
+    prepareSteps: state.prepareSteps,
+  }))
 
   useEffect(() => {
-    console.log('re-rendered')
-    return () => {}
+    prepareSteps()
+    return () => {
+      //console.log('i have left')
+      //reset(true)
+    }
   }, [])
 
   return (
@@ -27,13 +34,15 @@ const ListHubsPage = ({ stepId }: ListHubsPageProps) => {
       metaTitle="List Hubs"
       sideBar={<Steps steps={hubSteps} />}
     >
-      {(!stepId || stepId == 0) && <ListHubsStep1 stepId={stepId} />}
-      {stepId == 1 && <ListHubsStep2 stepId={stepId} />}
-      {stepId == 2 && <ListHubsStep3 stepId={stepId} />}
-      {stepId == 3 && <ListHubsStep4 stepId={stepId} />}
-      {stepId == 4 && <ListHubsStep5 stepId={stepId} />}
-      {stepId == 5 && <ListHubsStep6 stepId={stepId} />}
-      {stepId == 6 && <ListHubsStep7 stepId={stepId} />}
+      <div className="mb-5">
+        {(!stepId || stepId == 0) && <ListHubsStep1 stepId={stepId} />}
+        {stepId == 1 && <ListHubsStep2 stepId={stepId} />}
+        {stepId == 2 && <ListHubsStep3 stepId={stepId} />}
+        {stepId == 3 && <ListHubsStep4 stepId={stepId} />}
+        {stepId == 4 && <ListHubsStep5 stepId={stepId} />}
+        {stepId == 5 && <ListHubsStep6 stepId={stepId} />}
+        {stepId == 6 && <ListHubsStep7 stepId={stepId} />}
+      </div>
     </TwoColumnLayoutLayout>
   )
 }

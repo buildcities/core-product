@@ -5,7 +5,7 @@ import BookReservationPage from './BookReservationPage'
 describe('BookReservationPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BookReservationPage />)
+      render(<BookReservationPage id={1} />)
     }).not.toThrow()
   })
 })

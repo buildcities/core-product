@@ -5,3 +5,11 @@ export const CREATE_HUB = gql`
     }
   }
 `
+
+export const UPDATE_HUB = gql`
+  mutation UpdateHubMutation($id: Int!, $input: UpdateHubInput!) {
+    updateHub(input: $input, id: $id) {
+      id
+    }
+  }
+`

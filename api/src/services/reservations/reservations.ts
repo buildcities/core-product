@@ -3,6 +3,9 @@ import type { ResolverArgs } from '@redwoodjs/graphql-server'
 
 import { db } from 'src/lib/db'
 
+const generateId = () =>
+  Date.now().toString(36) + Math.random().toString(36).substring(2)
+
 export const reservations = () => {
   return db.reservation.findMany()
 }
@@ -18,8 +21,9 @@ interface CreateReservationArgs {
 }
 
 export const createReservation = ({ input }: CreateReservationArgs) => {
+  const id = generateId()
   return db.reservation.create({
-    data: input,
+    data: { ...input, ...{ id } }, 
   })
 }
 

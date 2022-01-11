@@ -6,14 +6,14 @@ export const schema = gql`
     type: JSON
     amenities: JSON
     images: JSON
-    availability: String
+    availability: JSON
     rules: JSON
     description: String
     status: Status
     createdAt: DateTime!
     reservations: [Reservation]!
     owner: User!
-    ownerId: Int!
+    ownerId: String!
     reviews: [Review]!
   }
 
@@ -34,11 +34,11 @@ export const schema = gql`
     type: JSON
     amenities: JSON
     images: JSON
-    availability: String
+    availability: JSON
     rules: JSON
     description: String
     status: Status
-    ownerId: Int!
+    ownerId: String!
   }
 
   input UpdateHubInput {
@@ -47,11 +47,11 @@ export const schema = gql`
     type: JSON
     amenities: JSON
     images: JSON
-    availability: String
+    availability: JSON
     rules: JSON
     description: String
     status: Status
-    ownerId: Int
+    ownerId: String
   }
 
   type Mutation {

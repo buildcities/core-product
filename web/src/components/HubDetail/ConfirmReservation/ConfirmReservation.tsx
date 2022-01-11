@@ -1,46 +1,51 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import HubDetailContainer from '../common/components/HubDetailContainer/HubDetailContainer'
-import {
-  DateSection,
-  QRCodeSection,
-  LeaveNoteSection,
-  HubImage,
-} from './components'
+import { HubImage } from './components'
+import { Redirect, routes } from '@redwoodjs/router'
+import BookingWidget from 'src/components/BookingWidget/BookingWidget'
+import { useEffect } from 'react'
 import { useStore } from 'src/utils/stores/bookReservationStore'
-import { DATE_FORMAT } from '../common/preset'
 
-type ConfirmReservationProps = {
-  onQRDownload?: () => void
+export type ConfirmReservationProps = {
   name?: string
   location?: string
   image?: string
+  code?: string
+  checkInDate?: moment.Moment | null
+  checkOutDate?: moment.Moment | null
 }
 
 const ConfirmReservation = ({
   name,
   location,
   image,
-  onQRDownload,
+  code,
+  checkInDate,
+  checkOutDate,
 }: ConfirmReservationProps) => {
-  const { checkInDate, checkOutDate } = useStore((store) => ({ ...store }))
+  const setBookingDate = useStore((store) => store.setBookingDate)
+  useEffect(() => {
+    setBookingDate(checkInDate, checkOutDate)
+    return () => {
+      //do clean up here
+    }
+  }, [])
 
-  return (
+  return code ? (
     <HubDetailContainer
       subTitle={location}
       title={name}
-      renderRight={() => (
-        <>
-          <DateSection
-            checkInDate={checkInDate.format(DATE_FORMAT)}
-            checkOutDate={checkOutDate.format(DATE_FORMAT)}
-          />
-          <QRCodeSection onQRDownload={onQRDownload} code="test code" />
-          <LeaveNoteSection />
-        </>
-      )}
+      renderRight={() => <BookingWidget id={code} type="confirm" />}
     >
-      <HubImage altText={name} hubImage={image} />
+      <HubImage altText={name || name} hubImage={image} />
     </HubDetailContainer>
+  ) : (
+    <Redirect to={routes.viewHubs()} />
   )
+}
+
+ConfirmReservation.defaultProps = {
+  code: 'test code',
 }
 
 export default ConfirmReservation

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { MenuAlt2Icon } from '@heroicons/react/outline'
 import HeaderAuthButton from '../HeaderAuthButton/HeaderAuthButton'
 import { Heading } from '@buildcities/build-ui.components.all'
@@ -5,6 +6,8 @@ import HeaderProfile from '../HeaderProfile/HeaderProfile'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { prepareHeaderMenu } from '../HeaderProfile/presets'
+import { useStore } from 'src/utils/stores/authStore'
+import { useEffect } from 'react'
 
 type LayoutHeaderProps = {
   showMenu?: boolean
@@ -12,9 +15,18 @@ type LayoutHeaderProps = {
 
 const LayoutHeader = ({ showMenu }: LayoutHeaderProps) => {
   const { isAuthenticated, logOut, userMetadata } = useAuth()
+  const { setUser } = useStore()
   const _onHeaderBtnClick = () => {
     navigate(routes.listHubs({ stepId: 0 }))
   }
+
+  useEffect(() => {
+    userMetadata && setUser(userMetadata?.user_metadata)
+    return () => {
+      //console.log('auth exiting')
+    }
+  }, [])
+
   return (
     <div className="sticky top-0 z-20 border-b pr-4 sm:pr-8 md:px-20 lg:px-28 border-[#202020] flex py-2 sm:py-4  h-[64px] items-center  bg-[#090909] shadow">
       {showMenu && (
@@ -27,11 +39,15 @@ const LayoutHeader = ({ showMenu }: LayoutHeaderProps) => {
         </button>
       )}
       <Link to={routes.viewHubs()} className="flex-grow ">
-        <Heading type="H4" text={'build_'} className="text-white block  " />
+        <Heading
+          type="H4"
+          text={'build_'}
+          className="text-white block font-fira "
+        />
       </Link>
 
       <div className="flex-shrink  justify-self-end">
-        <div className="flex  items-center">
+        <div className="flex space-x-4 justify-center items-center">
           {isAuthenticated ? (
             <>
               <HeaderAuthButton onClick={_onHeaderBtnClick} />

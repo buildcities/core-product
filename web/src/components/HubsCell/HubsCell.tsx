@@ -34,5 +34,6 @@ export const beforeQuery = ({
 }
 
 export const Success = ({ hubs }) => {
+  //console.log(hubs)
   return <Hubs hubs={hubs} />
 }

@@ -5,6 +5,7 @@ export const standard = (/* vars, { ctx, req } */) => ({
     amenities: {},
     location: {},
     images: {},
+    ownerId: 'test-owner',
     name: 'test name',
     reviews: [{ comments: 'test comment' }],
   },

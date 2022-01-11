@@ -1,51 +1,45 @@
-import { useCallback } from 'react'
+import { Switch } from '@headlessui/react'
+import classNames from 'classnames'
 
-type ToggleSwitchProps = {
-  day: string
-  closed: boolean
-  setClosed: React.Dispatch<React.SetStateAction<boolean>>
+export type FilterToggleProps = {
+  setActive?: React.Dispatch<React.SetStateAction<boolean>>
+  isActive?: boolean
+  srLabel?: string
 }
-const ToggleSwitch = ({ day, closed, setClosed }: ToggleSwitchProps) => {
-  const _setClosed = useCallback(() => {
-    setClosed && setClosed(!closed)
-  }, [closed, setClosed])
+
+export default function FilterToggle({
+  setActive,
+  isActive,
+  srLabel,
+}: FilterToggleProps) {
+  //const { isActive, setActive } = useState()
   return (
-    <>
-      <div className="flex items-center justify-start w-24">
-        <label
-          htmlFor={`open-${day}`}
-          className="flex items-center cursor-pointer"
-        >
-          <div className="relative">
-            <input
-              id={`open-${day}`}
-              type="checkbox"
-              className="sr-only"
-              checked={closed}
-              onChange={_setClosed}
-            />
-            <div
-              className={`${
-                closed ? 'bg-[#7B61FF]' : 'bg-[#323232]'
-              } w-10 h-4 rounded-full shadow-inner bg-opacity-40 transition-all duration-300`}
-            ></div>
-            <div
-              className={`${
-                closed ? 'left-4 bg-[#7B61FF]' : 'bg-paragraph left-0'
-              } transform absolute transition-all duration-300 w-6 h-6 rounded-full shadow -top-1`}
-            ></div>
-          </div>
-          <span
-            className={`${
-              closed ? 'text-white' : 'text-paragraph'
-            } ml-3 text-sm transition-colors duration-300`}
-          >
-            {closed ? 'Open' : 'Closed'}
-          </span>
-        </label>
-      </div>
-    </>
+    <Switch
+      checked={isActive}
+      onChange={setActive}
+      className="flex-shrink-1 group relative rounded-full inline-flex items-center justify-center h-5 w-10 cursor-pointer focus:outline-none"
+    >
+      <span className="sr-only">{srLabel}</span>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bg-transparent w-full h-full rounded-md"
+      />
+      <span
+        aria-hidden="true"
+        className={classNames(
+          isActive ? 'bg-selected' : 'bg-[#323232]',
+          'pointer-events-none absolute opacity-40 h-4 w-10 mx-auto rounded-full transition-colors ease-in-out duration-200'
+        )}
+      />
+      <span
+        aria-hidden="true"
+        className={classNames(
+          isActive
+            ? 'translate-x-5 bg-selected border-transparent'
+            : 'translate-x-0 bg-white border-gray-200',
+          'pointer-events-none absolute left-0 inline-block h-6 w-6 border rounded-full  shadow transform ring-0 transition-transform ease-in-out duration-200'
+        )}
+      />
+    </Switch>
   )
 }
-
-export default ToggleSwitch

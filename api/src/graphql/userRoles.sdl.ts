@@ -5,7 +5,7 @@ export const schema = gql`
     updateddAt: DateTime!
     name: String!
     user: User
-    userId: Int!
+    userId: String!
   }
 
   type Query {
@@ -15,12 +15,12 @@ export const schema = gql`
   input CreateUserRoleInput {
     updateddAt: DateTime!
     name: String!
-    userId: Int!
+    userId: String!
   }
 
   input UpdateUserRoleInput {
     updateddAt: DateTime
     name: String
-    userId: Int
+    userId: String
   }
 `

@@ -1,44 +1,46 @@
 export const schema = gql`
   type Reservation {
-    id: Int!
+    id: String!
     checkInDate: DateTime!
     checkOutDate: DateTime!
     notes: String
     createdAt: DateTime!
-    updateddAt: DateTime!
+    updatedAt: DateTime
     hub: Hub!
     hubId: Int!
     owner: User!
-    ownerId: Int!
+    ownerId: String!
   }
 
   type Query {
     reservations: [Reservation!]! @requireAuth
-    reservation(id: Int!): Reservation @requireAuth
+    reservation(id: String!): Reservation @requireAuth
   }
 
   input CreateReservationInput {
     checkInDate: DateTime!
     checkOutDate: DateTime!
     notes: String
-    updateddAt: DateTime!
+    updatedAt: DateTime
     hubId: Int!
-    ownerId: Int!
+    ownerId: String!
   }
 
   input UpdateReservationInput {
     checkInDate: DateTime
     checkOutDate: DateTime
     notes: String
-    updateddAt: DateTime
+    updatedAt: DateTime
     hubId: Int
-    ownerId: Int
+    ownerId: String
   }
 
   type Mutation {
     createReservation(input: CreateReservationInput!): Reservation! @requireAuth
-    updateReservation(id: Int!, input: UpdateReservationInput!): Reservation!
-      @requireAuth
-    deleteReservation(id: Int!): Reservation! @requireAuth
+    updateReservation(
+      id: String!
+      input: UpdateReservationInput!
+    ): Reservation! @requireAuth
+    deleteReservation(id: String!): Reservation! @requireAuth
   }
 `

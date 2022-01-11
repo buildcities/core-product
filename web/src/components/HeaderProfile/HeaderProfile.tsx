@@ -4,6 +4,8 @@ import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import { Paragraph } from '@buildcities/build-ui.components.all'
 import { TUserNav } from 'src/utils/types'
+import AdminModeButton from '../AdminModeButton/AdminModeButton'
+import DisconnectWallet from '../DisconnectWallet/DisconnectWallet'
 
 type HeaderProfileTypes = {
   userNavigation?: TUserNav[]
@@ -48,6 +50,14 @@ const HeaderProfile = ({ userNavigation, profileUrl }: HeaderProfileTypes) => {
                 </Menu.Item>
               )
             })}
+          <Menu.Item>
+            <DisconnectWallet />
+          </Menu.Item>
+          <Menu.Item>
+            <div className="px-4 py-2 border-t border-t-outline">
+              <AdminModeButton />
+            </div>
+          </Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>
