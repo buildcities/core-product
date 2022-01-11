@@ -11,6 +11,8 @@ module.exports = {
       colors: {
         'gray-paragraph': '#969696',
         'purple-selected': '#7B61FF',
+        'red-selected': '#F2545B',
+        'green-selected': '#23CE6B',
       },
     },
   },
