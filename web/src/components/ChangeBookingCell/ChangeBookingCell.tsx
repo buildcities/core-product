@@ -2,6 +2,7 @@
 import type { CellFailureProps } from '@redwoodjs/web'
 import { prepareChangeBookingForView } from 'src/utils/functions'
 import { FIND_RESERVATION_QUERY } from 'src/utils/graphql/queries/reservations'
+import { useStore } from 'src/utils/stores/bookReservationStore'
 import { FindReservationQuery } from 'types/graphql'
 import BookReservation, {
   BookReservationProps,
@@ -22,6 +23,11 @@ export const afterQuery = (data: FindReservationQuery) => {
 }
 
 export const Success = (changeBookingProps: BookReservationProps) => {
-  console.log(changeBookingProps)
+  const setSelectedHubDetails = useStore((s) => s.setSelectedHubDetails)
+  setSelectedHubDetails({
+    title: changeBookingProps.name,
+    location: changeBookingProps.location,
+    images: changeBookingProps.images,
+  })
   return <BookReservation {...changeBookingProps} />
 }

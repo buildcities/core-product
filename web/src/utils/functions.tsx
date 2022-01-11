@@ -5,7 +5,7 @@ import { FindReservationQuery, Hub } from 'types/graphql'
 export const prepareHubForView = (hub: Hub) => ({
   id: hub.id,
   title: hub.name,
-  subTitle: hub.location?.country,
+  subTitle: getLocation(hub.location),
   src: hub?.images?.[0]['dataURL'],
   ownerId: hub?.ownerId,
 })
@@ -59,6 +59,7 @@ export const prepareConfirmReservationForView = (
     name: name,
     location: getLocation(location),
     image: getImage(images as any),
+    images,
     checkInDate,
     checkOutDate,
     code,

@@ -18,7 +18,7 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
         className={classNames(
           ' grid  ',
           images.length < 2
-            ? 'grid-cols-1'
+            ? 'grid-cols-1 max-w-[786px]'
             : ' grid-cols-1 md:grid-cols-3 md:gap-4 xs:gap-y-4',
           className
         )}

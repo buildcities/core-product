@@ -8,6 +8,7 @@ import { Link, navigate, routes } from '@redwoodjs/router'
 import { prepareHeaderMenu } from '../HeaderProfile/presets'
 import { useStore } from 'src/utils/stores/authStore'
 import { useEffect } from 'react'
+import Logo from 'src/utils/logo.gif'
 
 type LayoutHeaderProps = {
   showMenu?: boolean
@@ -39,11 +40,12 @@ const LayoutHeader = ({ showMenu }: LayoutHeaderProps) => {
         </button>
       )}
       <Link to={routes.viewHubs()} className="flex-grow ">
-        <Heading
+        <img src={Logo} alt="build logo" className="w-28 h-8" />
+        {/* <Heading
           type="H4"
           text={'build_'}
           className="text-white block font-fira "
-        />
+        /> */}
       </Link>
 
       <div className="flex-shrink  justify-self-end">

@@ -7,14 +7,16 @@ type ImageGalleryProps = {
 }
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
-  const selectedHub = useStore((store) => store.selectedHub)
-  const _images = (selectedHub?.images as any) || images
+  const { hubImages, hubLocation, hubTitle } = useStore((store) => ({
+    hubImages: store.hubImages,
+    hubTitle: store.hubTitle,
+    hubLocation: store.hubLocation,
+  }))
+  const _images = (hubImages as any) || images
+  //console.log(_images)
   return _images?.length ? (
     <>
-      <HubDetailHeader
-        subTitle={selectedHub?.location?.country as string}
-        title={selectedHub?.name}
-      />
+      <HubDetailHeader subTitle={hubLocation} title={hubTitle} />
       <div
         className={classNames(
           'grid  gap-4 ',

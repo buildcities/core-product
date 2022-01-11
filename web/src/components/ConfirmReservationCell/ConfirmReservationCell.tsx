@@ -5,6 +5,7 @@ import ConfirmReservation, {
   ConfirmReservationProps,
 } from '../HubDetail/ConfirmReservation/ConfirmReservation'
 import { prepareConfirmReservationForView } from 'src/utils/functions'
+import { useStore } from 'src/utils/stores/bookReservationStore'
 
 export const QUERY = FIND_RESERVATION_QUERY
 
@@ -21,5 +22,11 @@ export const afterQuery = (data: FindReservationQuery) => {
 }
 
 export const Success = (reservation: ConfirmReservationProps) => {
+  const setSelectedHubDetails = useStore((s) => s.setSelectedHubDetails)
+  setSelectedHubDetails({
+    title: reservation.name,
+    location: reservation.location,
+    images: reservation.images,
+  })
   return <ConfirmReservation {...reservation} />
 }

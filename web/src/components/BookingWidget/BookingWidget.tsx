@@ -1,6 +1,6 @@
 import { Booker } from './components/booker'
 import { Confirmer } from './components/confirmer'
-import { useMoralis } from 'react-moralis'
+import { useMoralis, useNFTBalances } from 'react-moralis'
 import ConnectWallet from '../ConnectWallet/ConnectWallet'
 import { useEffect } from 'react'
 
@@ -21,17 +21,26 @@ const Widget = ({ bookingMode, id, type }: WidgetProps) => {
 }
 
 export default function BookingWidget(props: BookingWidgetProps) {
-  const { isAuthenticated, authenticate } = useMoralis()
+  const { isAuthenticated, authenticate, isWeb3Enabled, enableWeb3 } =
+    useMoralis()
+  const { getNFTBalances, data } = useNFTBalances()
   useEffect(() => {
     //logout()
+    if (isAuthenticated && isWeb3Enabled) {
+      // console.log('hello')
+      getNFTBalances({ params: { chain: '0x4' } }).then((res) => {
+        console.log(res)
+      })
+    }
+    console.log(data)
     return () => {}
-  }, [])
-  return isAuthenticated ? (
+  }, [data, enableWeb3, getNFTBalances, isAuthenticated])
+  return isAuthenticated && isWeb3Enabled ? (
     <Widget {...props} />
   ) : (
     <ConnectWallet
       onWeb3Authenticate={() =>
-        authenticate({ signingMessage: 'Build_ Authentication' })
+        authenticate({ signingMessage: 'Welcome To Build_' })
       }
     />
   )

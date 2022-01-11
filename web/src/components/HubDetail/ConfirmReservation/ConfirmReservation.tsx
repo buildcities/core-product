@@ -10,6 +10,7 @@ export type ConfirmReservationProps = {
   name?: string
   location?: string
   image?: string
+  images?: { dataURL: string }[]
   code?: string
   checkInDate?: moment.Moment | null
   checkOutDate?: moment.Moment | null
