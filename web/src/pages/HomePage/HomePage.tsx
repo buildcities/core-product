@@ -64,7 +64,7 @@ const HomePage = () => {
 
   return (
     <SingleColumnLayout metaTitle="Home">
-      <div className="flex flex-col  justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         <GlobeIcon className=" w-[140px] md:w-[185px] mb-6 md:mb-8 lg:w-[285px]" />
 
         <Heading
