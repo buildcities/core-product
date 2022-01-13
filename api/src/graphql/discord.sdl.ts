@@ -14,6 +14,8 @@ export const schema = gql`
       token: String!
       guildId: String!
       userId: String!
+      userName: String!
+      avatar: String!
     ): DiscordMember! @skipAuth
   }
 `

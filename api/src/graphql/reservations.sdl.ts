@@ -4,6 +4,8 @@ export const schema = gql`
     checkInDate: DateTime!
     checkOutDate: DateTime!
     notes: String
+    address: String
+    isApproved: Boolean
     createdAt: DateTime!
     updatedAt: DateTime
     hub: Hub!
@@ -13,7 +15,12 @@ export const schema = gql`
   }
 
   type Query {
-    reservations: [Reservation!]! @requireAuth
+    reservations(
+      filter: JSON
+      isOwner: Boolean
+      skip: Int
+      take: Int
+    ): [Reservation!]! @requireAuth
     reservation(id: String!): Reservation @requireAuth
   }
 
@@ -21,6 +28,8 @@ export const schema = gql`
     checkInDate: DateTime!
     checkOutDate: DateTime!
     notes: String
+    address: String
+    isApproved: Boolean
     updatedAt: DateTime
     hubId: Int!
     ownerId: String!
@@ -30,6 +39,8 @@ export const schema = gql`
     checkInDate: DateTime
     checkOutDate: DateTime
     notes: String
+    address: String
+    isApproved: Boolean
     updatedAt: DateTime
     hubId: Int
     ownerId: String

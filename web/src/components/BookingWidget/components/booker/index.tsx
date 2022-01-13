@@ -9,6 +9,7 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/dist/toast'
 import { navigate, routes } from '@redwoodjs/router'
 import { CREATE_RESERVATION, UPDATE_RESERVATION } from './mutation'
+import { useMoralis } from 'react-moralis'
 
 const BUSY_TEXT = 'Booking your reservation'
 const SUCCESS_TEXT = 'Reservation successfully booked'
@@ -30,6 +31,8 @@ export const Booker = ({ id, editMode }: BookerProps) => {
   }))
   const ownerId = useAuthStore((store) => store.userId)
 
+  const { user } = useMoralis()
+
   const [mutate, { data, loading }] = useMutation(
     editMode ? UPDATE_RESERVATION : CREATE_RESERVATION
   )
@@ -37,7 +40,15 @@ export const Booker = ({ id, editMode }: BookerProps) => {
   const preparePayload = () => {
     return editMode
       ? { input: { checkOutDate, checkInDate }, id }
-      : { input: { checkOutDate, checkInDate, hubId: id, ownerId } }
+      : {
+          input: {
+            checkOutDate,
+            checkInDate,
+            hubId: id,
+            ownerId,
+            address: user.attributes.ethAddress,
+          },
+        }
   }
 
   const handleReserveBooking = useCallback(() => {
@@ -59,6 +70,7 @@ export const Booker = ({ id, editMode }: BookerProps) => {
   }, [checkOutDate, checkInDate, id])
 
   useEffect(() => {
+    console.log(user.attributes.ethAddress)
     if (data) {
       const id = data?.createReservation?.id
       id && navigate(routes.confirmReservation({ id }))

@@ -35,10 +35,15 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    console.log(isAuthenticated)
+    //console.log(isAuthenticated)
     if (isAuthenticated) {
       toastId = toast.loading('validating discord membership!')
-
+      console.log(
+        prepareQueryVars({
+          session: client.auth.currentSession,
+          guildId: process.env.BUILD_DISCORD_GUILD_ID,
+        })
+      )
       validateMembership({
         variables: prepareQueryVars({
           session: client.auth.currentSession,

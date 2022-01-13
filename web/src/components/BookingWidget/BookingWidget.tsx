@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Booker } from './components/booker'
 import { Confirmer } from './components/confirmer'
 import { useMoralis, useNFTBalances } from 'react-moralis'
@@ -21,21 +22,25 @@ const Widget = ({ bookingMode, id, type }: WidgetProps) => {
 }
 
 export default function BookingWidget(props: BookingWidgetProps) {
-  const { isAuthenticated, authenticate, isWeb3Enabled, enableWeb3 } =
-    useMoralis()
+  const { isAuthenticated, authenticate } = useMoralis()
   const { getNFTBalances, data } = useNFTBalances()
+
+  useEffect(() => {
+    data && console.log(data)
+  }, [data])
+
   useEffect(() => {
     //logout()
-    if (isAuthenticated && isWeb3Enabled) {
-      // console.log('hello')
-      getNFTBalances({ params: { chain: '0x4' } }).then((res) => {
-        console.log(res)
-      })
+    if (isAuthenticated) {
+      //console.log('hello')
+      getNFTBalances({ params: { chain: 'rinkeby', address: '' } })
+      /*  if(!isFetching && !isLoading){
+        console.log(data)
+      } */
     }
-    console.log(data)
     return () => {}
-  }, [data, enableWeb3, getNFTBalances, isAuthenticated])
-  return isAuthenticated && isWeb3Enabled ? (
+  }, [isAuthenticated])
+  return isAuthenticated ? (
     <Widget {...props} />
   ) : (
     <ConnectWallet

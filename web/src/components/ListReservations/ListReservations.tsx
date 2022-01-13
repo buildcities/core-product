@@ -1,63 +1,55 @@
-import ReservationListing from './components/reservation-listing'
-
+import ReservationSelectionButton from 'src/components/bit.dev/reservation-dashboard/reservation-selection-button'
+import AcceptAllButton from 'src/components/bit.dev/reservation-dashboard/accept-all-button'
 import {
-  USER_HEADING_TEXT,
-  CHECKIN_HEADING_TEXT,
-  CHECKOUT_HEADING_TEXT,
+  ADD_HUB_BUTTON_TEXT,
+  RESERVATION_TITLE,
+  WAITING_FOR_APPROVAL_TEXT,
+  CURRENT_RESERVATIONS_TEXT,
+  reservationsUnapprovedData,
 } from './presets'
+import { useState } from 'react'
+import ReservationFilters from './components/reservation-filters'
+import UnapprovedReservationsCell from 'src/components/UnapprovedReservationsCell'
+import ApprovedReservationsCell from 'src/components/ApprovedReservationsCell'
 
-// Fix later
-type ListReservationsProps = {
-  data: any
-  type: string
-}
-
-const ListReservations = ({ data, type }: ListReservationsProps) => {
+const ViewReservationsPage = () => {
+  const [selected, setSelected] = useState<string>('')
   return (
-    <div className="flex text-sm text-white mb-4 transition-all duration-300">
-      {type === 'unapproved' && (
-        <table className="w-full">
-          <thead className="sm:flex hidden items-center justify-between pb-4 px-6 xl:flex-nowrap flex-wrap">
-            <tr className="flex justify-center xl:w-1/5 w-1/3">
-              {USER_HEADING_TEXT}
-            </tr>
-            <tr className="flex md:justify-center xl:w-1/5 w-1/3 justify-end">
-              {CHECKIN_HEADING_TEXT}
-            </tr>
-            <tr className="flex md:justify-center xl:w-1/5 w-1/3 justify-end">
-              {CHECKOUT_HEADING_TEXT}
-            </tr>
-            <tr className="flex justify-center xl:w-1/5 w-0"></tr>
-            <tr className="flex justify-center xl:w-1/5 w-0"></tr>
-          </thead>
-          <tbody className="font-bold">
-            {data.map((listing) =>
-              Object.keys(listing).map((listingName, index) => (
-                <ReservationListing
-                  {...listing[listingName]}
-                  key={index}
-                  type="unapproved"
-                />
-              ))
-            )}
-          </tbody>
-        </table>
-      )}
-      {type === 'approved' && (
-        <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 gap-y-4 flex-grow font-bold">
-          {data.map((listing) =>
-            Object.keys(listing).map((listingName, index) => (
-              <ReservationListing
-                {...listing[listingName]}
-                key={index}
-                type="approved"
-              />
-            ))
+    <div>
+      <div className="flex sm:justify-between justify-start mb-6">
+        <ReservationFilters />
+        <div>
+          <ReservationSelectionButton
+            selected={selected}
+            setSelected={setSelected}
+            text={ADD_HUB_BUTTON_TEXT}
+          />
+        </div>
+      </div>
+      <div className="flex justify-between">
+        <div className="mr-10">
+          {
+            <h1 className="text-mainText font-sans font-medium lg:text-5xl text-2xl mb-2">
+              {RESERVATION_TITLE}
+            </h1>
+          }
+          {reservationsUnapprovedData.length && (
+            <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl lg:mb-14 mb-7">
+              {WAITING_FOR_APPROVAL_TEXT}
+            </h2>
           )}
         </div>
-      )}
+        <AcceptAllButton />
+      </div>
+      <UnapprovedReservationsCell />
+      <>
+        <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl mb-2">
+          {CURRENT_RESERVATIONS_TEXT}
+        </h2>
+        <ApprovedReservationsCell />
+      </>
     </div>
   )
 }
 
-export default ListReservations
+export default ViewReservationsPage

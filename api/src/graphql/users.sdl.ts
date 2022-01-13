@@ -3,6 +3,7 @@ export const schema = gql`
     uuid: String!
     guildId: String!
     userName: String
+    avatar: String
     createdAt: DateTime!
     updatedAt: DateTime!
     userRoles: [UserRole]!
@@ -18,12 +19,16 @@ export const schema = gql`
   input CreateUserInput {
     uuid: String!
     guildId: String!
+    userName: String!
+    avatar: String!
     updatedAt: DateTime!
   }
 
   input UpdateUserInput {
     uuid: String
     guildId: String
+    userName: String
+    avatar: String
     updatedAt: DateTime
   }
 `

@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { MenuAlt2Icon } from '@heroicons/react/outline'
 import HeaderAuthButton from '../HeaderAuthButton/HeaderAuthButton'
-import { Heading } from '@buildcities/build-ui.components.all'
 import HeaderProfile from '../HeaderProfile/HeaderProfile'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, navigate, routes } from '@redwoodjs/router'

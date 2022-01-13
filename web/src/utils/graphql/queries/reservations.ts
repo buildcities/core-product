@@ -18,3 +18,25 @@ export const FIND_RESERVATION_QUERY = gql`
     }
   }
 `
+export const RESERVATIONS_QUERY = gql`
+  query ReservationsQuery(
+    $filter: JSON
+    $isOwner: Boolean
+    $skip: Int
+    $take: Int
+  ) {
+    reservations(filter: $filter, isOwner: $isOwner, skip: $skip, take: $take) {
+      id
+      isApproved
+      address
+      checkInDate
+      checkOutDate
+      hub {
+        owner {
+          userName
+          avatar
+        }
+      }
+    }
+  }
+`

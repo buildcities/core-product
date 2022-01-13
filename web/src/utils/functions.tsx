@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BookReservationProps } from 'src/components/HubDetail/BookReservation/BookReservation'
-import { FindReservationQuery, Hub } from 'types/graphql'
+import { ReservationListingProps } from 'src/components/ReservationTable/components/reservation-listing'
+import { FindReservationQuery, Hub, Reservation } from 'types/graphql'
 
 export const prepareHubForView = (hub: Hub) => ({
   id: hub.id,
@@ -28,6 +29,26 @@ export const getImage: (images: { dataURL }[]) => string = (
   images: { dataURL }[]
 ) => {
   return images[0]['dataURL']
+}
+
+export const prepareReservationForView: (
+  data: Reservation
+) => ReservationListingProps = (reservation) => {
+  const {
+    address,
+    checkInDate,
+    checkOutDate,
+    hub: {
+      owner: { userName: discordName, avatar },
+    },
+  } = reservation
+  return {
+    address,
+    checkInDate,
+    checkOutDate,
+    discordName,
+    avatar: avatar,
+  }
 }
 
 export const prepareChangeBookingForView: (
