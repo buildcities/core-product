@@ -1,10 +1,13 @@
-db:
-  image:  postgres
-  restart: always
-  environment:
-    - POSTGRES_USER=postgres
-    - POSTGRES_PASSWORD=postgres
-  ports:
-    - '5432:5432'
-  volumes:
-    - ~/Documents/postgres-data:/var/lib/postgresql/data
+version: '3.8'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/data/postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - /var/lib/postgresql/data

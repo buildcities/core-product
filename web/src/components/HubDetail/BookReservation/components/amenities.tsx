@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Heading } from '@buildcities/build-ui.components.all'
+import { motion } from 'framer-motion'
 
 import {
   amenities as orderedAmenities,
@@ -29,25 +30,46 @@ type AmenitiesProps = {
 }
 
 export default function Amenities({ amenities }: AmenitiesProps) {
-  //console.log(orderedAmenities)
   const _amenities = prepareAmenties(amenities)
-  //console.log(_amenities)
+  let delay = 1.2
+  // Fade in each card
   return _amenities ? (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {Object.keys(omit(orderedAmenities, ['custom'])).map((key) => (
-        <Card key={key} text={key} icon={iconMap[key]}>
-          <div className="flex space-x-2 mt-[10px]">
-            {without(_amenities[key], null).map((item, indx) => (
-              <div
-                key={indx}
-                className="border p-2 rounded-lg border-outline bg-cardBackground"
-              >
-                <Heading text={item} type="H5" />
+      {Object.keys(omit(orderedAmenities, ['custom'])).map((key) => {
+        delay += 0.2
+        return (
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            transition={{
+              ease: 'easeOut',
+              duration: 0.7,
+              delay: delay,
+            }}
+            key={key}
+          >
+            <Card text={key} icon={iconMap[key]}>
+              <div className="flex space-x-2 mt-[10px]">
+                {without(_amenities[key], null).map((item, indx) => (
+                  <div
+                    key={indx}
+                    className="border p-2 rounded-lg border-outline bg-cardBackground"
+                  >
+                    <Heading text={item} type="H5" />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Card>
-      ))}
+            </Card>
+          </motion.div>
+        )
+      })}
     </div>
   ) : (
     <></>

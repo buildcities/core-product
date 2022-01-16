@@ -106,13 +106,13 @@ const ReservationDatePicker = ({
         <p className=" text-paragraph text-sm">Pick dates for reserving hub.</p>
       </div>
       <div className="absolute flex md:w-80 md:h-20 w-64 h-16 md:top-8 md:right-8 md:left-auto top-24 left-4">
-        <div className="w-1/2 h-full md:pl-4 md:pt-4 pl-2 pt-2 relative z-20 pointer-events-none">
-          <span className="md:text-xl text-lg text-white font-fira">
+        <div className="w-1/2 h-full md:pl-4 md:pt-4 pl-2 pt-2 relative z-20 pointer-events-none border border-[#343434]">
+          <span className="md:text-xl text-lg text-white font-sans">
             {CHECK_IN_TEXT}
           </span>
         </div>
-        <div className="w-1/2 h-full md:pl-4 md:pt-4 pl-2 pt-2 relative z-20 pointer-events-none">
-          <span className="md:text-xl text-lg text-white font-fira">
+        <div className="w-1/2 h-full md:pl-4 md:pt-4 pl-2 pt-2 relative z-20 pointer-events-none border border-[#343434]">
+          <span className="md:text-xl text-lg text-white font-sans">
             {CHECK_OUT_TEXT}
           </span>
         </div>
