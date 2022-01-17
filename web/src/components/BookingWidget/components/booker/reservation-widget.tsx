@@ -18,8 +18,20 @@ export default function ReservationWidget({
   onDateChange,
 }: ReservatioWidgetProps) {
   const [hide, setHide] = useState(true)
-  const _onClick = () => {
-    setHide(!hide)
+  const _onClick = (event) => {
+    const elem = event.target
+    const pickerButton1 = document.getElementById('start-date')
+    const pickerButton2 = document.getElementById('end-date')
+    switch (elem) {
+      case pickerButton1:
+        setHide(false)
+        break
+      case pickerButton2:
+        setHide(false)
+        break
+      default:
+        setHide(true)
+    }
   }
   return (
     <div
