@@ -32,6 +32,10 @@ type AmenitiesProps = {
 export default function Amenities({ amenities }: AmenitiesProps) {
   const _amenities = prepareAmenties(amenities)
   let delay = 1.2
+  const capitalizeFirstLetter = (str: string) => {
+    console.log(str)
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
   // Fade in each card
   return _amenities ? (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -55,7 +59,7 @@ export default function Amenities({ amenities }: AmenitiesProps) {
             }}
             key={key}
           >
-            <Card text={key} icon={iconMap[key]}>
+            <Card text={capitalizeFirstLetter(key)} icon={iconMap[key]}>
               <div className="flex space-x-2 mt-[10px]">
                 {without(_amenities[key], null).map((item, indx) => (
                   <div

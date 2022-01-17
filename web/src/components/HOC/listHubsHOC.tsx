@@ -9,6 +9,7 @@ import { CREATE_HUB, UPDATE_HUB } from './mutation'
 import { toast } from '@redwoodjs/web/toast'
 import { getUserId } from 'src/utils/functions'
 import { useAuth } from '@redwoodjs/auth'
+import { motion } from 'framer-motion'
 
 export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
   const HOCComponent = ({ stepId }: { stepId?: number }) => {
@@ -79,9 +80,26 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
     }, [_stepId])
 
     return (
-      <WrappedComponent
-        {...{ data, stepId: _stepId, updateStepData, onFormSubmit }}
-      />
+      <motion.section
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+        }}
+        transition={{
+          ease: 'easeOut',
+          duration: 0.7,
+          delay: 0.4,
+        }}
+      >
+        <WrappedComponent
+          {...{ data, stepId: _stepId, updateStepData, onFormSubmit }}
+        />
+      </motion.section>
     )
   }
 

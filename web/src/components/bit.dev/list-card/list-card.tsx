@@ -6,6 +6,7 @@ import {
 import classNames from 'classnames'
 import React, { RefObject } from 'react'
 import { motion } from 'framer-motion'
+import { Loader } from '@buildcities/build-ui.ui.base.loader'
 
 export type PictureCardProps = {
   id?: number | string
@@ -59,11 +60,16 @@ export default function PictureCard({
           className
         )}
       >
-        <img
-          alt="hub "
-          className="object-cover rounded-t-md md:rounded-t-lg aspect-auto h-[276px] w-full"
-          src={src}
-        />
+        <div className="relative">
+          <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-0">
+            <Loader loader="spinner" className="border-white" />
+          </div>
+          <img
+            alt="hub "
+            className="relative z-10 object-cover rounded-t-md md:rounded-t-lg aspect-auto h-[276px] w-full"
+            src={src}
+          />
+        </div>
         <div className="m-4">
           <span className="flex">
             {icon && (

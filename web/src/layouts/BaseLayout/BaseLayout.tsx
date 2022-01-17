@@ -32,6 +32,7 @@ const BaseLayout = ({
           transition={{
             ease: 'easeOut',
             duration: 0.7,
+            delay: 0.4,
           }}
         >
           {children}
