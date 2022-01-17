@@ -35,7 +35,7 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
                   : ''
               )}
             >
-              <div className="relative group">
+              <div className="relative group overflow-hidden rounded-lg">
                 <img
                   className={classNames(
                     images.length > 1
@@ -43,7 +43,7 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
                         ? 'md:w-[520px] md:h-[460px]'
                         : 'md:h-[222px] md:w-[250px] md:block hidden'
                       : '',
-                    'object-cover w-full  rounded-lg group-hover:opacity-75'
+                    'object-cover w-full group-hover:opacity-75'
                   )}
                   src={item.dataURL}
                   alt=""
