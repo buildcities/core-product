@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import React, { useCallback, useState } from 'react'
 import ModalView from 'src/components/bit.dev/modalview'
 import ImageGallery from '../../common/components/ImageGallery/ImageGallery'
+import { Loader } from '@buildcities/build-ui.ui.base.loader'
 
 type ImageViewerProps = {
   images: { dataURL: string }[]
@@ -36,6 +37,9 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
               )}
             >
               <div className="relative group overflow-hidden rounded-lg">
+                <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 z-0">
+                  <Loader loader="spinner" className="border-white" />
+                </div>
                 <img
                   className={classNames(
                     images.length > 1
@@ -43,15 +47,12 @@ export default function ImageViewer({ images, className }: ImageViewerProps) {
                         ? 'md:w-[520px] md:h-[460px]'
                         : 'md:h-[222px] md:w-[250px] md:block hidden'
                       : '',
-                    'object-cover w-full group-hover:opacity-75'
+                    'relative z-10 object-cover h-full'
                   )}
                   src={item.dataURL}
                   alt=""
                 />
-                <div
-                  aria-hidden="true"
-                  className="bg-gradient-to-b from-transparent to-black opacity-50 absolute top-0 w-full h-full"
-                />
+                <div className="bg-gradient-to-b from-transparent to-black opacity-0 absolute top-0 w-full h-full group-hover:opacity-70 pointer-events-none z-20 transition-opacity duration-300" />
               </div>
             </button>
           ))}
