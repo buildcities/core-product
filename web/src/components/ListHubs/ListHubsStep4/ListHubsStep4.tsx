@@ -16,6 +16,10 @@ import { useAuth } from '@redwoodjs/auth'
 import { useStore } from 'src/utils/stores/hubStepsStore'
 import { camelCase } from 'lodash'
 import FormField from 'src/components/FormField/FormField'
+import { useMutation } from '@redwoodjs/web'
+import { UPDATE_HUB } from 'src/components/HOC/mutation'
+import { useLocation, useParams } from '@redwoodjs/router'
+import { toast } from '@redwoodjs/web/toast'
 const storeSelector = (store) => store.getCurrentHubName
 const ListHubsStep4 = ({
   stepId,
@@ -27,12 +31,33 @@ const ListHubsStep4 = ({
   const formMethods = useForm({ defaultValues: data })
   const { userMetadata } = useAuth()
   const getCurrentHubName = useStore(storeSelector)
+  const [updateImages] = useMutation(UPDATE_HUB)
   const hubName = camelCase(getCurrentHubName())
   const folderPath = `${process.env.IMAGE_PICKER_ROOT_FOLDER}/${userMetadata?.email}/${hubName}`
   //console.log(folderPath)
   const onSubmit = (data) => {
+    console.log(data)
     updateStepData({ data, stepId })
     onFormSubmit && onFormSubmit()
+  }
+
+  const { pathname } = useLocation()
+
+  const { id } = useParams()
+
+  const isEditMode = pathname?.match('edit-hub')?.length
+
+  const _onBeforeImageRemove = ({ images, onImageRemove, deletedIndex }) => {
+    //remove images from DB before removing from cloudstore
+    const toastId = toast.loading('preparing to remove image...')
+    updateImages({ variables: { input: { images }, id } })
+      .then(() => {
+        onImageRemove(deletedIndex)
+        toast.dismiss(toastId)
+      })
+      .catch(() => {
+        toast.error('Image cannot be removed!')
+      })
   }
   return (
     <Form
@@ -48,6 +73,7 @@ const ListHubsStep4 = ({
           <ControlledInput rules={{ required: true }} name="images">
             {(inputProps) => (
               <ImagePicker
+                onBeforeImageRemove={isEditMode && _onBeforeImageRemove}
                 firebaseConfigOptions={{
                   apiKey: process.env.FB_API_KEY,
                   appId: process.env.FB_APP_ID,

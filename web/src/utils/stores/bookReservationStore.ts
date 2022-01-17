@@ -1,12 +1,21 @@
 import produce from 'immer'
-import { Hub } from 'types/graphql'
 import create from 'zustand'
 
 interface TStore {
-  selectedHub?: Hub
+  hubImages?: { dataURL: string }[]
+  hubTitle?: string
+  hubLocation?: string
   checkInDate: moment.Moment | null
   checkOutDate: moment.Moment | null
-  setSelectedHub: (hub: Hub) => void
+  setSelectedHubDetails: ({
+    location,
+    title,
+    images,
+  }: {
+    location?: string
+    title?: string
+    images?: { dataURL: string }[]
+  }) => void
   setBookingDate: (
     checkInDate?: moment.Moment,
     checkOutDate?: moment.Moment
@@ -16,11 +25,21 @@ interface TStore {
 export const useStore = create<TStore>((set) => ({
   checkInDate: null,
   checkOutDate: null,
-  selectedHub: null,
-  setSelectedHub: (hub) =>
+  hubTitle: null,
+  hubImages: null,
+  hubLocation: null,
+  setSelectedHubDetails: ({ location, title, images }) =>
     set(
       produce((draft) => {
-        draft.selectedHub = hub
+        if (location) {
+          draft.hubLocation = location
+        }
+        if (title) {
+          draft.hubTitle = title
+        }
+        if (images) {
+          draft.hubImages = images
+        }
       })
     ),
   setBookingDate: (checkInDate, checkOutDate) =>

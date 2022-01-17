@@ -6,8 +6,17 @@ import { db } from 'src/lib/db'
 const generateId = () =>
   Date.now().toString(36) + Math.random().toString(36).substring(2)
 
-export const reservations = () => {
-  return db.reservation.findMany()
+export const reservations = ({ filter, skip, isOwner, take }) => {
+  const ownership = isOwner
+    ? { hub: { ownerId: context.currentUser.uuid } }
+    : { ownerId: context.currentUser.uuid }
+  const where = filter ? { ...filter, ...ownership } : ownership
+  //console.log(context.currentUser.uuid)
+  return db.reservation.findMany({
+    where,
+    skip: skip || 0,
+    take: take || 20,
+  })
 }
 
 export const reservation = ({ id }: Prisma.ReservationWhereUniqueInput) => {
@@ -23,7 +32,7 @@ interface CreateReservationArgs {
 export const createReservation = ({ input }: CreateReservationArgs) => {
   const id = generateId()
   return db.reservation.create({
-    data: { ...input, ...{ id } }, 
+    data: { ...input, ...{ id } },
   })
 }
 

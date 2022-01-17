@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import HubDetailContainer from '../common/components/HubDetailContainer/HubDetailContainer'
+import SplitContainer from 'src/components/SplitContainer/SplitContainer'
 import { HubImage } from './components'
 import { Redirect, routes } from '@redwoodjs/router'
 import BookingWidget from 'src/components/BookingWidget/BookingWidget'
@@ -10,6 +10,7 @@ export type ConfirmReservationProps = {
   name?: string
   location?: string
   image?: string
+  images?: { dataURL: string }[]
   code?: string
   checkInDate?: moment.Moment | null
   checkOutDate?: moment.Moment | null
@@ -32,13 +33,13 @@ const ConfirmReservation = ({
   }, [])
 
   return code ? (
-    <HubDetailContainer
+    <SplitContainer
       subTitle={location}
       title={name}
       renderRight={() => <BookingWidget id={code} type="confirm" />}
     >
       <HubImage altText={name || name} hubImage={image} />
-    </HubDetailContainer>
+    </SplitContainer>
   ) : (
     <Redirect to={routes.viewHubs()} />
   )

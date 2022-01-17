@@ -38,7 +38,7 @@ export default function PictureCard({
       onClick={_onClick}
       ref={ref}
       className={classNames(
-        'bg-cardBackground min-w-[276px] border-2 text-left  cursor-pointer text-mainText hover:border-selected rounded-md md:rounded-lg h-[365px]',
+        'bg-cardBackground w-[276px] border-2 text-left  cursor-pointer text-mainText hover:border-selected rounded-md md:rounded-lg h-[365px]',
         isActive ? 'border-selected' : 'border-transparent',
         className
       )}
@@ -58,7 +58,9 @@ export default function PictureCard({
           )}
           <Paragraph className="text-mainText-lighter" text={subTitle} />
         </span>
-        <Heading type="H4" text={title} />
+        <div className="w-full truncate">
+          <Heading type="H4" text={title} />
+        </div>
       </div>
     </button>
   )

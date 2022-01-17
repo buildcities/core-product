@@ -1,0 +1,6 @@
+export const RESERVATION_BUTTON_TEXT = 'Reservations'
+export const PROPERTIES_BUTTON_TEXT = 'My properties'
+export const USER_HEADING_TEXT = 'USER'
+export const CHECKIN_HEADING_TEXT = 'CHECK IN'
+export const CHECKOUT_HEADING_TEXT = 'CHECK OUT'
+export const ACCEPT_ALL_BUTTON_TEXT = 'Accept all'

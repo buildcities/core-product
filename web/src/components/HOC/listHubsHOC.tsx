@@ -19,18 +19,16 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
     const isEditMode = pathname?.match('edit-hub')?.length
 
     const _stepId = stepId || 0
-    const updateStepData = useStore(
-      useCallback((state) => state.updateStepData, [])
-    )
-    const getStepsData = useStore(
-      useCallback((state) => state.getStepsData, [])
+    const { updateStepData, getStepsData, setIsBusy, currentStep } = useStore(
+      (store) => ({
+        updateStepData: store.updateStepData,
+        getStepsData: store.getStepsData,
+        setIsBusy: store.setIsBusy,
+        currentStep: store.listHubsSteps[_stepId],
+      })
     )
 
-    const setIsBusy = useStore(useCallback((state) => state.setIsBusy, []))
-
-    const data = useStore(
-      useCallback((state) => state.listHubsSteps[_stepId].data, [_stepId])
-    )
+    const data = currentStep.data
 
     const { userMetadata } = useAuth()
 
@@ -39,9 +37,17 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
     )
 
     useEffect(() => {
-      updateStepData({ stepId: _stepId, status: 'current' })
+      //console.log(routes.listHubs({ stepId: _stepId }))
+      updateStepData({
+        stepId: _stepId,
+        status: 'current',
+      })
       return () => {
-        updateStepData({ stepId: _stepId, status: 'complete' })
+        console.log('exiting')
+        updateStepData({
+          stepId: _stepId,
+          status: 'complete',
+        })
       }
     }, [])
 
@@ -76,7 +82,7 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
       isEditMode
         ? updateStepData({ stepId: _stepId + 1 })
         : navigate(routes.listHubs({ stepId: _stepId + 1 }))
-    }, [_stepId])
+    }, [stepId])
 
     return (
       <WrappedComponent

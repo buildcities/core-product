@@ -9,6 +9,7 @@ export type TUpdateStepDataActionProps = {
   stepId: number
   data?: Record<string, unknown>
   status?: 'upcoming' | 'current' | 'complete'
+  route?: string
 }
 
 const editHubSteps = editHubListSteps.map((item, indx) => {
