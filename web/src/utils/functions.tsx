@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BookReservationProps } from 'src/components/HubDetail/BookReservation/BookReservation'
-import { ReservationListingProps } from 'src/components/ReservationTable/components/reservation-listing'
+import { ReservationListItemProps } from 'src/components/ReservationListItem'
 import { FindReservationQuery, Hub, Reservation } from 'types/graphql'
 
 export const prepareHubForView = (hub: Hub) => ({
@@ -33,7 +33,7 @@ export const getImage: (images: { dataURL }[]) => string = (
 
 export const prepareReservationForView: (
   data: Reservation
-) => ReservationListingProps = (reservation) => {
+) => ReservationListItemProps = (reservation) => {
   const {
     id,
     address,

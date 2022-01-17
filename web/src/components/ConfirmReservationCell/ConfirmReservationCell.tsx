@@ -31,4 +31,3 @@ export const Success = (reservation: ConfirmReservationProps) => {
 
   return <ConfirmReservation {...reservation} />
 }
-

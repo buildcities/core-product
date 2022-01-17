@@ -50,7 +50,7 @@ const ListHubsStep6 = ({ data, stepId, updateStepData, onFormSubmit }) => {
         description={CUSTOM_RULES_SECTION_TEXT}
         title={CUSTOM_RULES_SECTION_TITLE}
       >
-        <TextInputArea  defaultValue=''  name="rules.custom" as={TextAreaField} />
+        <TextInputArea defaultValue="" name="rules.custom" as={TextAreaField} />
       </FormSection>
 
       <Button text="Next" />

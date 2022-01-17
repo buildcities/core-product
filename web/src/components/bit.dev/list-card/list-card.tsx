@@ -58,7 +58,7 @@ export default function PictureCard({
           )}
           <Paragraph className="text-mainText-lighter" text={subTitle} />
         </span>
-        <div className='w-full truncate'>
+        <div className="w-full truncate">
           <Heading type="H4" text={title} />
         </div>
       </div>

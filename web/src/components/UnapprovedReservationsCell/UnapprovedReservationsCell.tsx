@@ -3,7 +3,7 @@ import type { CellFailureProps } from '@redwoodjs/web'
 import { RESERVATIONS_QUERY } from 'src/utils/graphql/queries/reservations'
 import { prepareReservationForView } from 'src/utils/functions'
 import ReservationTable from '../ReservationTable/ReservationTable'
-import { ReservationListingProps } from '../ReservationTable/components/reservation-listing'
+import { ReservationListItemProps } from 'src/components/ReservationListItem'
 
 export const QUERY = RESERVATIONS_QUERY
 
@@ -39,7 +39,7 @@ export const beforeQuery = ({
 export const Success = ({
   reservations,
 }: {
-  reservations: ReservationListingProps[]
+  reservations: ReservationListItemProps[]
 }) => {
   //console.log(reservations)
   return <ReservationTable data={reservations} type="unapproved" />
