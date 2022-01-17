@@ -36,14 +36,8 @@ const HomePage = () => {
 
   useEffect(() => {
     //console.log(isAuthenticated)
-    if (isAuthenticated) {
+    if (isAuthenticated && client?.auth?.currentSession) {
       toastId = toast.loading('validating discord membership!')
-      console.log(
-        prepareQueryVars({
-          session: client.auth.currentSession,
-          guildId: process.env.BUILD_DISCORD_GUILD_ID,
-        })
-      )
       validateMembership({
         variables: prepareQueryVars({
           session: client.auth.currentSession,
@@ -51,9 +45,10 @@ const HomePage = () => {
         }),
       })
         .then((result) => {
-          console.log(result)
           if (result.data?.isDiscordMember?.isMember) {
             navigate(routes.viewHubs())
+          } else {
+            window.location.href = process.env.ONBOARDING_URL
           }
           toastId && toast.dismiss(toastId)
           if (result.error) {

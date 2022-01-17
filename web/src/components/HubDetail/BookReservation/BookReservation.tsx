@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import HubDetailContainer from '../common/components/HubDetailContainer/HubDetailContainer'
 import ImageViewer from './components/image-viewer'
 import Amenities from './components/amenities'
 import { amenitiesProps } from 'src/components/ListHubs/ListHubsStep3/presets'
@@ -9,6 +8,7 @@ import { navigate, routes, useLocation, useParams } from '@redwoodjs/router'
 import BookingWidget from 'src/components/BookingWidget/BookingWidget'
 import { useEffect } from 'react'
 import { useStore } from 'src/utils/stores/bookReservationStore'
+import SplitContainer from 'src/components/SplitContainer/SplitContainer'
 
 export type BookReservationProps = {
   images?: { dataURL: string }[]
@@ -53,25 +53,23 @@ const BookReservation = ({
   }, [])
 
   return (
-    <>
-      <HubDetailContainer
-        subTitle={location}
-        title={name}
-        renderRight={() => (
-          <BookingWidget id={hubId} bookingMode={bookingMode} type="book" />
-        )}
-      >
-        <div className="flex relative space-y-8 flex-col">
-          <ImageViewer images={images} />
-          <Amenities amenities={amenities} />
-          <AdminControls
-            onEdit={onEdit}
-            ownerId={ownerId}
-            className="absolute z-10 top-0"
-          />
-        </div>
-      </HubDetailContainer>
-    </>
+    <SplitContainer
+      subTitle={location}
+      title={name}
+      renderRight={() => (
+        <BookingWidget id={hubId} bookingMode={bookingMode} type="book" />
+      )}
+    >
+      <div className="flex relative space-y-8 flex-col">
+        <ImageViewer images={images} />
+        <Amenities amenities={amenities} />
+        <AdminControls
+          onEdit={onEdit}
+          ownerId={ownerId}
+          className="absolute z-10 top-0"
+        />
+      </div>
+    </SplitContainer>
   )
 }
 

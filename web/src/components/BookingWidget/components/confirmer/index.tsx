@@ -1,3 +1,4 @@
+import { navigate, routes } from '@redwoodjs/router'
 import moment from 'moment'
 import React from 'react'
 import { useStore } from 'src/utils/stores/bookReservationStore'
@@ -14,6 +15,15 @@ export const Confirmer = ({ id }: ConfirmerProps) => {
   const { checkInDate, checkOutDate } = useStore((store) => ({
     ...store,
   }))
+
+  const onClickContact = () => {
+    window.alert('Feature coming soon!')
+  }
+
+  const onClickConfirm = () => {
+    navigate(routes.viewReservations())
+  }
+
   return (
     <div>
       <>
@@ -23,7 +33,10 @@ export const Confirmer = ({ id }: ConfirmerProps) => {
           id={id as string}
         />
         <QRCodeSection code={id as string} />
-        <LeaveNoteSection />
+        <LeaveNoteSection
+          onClickContact={onClickContact}
+          onClickConfirm={onClickConfirm}
+        />
       </>
     </div>
   )

@@ -45,9 +45,9 @@ export default function ReservationWidget({
       <Heading text={RESERVE_TEXT} type="H3" />
       <button
         onClick={_onClick}
-        className="flex w-full text-left justify-evenly border  mt-3 px-[18px] rounded-lg divide-x divide-[#343434] border-[#343434]"
+        className="flex w-full text-left  border  mt-3 px-[18px] rounded-lg divide-x divide-[#343434] border-[#343434]"
       >
-        <div className="flex-shrink-0  py-4   mr-4 sm:mr-8 flex-1">
+        <div className="flex-1 mr-4 py-4 ">
           <Heading type="H5" text={CHECKIN_TEXT} />
           <Paragraph
             className="text-paragraph "
@@ -57,7 +57,7 @@ export default function ReservationWidget({
             }
           />
         </div>
-        <div className="flex-shrink-0 pl-4  py-4 mr-2 ">
+        <div className="flex-1 py-4 pl-4 ">
           <Heading type="H5" text={CHECKOUT_TEXT} />
           <Paragraph
             className="text-paragraph"

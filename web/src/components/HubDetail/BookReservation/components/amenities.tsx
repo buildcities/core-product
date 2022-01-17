@@ -5,7 +5,7 @@ import {
   amenities as orderedAmenities,
   amenitiesProps,
 } from 'src/components/ListHubs/ListHubsStep3/presets'
-import { omit, pick, without } from 'lodash'
+import { capitalize, omit, pick, without } from 'lodash'
 import { iconMap } from './presets'
 
 const prepareAmenties: (props: amenitiesProps) => amenitiesProps = (
@@ -29,13 +29,11 @@ type AmenitiesProps = {
 }
 
 export default function Amenities({ amenities }: AmenitiesProps) {
-  //console.log(orderedAmenities)
   const _amenities = prepareAmenties(amenities)
-  //console.log(_amenities)
   return _amenities ? (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {Object.keys(omit(orderedAmenities, ['custom'])).map((key) => (
-        <Card key={key} text={key} icon={iconMap[key]}>
+        <Card key={key} text={capitalize(key)} icon={iconMap[key]}>
           <div className="flex space-x-2 mt-[10px]">
             {without(_amenities[key], null).map((item, indx) => (
               <div

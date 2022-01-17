@@ -28,5 +28,7 @@ export const Success = (reservation: ConfirmReservationProps) => {
     location: reservation.location,
     images: reservation.images,
   })
+
   return <ConfirmReservation {...reservation} />
 }
+

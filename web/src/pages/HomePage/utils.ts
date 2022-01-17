@@ -16,9 +16,9 @@ export const prepareQueryVars = ({
 }: prepareQueryVarsType) => {
   return {
     guildId,
-    tokenId: session.provider_token,
-    userId: session.user.identities[0].id,
-    userName: session.user.user_metadata.name,
-    avatar: session.user.user_metadata.picture,
+    tokenId: session?.provider_token,
+    userId: session?.user?.identities[0]?.id,
+    userName: session?.user?.user_metadata?.name,
+    avatar: session?.user?.user_metadata?.picture,
   }
 }

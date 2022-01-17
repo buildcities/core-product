@@ -9,7 +9,7 @@ export const QUERY = RESERVATIONS_QUERY
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Empty</div>
+export const Empty = () => <></>
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
@@ -29,7 +29,8 @@ export const beforeQuery = ({
   skip?: number
   take?: number
 }) => {
-  const filter = { isApproved: false }
+  const filter = { OR: [{ status: 'NEW' }, { status: 'REJECTED' }] }
+  console.log(isOwner)
   return {
     variables: { filter, skip, take, isOwner },
   }

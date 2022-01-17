@@ -1,32 +1,32 @@
-import HubDetailHeader from '../HubDetailHeader/HubDetailHeader'
+import Header from './components/header'
 
-type HubDetailContainerProps = {
+type SplitContainerProps = {
   children?: React.ReactNode
   title?: string
   subTitle?: string
   renderRight?: () => React.ReactElement
 }
 
-const HubDetailContainer = ({
+const SplitContainer = ({
   children,
   subTitle,
   title,
   renderRight,
-}: HubDetailContainerProps) => {
+}: SplitContainerProps) => {
   return (
     <>
-      <HubDetailHeader
+      <Header
         containerClass="text-mainText"
         subTitle={subTitle}
         title={title}
       />
       <div className="flex flex-shrink flex-col lg:flex-row lg:justify-end lg:space-x-5 text-mainText">
         {children}
-        <div className="flex-shrink h-max lg:max-w-[372px] mt-4 lg:mt-0 ">
+        <div className="flex-shrink h-max lg:max-w-[374px] w-full mt-4 lg:mt-0 ">
           {renderRight && renderRight()}
         </div>
       </div>
     </>
   )
 }
-export default HubDetailContainer
+export default SplitContainer

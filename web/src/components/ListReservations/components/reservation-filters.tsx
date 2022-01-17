@@ -1,12 +1,32 @@
 import React from 'react'
-import { FilterButton } from '@buildcities/build-ui.components.all'
-import { RESERVATION_BUTTON_TEXT, PROPERTIES_BUTTON_TEXT } from './presets'
+import { RadioGroup, RadioOption } from 'src/components/bit.dev/radio-group'
+import { useStore } from 'src/utils/stores/viewReservationStore'
+import ReservationSelectionButton from './reservation-selection-button'
 
-export default function ReservationFilters() {
+export default function Component() {
+  const { selectedView, setFilter } = useStore((store) => ({
+    setFilter: store.setFilter,
+    selectedView: store.selectedView,
+  }))
   return (
-    <div className="flex space-x-4 sm:space-x-7">
-      <FilterButton type="normal" label={RESERVATION_BUTTON_TEXT} />
-      <FilterButton type="normal" label={PROPERTIES_BUTTON_TEXT} />
+    <div>
+      <RadioGroup
+        inputProps={{ onChange: setFilter, value: selectedView }}
+        containerClass="hidden md:flex"
+      >
+        <>
+          <RadioOption key={'reservations'} label={'Reservations'}>
+            {({ checked, label }) => (
+              <ReservationSelectionButton selected={checked} text={label} />
+            )}
+          </RadioOption>
+          <RadioOption key={'my-properties'} label={'My Properties'}>
+            {({ checked, label }) => (
+              <ReservationSelectionButton selected={checked} text={label} />
+            )}
+          </RadioOption>
+        </>
+      </RadioGroup>
     </div>
   )
 }

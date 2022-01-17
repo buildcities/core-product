@@ -35,15 +35,19 @@ export const prepareReservationForView: (
   data: Reservation
 ) => ReservationListingProps = (reservation) => {
   const {
+    id,
     address,
     checkInDate,
+    status,
     checkOutDate,
     hub: {
       owner: { userName: discordName, avatar },
     },
   } = reservation
   return {
+    id,
     address,
+    status,
     checkInDate,
     checkOutDate,
     discordName,

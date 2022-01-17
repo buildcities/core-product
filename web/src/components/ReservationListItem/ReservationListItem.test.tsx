@@ -1,11 +1,11 @@
 import { render } from '@redwoodjs/testing/web'
 
-import HubDetailContainer from './HubDetailContainer'
+import ReservationListItem from './ReservationListItem'
 
-describe('HubDetailContainer', () => {
+describe('ReservationListItem', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<HubDetailContainer />)
+      render(<ReservationListItem />)
     }).not.toThrow()
   })
 })

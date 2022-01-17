@@ -5,7 +5,7 @@ export const schema = gql`
     checkOutDate: DateTime!
     notes: String
     address: String
-    isApproved: Boolean
+    status: ReservationStatus
     createdAt: DateTime!
     updatedAt: DateTime
     hub: Hub!
@@ -29,7 +29,7 @@ export const schema = gql`
     checkOutDate: DateTime!
     notes: String
     address: String
-    isApproved: Boolean
+    status: ReservationStatus
     updatedAt: DateTime
     hubId: Int!
     ownerId: String!
@@ -40,7 +40,7 @@ export const schema = gql`
     checkOutDate: DateTime
     notes: String
     address: String
-    isApproved: Boolean
+    status: ReservationStatus
     updatedAt: DateTime
     hubId: Int
     ownerId: String
@@ -53,5 +53,11 @@ export const schema = gql`
       input: UpdateReservationInput!
     ): Reservation! @requireAuth
     deleteReservation(id: String!): Reservation! @requireAuth
+  }
+
+  enum ReservationStatus {
+    NEW
+    APPROVED
+    REJECTED
   }
 `

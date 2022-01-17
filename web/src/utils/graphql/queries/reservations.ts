@@ -27,7 +27,7 @@ export const RESERVATIONS_QUERY = gql`
   ) {
     reservations(filter: $filter, isOwner: $isOwner, skip: $skip, take: $take) {
       id
-      isApproved
+      status
       address
       checkInDate
       checkOutDate

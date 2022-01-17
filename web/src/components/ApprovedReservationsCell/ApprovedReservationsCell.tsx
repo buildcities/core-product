@@ -20,7 +20,7 @@ export const beforeQuery = ({
   skip?: number
   take?: number
 }) => {
-  const filter = { isApproved: true }
+  const filter = { status: 'APPROVED' }
   return {
     variables: { filter, skip, take, isOwner },
   }

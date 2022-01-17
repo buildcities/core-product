@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import classNames from 'classnames'
 import { useStore } from 'src/utils/stores/bookReservationStore'
-import HubDetailHeader from '../HubDetailHeader/HubDetailHeader'
+import HubDetailHeader from 'src/components/SplitContainer/components/header'
 type ImageGalleryProps = {
   images?: { imageURL: string }[]
 }
