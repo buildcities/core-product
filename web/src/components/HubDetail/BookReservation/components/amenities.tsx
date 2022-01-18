@@ -33,7 +33,6 @@ export default function Amenities({ amenities }: AmenitiesProps) {
   const _amenities = prepareAmenties(amenities)
   let delay = 1.2
   const capitalizeFirstLetter = (str: string) => {
-    console.log(str)
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
   // Fade in each card
