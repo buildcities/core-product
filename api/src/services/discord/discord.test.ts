@@ -18,18 +18,46 @@ describe('discord: Empty arguments', () => {
         token: '',
         userId: NOT_EMPTY_VAR,
         guildId: NOT_EMPTY_VAR,
+        userName: NOT_EMPTY_VAR,
+        avatar: NOT_EMPTY_VAR,
       })
     ).rejects.toThrow('Token must be present')
   })
 
-  it('throws when user args is empty', () => {
+  it('throws when userId args is empty', () => {
     expect(() =>
       isDiscordMember({
         token: 'not empty',
         userId: '',
         guildId: NOT_EMPTY_VAR,
+        userName: NOT_EMPTY_VAR,
+        avatar: NOT_EMPTY_VAR,
       })
-    ).rejects.toThrowError('User must be present')
+    ).rejects.toThrowError('UserId must be present')
+  })
+
+  it('throws when userName args is empty', () => {
+    expect(() =>
+      isDiscordMember({
+        token: 'not empty',
+        userId: NOT_EMPTY_VAR,
+        guildId: NOT_EMPTY_VAR,
+        avatar: NOT_EMPTY_VAR,
+        userName: '',
+      })
+    ).rejects.toThrowError('UserName must be present')
+  })
+
+  it('throws when avatar args is empty', () => {
+    expect(() =>
+      isDiscordMember({
+        token: 'not empty',
+        userId: NOT_EMPTY_VAR,
+        guildId: NOT_EMPTY_VAR,
+        avatar: '',
+        userName: NOT_EMPTY_VAR,
+      })
+    ).rejects.toThrowError('avatar must be present')
   })
 
   it('throws when guildId args is empty', () => {
@@ -38,6 +66,7 @@ describe('discord: Empty arguments', () => {
         token: NOT_EMPTY_VAR,
         userId: NOT_EMPTY_VAR,
         guildId: '',
+        userName: NOT_EMPTY_VAR,
       })
     ).rejects.toThrowError('Guild must be present')
   })
@@ -50,6 +79,8 @@ describe('discord:validate membership', () => {
         userId: '877980735972180049',
         token: NOT_EMPTY_VAR,
         guildId: '850513622194192395',
+        userName: 'rollymaduk',
+        avatar: 'testAvatarUrl',
       })
     ).resolves.toBeTruthy()
   })
@@ -60,6 +91,8 @@ describe('discord:validate membership', () => {
         userId: NOT_EMPTY_VAR,
         token: NOT_EMPTY_VAR,
         guildId: NOT_EMPTY_VAR,
+        userName: NOT_EMPTY_VAR,
+        avatar: NOT_EMPTY_VAR,
       })
     ).rejects.toThrow()
   })
@@ -70,6 +103,8 @@ describe('discord:validate membership', () => {
         userId: NOT_EMPTY_VAR,
         token: NOT_EMPTY_VAR,
         guildId: NOT_EMPTY_VAR,
+        userName: NOT_EMPTY_VAR,
+        avatar: NOT_EMPTY_VAR,
       })
     ).resolves.toEqual({ isMember: null })
   })
@@ -81,6 +116,8 @@ describe('discord:validate membership', () => {
         userId: '8779807359721809',
         token: NOT_EMPTY_VAR,
         guildId: '8505136221941925',
+        userName: 'rollymaduk',
+        avatar: 'testAvatarUrl',
       })
       expect(discordStat).toBeTruthy()
       const users = await db.user.findMany()

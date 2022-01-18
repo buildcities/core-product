@@ -1,8 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Booker } from './components/booker'
 import { Confirmer } from './components/confirmer'
-import { useMoralis } from 'react-moralis'
 import ConnectWallet from '../ConnectWallet/ConnectWallet'
-import { useEffect } from 'react'
 
 interface WidgetProps {
   type?: 'confirm' | 'book'
@@ -21,18 +20,9 @@ const Widget = ({ bookingMode, id, type }: WidgetProps) => {
 }
 
 export default function BookingWidget(props: BookingWidgetProps) {
-  const { isAuthenticated, authenticate } = useMoralis()
-  useEffect(() => {
-    //logout()
-    return () => {}
-  }, [])
-  return isAuthenticated ? (
-    <Widget {...props} />
-  ) : (
-    <ConnectWallet
-      onWeb3Authenticate={() =>
-        authenticate({ signingMessage: 'Build_ Authentication' })
-      }
-    />
+  return (
+    <ConnectWallet>
+      <Widget {...props} />
+    </ConnectWallet>
   )
 }

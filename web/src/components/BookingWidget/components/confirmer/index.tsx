@@ -1,3 +1,4 @@
+import { navigate, routes } from '@redwoodjs/router'
 import moment from 'moment'
 import React from 'react'
 import { useStore } from 'src/utils/stores/bookReservationStore'
@@ -15,6 +16,15 @@ export const Confirmer = ({ id }: ConfirmerProps) => {
   const { checkInDate, checkOutDate } = useStore((store) => ({
     ...store,
   }))
+
+  const onClickContact = () => {
+    window.alert('Feature coming soon!')
+  }
+
+  const onClickConfirm = () => {
+    navigate(routes.viewReservations())
+  }
+
   return (
     <div>
       <>
@@ -73,7 +83,10 @@ export const Confirmer = ({ id }: ConfirmerProps) => {
             delay: 0.4,
           }}
         >
-          <LeaveNoteSection />
+          <LeaveNoteSection
+            onClickContact={onClickContact}
+            onClickConfirm={onClickConfirm}
+          />
         </motion.div>
       </>
     </div>

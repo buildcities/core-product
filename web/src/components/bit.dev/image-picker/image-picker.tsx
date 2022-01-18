@@ -27,7 +27,7 @@ export type ImagePickerProps = {
    */
   maxFileSize?: number
   /**
-   * callback for when images are change or get added
+   * callback for when images are changed or get added
    */
   onChange?: (images: ImageType[] | string) => void
   /**
@@ -51,6 +51,14 @@ export type ImagePickerProps = {
    * imageCard styling class
    */
   imageCardClassname?: string
+  /**
+   * callback before an image is deleted from cloud
+   */
+  onBeforeImageRemove?: (payload: {
+    onImageRemove: (index: number) => void
+    deletedIndex: number
+    images: ImageType[]
+  }) => void
 }
 
 export function ImagePicker({
@@ -62,6 +70,7 @@ export function ImagePicker({
   inputProps,
   payloadAsPath,
   imageCardClassname,
+  onBeforeImageRemove,
 }: ImagePickerProps) {
   const defaultImages =
     typeof (!inputProps || inputProps?.value) == 'string'
@@ -77,7 +86,16 @@ export function ImagePicker({
   const _onImageRemove =
     (onImageRemove: (index?: number) => void, index: number) => () => {
       _deletedIndex = index
-      onImageRemove(index)
+      const images = _images.filter((_, indx) => _deletedIndex != indx)
+      //console.log(_images[_deletedIndex])
+      //console.log(images)
+      //console.log(_images)
+      //console.log(_deletedIndex)
+      onBeforeImageRemove
+        ? onBeforeImageRemove({ onImageRemove, deletedIndex: index, images })
+        : onImageRemove(index)
+      //console.log(_deletedIndex)
+      //onImageRemove(index)
     }
 
   const _onChange = async (imageList: any[], idx?: number[]) => {
@@ -110,12 +128,13 @@ export function ImagePicker({
 
     setImages([...[], ...imageList])
 
-    publishOnChangeEvent(payloadAsPath ? _folderPath : _images)
+    publishOnChangeEvent(payloadAsPath ? _folderPath : imageList)
   }
 
   const publishOnChangeEvent = (
     payload?: string | Record<string, unknown>[]
   ) => {
+    //console.log(payload)
     inputProps.onChange(payload)
   }
 
@@ -149,9 +168,7 @@ export function ImagePicker({
         {({ imageList, onImageUpload, onImageUpdate, onImageRemove }) => (
           // write your building UI
           <>
-            <ul
-              className={classNames(' sm:columns-2 columns-xl gap-5 space-y-5')}
-            >
+            <ul className={classNames('grid sm:grid-cols-2 grid-cols-1 gap-5')}>
               {imageList.map((image: ImageType, index) => (
                 <ImageCard
                   loading={image.loading}
@@ -162,11 +179,13 @@ export function ImagePicker({
                   className={imageCardClassname}
                 />
               ))}
-              <ImageCard
-                className={imageCardClassname}
-                source={''}
-                onClick={onImageUpload}
-              />
+              <div
+                className={classNames(
+                  imageList.length ? 'col-span-1' : 'col-span-2'
+                )}
+              >
+                <ImageCard source={''} onClick={onImageUpload} />
+              </div>
             </ul>
           </>
         )}

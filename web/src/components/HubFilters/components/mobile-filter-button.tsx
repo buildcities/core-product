@@ -22,7 +22,7 @@ export default function MobileFilterButton({
             )}
           >
             <FilterIcon
-              className={`${open ? 'transform rotate-90 ' : ''} w-5 h-5 `}
+              className={`${open ? 'text-selected ' : ''} w-5 h-5 `}
             />
           </Disclosure.Button>
           <Disclosure.Panel>{children}</Disclosure.Panel>

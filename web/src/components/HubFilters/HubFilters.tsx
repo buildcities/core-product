@@ -61,7 +61,7 @@ const HubFilters = ({ className, filters }: HubFiltersProps) => {
         </RadioGroup>
       </div>
       <div className="flex mt-2">
-        <Paragraph className="r-2 text-mainText" text={TEXT_TOGGLE} />
+        <Paragraph className="mr-2 text-mainText" text={TEXT_TOGGLE} />
         <FilterToggle />
       </div>
     </div>

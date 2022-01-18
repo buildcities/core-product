@@ -35,6 +35,8 @@ model Reservation{
   checkInDate DateTime
   checkOutDate DateTime
   notes String?
+  address String?
+  status ReservationStatus? @default(NEW)
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
   hub Hub @relation(fields: [hubId],references:[id])
@@ -68,6 +70,7 @@ model User {
   uuid String @id @unique
   guildId String
   userName String?
+  avatar String?
   createdAt DateTime @default(now())
   updatedAt DateTime? @default(now())
   userRoles UserRole[]
@@ -80,4 +83,10 @@ enum Status {
   PENDING
   ACTIVE
   DISABLED
+}
+
+enum ReservationStatus {
+  NEW
+  APPROVED
+  REJECTED
 }

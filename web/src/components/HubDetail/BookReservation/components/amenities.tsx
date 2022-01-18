@@ -6,7 +6,7 @@ import {
   amenities as orderedAmenities,
   amenitiesProps,
 } from 'src/components/ListHubs/ListHubsStep3/presets'
-import { omit, pick, without } from 'lodash'
+import { capitalize, omit, pick, without } from 'lodash'
 import { iconMap } from './presets'
 
 const prepareAmenties: (props: amenitiesProps) => amenitiesProps = (

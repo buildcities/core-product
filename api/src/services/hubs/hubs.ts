@@ -4,14 +4,15 @@ import type { ResolverArgs } from '@redwoodjs/graphql-server'
 import { db } from 'src/lib/db'
 
 export const hubs = ({ filter, skip, take }) => {
-  const where = filter
-    ? {
-        location: {
-          path: ['continent'],
-          equals: filter,
-        },
-      }
-    : {}
+  const where =
+    filter && filter != 'All'
+      ? {
+          location: {
+            path: ['continent'],
+            equals: filter,
+          },
+        }
+      : {}
   return db.hub.findMany({
     where,
     skip: skip || 0,

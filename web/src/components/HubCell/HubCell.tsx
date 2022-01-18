@@ -2,7 +2,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import BookReservation from 'src/components/HubDetail/BookReservation/BookReservation'
+import { getLocation } from 'src/utils/functions'
 import { FIND_HUB_QUERY } from 'src/utils/graphql/queries/hubs'
+import { useStore } from 'src/utils/stores/bookReservationStore'
+import { Hub } from 'types/graphql'
 
 export const QUERY = FIND_HUB_QUERY
 
@@ -15,12 +18,17 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ hub }: CellSuccessProps<any>) => {
-  //const setSelectedHub = useStore((store) => store.setSelectedHub)
-  //setSelectedHub(hub as Hub)
+  const setSelectedHubDetails = useStore((s) => s.setSelectedHubDetails)
+  const _location = getLocation(hub.location)
+  setSelectedHubDetails({
+    title: hub.name,
+    location: _location,
+    images: hub.images,
+  })
   return (
     <BookReservation
       name={hub.name}
-      location={hub?.location?.city as string}
+      location={_location}
       images={hub?.images as any}
       ownerId={hub?.ownerId}
       amenities={hub?.amenities}
