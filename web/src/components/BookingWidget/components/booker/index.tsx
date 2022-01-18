@@ -9,7 +9,9 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/dist/toast'
 import { navigate, routes } from '@redwoodjs/router'
 import { CREATE_RESERVATION, UPDATE_RESERVATION } from './mutation'
+import { motion } from 'framer-motion'
 import { useMoralis } from 'react-moralis'
+
 
 const BUSY_TEXT = 'Booking your reservation'
 const SUCCESS_TEXT = 'Reservation successfully booked'
@@ -77,11 +79,62 @@ export const Booker = ({ id, editMode }: BookerProps) => {
     }
     return () => {}
   }, [loading])
+
   return (
     <div className="space-y-[17px]">
-      <ReservationWidget onDateChange={setBookingDate} />
-      <OwnerScoreWidget />
-      <Button onClick={handleReserveBooking} text={RESERVE_TEXT} />
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+        }}
+        transition={{
+          ease: 'easeOut',
+          duration: 0.7,
+        }}
+      >
+        <ReservationWidget onDateChange={setBookingDate} />
+      </motion.div>
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+        }}
+        transition={{
+          ease: 'easeOut',
+          duration: 0.7,
+          delay: 0.2,
+        }}
+      >
+        <OwnerScoreWidget />
+      </motion.div>
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+        }}
+        transition={{
+          ease: 'easeOut',
+          duration: 0.7,
+          delay: 0.4,
+        }}
+      >
+        <Button onClick={handleReserveBooking} text={RESERVE_TEXT} />
+      </motion.div>
     </div>
   )
 }

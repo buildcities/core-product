@@ -6,6 +6,7 @@ import { DATE_FORMAT } from '../preset'
 import DateSection from './date-section'
 import LeaveNoteSection from './note-section'
 import QRCodeSection from './qrcode-section'
+import { motion } from 'framer-motion'
 
 type ConfirmerProps = {
   id?: string | number
@@ -27,16 +28,66 @@ export const Confirmer = ({ id }: ConfirmerProps) => {
   return (
     <div>
       <>
-        <DateSection
-          checkInDate={moment(checkInDate).format(DATE_FORMAT)}
-          checkOutDate={moment(checkOutDate).format(DATE_FORMAT)}
-          id={id as string}
-        />
-        <QRCodeSection code={id as string} />
-        <LeaveNoteSection
-          onClickContact={onClickContact}
-          onClickConfirm={onClickConfirm}
-        />
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.7,
+          }}
+        >
+          <DateSection
+            checkInDate={moment(checkInDate).format(DATE_FORMAT)}
+            checkOutDate={moment(checkOutDate).format(DATE_FORMAT)}
+            id={id as string}
+          />
+        </motion.div>
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.7,
+            delay: 0.2,
+          }}
+        >
+          <QRCodeSection code={id as string} />
+        </motion.div>
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          exit={{
+            opacity: 0,
+          }}
+          transition={{
+            ease: 'easeOut',
+            duration: 0.7,
+            delay: 0.4,
+          }}
+        >
+          <LeaveNoteSection
+            onClickContact={onClickContact}
+            onClickConfirm={onClickConfirm}
+          />
+        </motion.div>
       </>
     </div>
   )
