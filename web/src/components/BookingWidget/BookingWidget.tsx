@@ -7,13 +7,14 @@ interface WidgetProps {
   type?: 'confirm' | 'book'
   bookingMode?: 'edit' | 'create'
   id?: string | number
+  userName?: string
 }
 
 interface BookingWidgetProps extends WidgetProps {}
 
-const Widget = ({ bookingMode, id, type,userName }: WidgetProps) => {
+const Widget = ({ bookingMode, id, type, userName }: WidgetProps) => {
   return type == 'book' ? (
-    <Booker id={id} editMode={bookingMode == 'edit'} />
+    <Booker userName={userName} id={id} editMode={bookingMode == 'edit'} />
   ) : (
     <Confirmer id={id} />
   )
