@@ -10,9 +10,7 @@ type OwnerScoreType = {
 }
 
 export default function OwnerScore({ score, owner }: OwnerScoreType) {
-  const userName = useStore((store) => store.userName)
-  
-  const _owner = owner || userName
+  //const userName = useStore((store) => store.userName)
   return (
     <div className="bg-cardBackground text-left flex-1 rounded-lg flex w-full divide-x divide-outline">
       <div className="flex-shrink-0 flex py-5 flex-1 pl-10 justify-start  flex-col  ">
@@ -25,10 +23,7 @@ export default function OwnerScore({ score, owner }: OwnerScoreType) {
           type="H3"
           text={OWNER_LABEL_TEXT}
         />
-        <Paragraph
-          className="text-paragraph -ml-[24px]  w-full"
-          text={_owner}
-        />
+        <Paragraph className="text-paragraph -ml-[24px]  w-full" text={owner} />
       </div>
     </div>
   )
