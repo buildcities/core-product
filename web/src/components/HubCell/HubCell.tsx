@@ -5,7 +5,6 @@ import BookReservation from 'src/components/HubDetail/BookReservation/BookReserv
 import { getLocation } from 'src/utils/functions'
 import { FIND_HUB_QUERY } from 'src/utils/graphql/queries/hubs'
 import { useStore } from 'src/utils/stores/bookReservationStore'
-import { Hub } from 'types/graphql'
 
 export const QUERY = FIND_HUB_QUERY
 

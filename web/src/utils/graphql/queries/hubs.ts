@@ -21,6 +21,9 @@ export const FIND_HUB_QUERY = gql`
       availability
       rules
       ownerId
+      owner {
+        userName
+      }
       type
       reviews {
         comments
