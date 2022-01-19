@@ -27,6 +27,7 @@ export const Success = ({ hub }: CellSuccessProps<any>) => {
   return (
     <BookReservation
       name={hub.name}
+      userName={hub?.owner?.userName}
       location={_location}
       images={hub?.images as any}
       ownerId={hub?.ownerId}
