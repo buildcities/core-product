@@ -16,7 +16,6 @@ const ListHubsStep6 = ({ data, stepId, updateStepData, onFormSubmit }) => {
   const formMethods = useForm({ defaultValues: data })
 
   const onSubmit = (data) => {
-    console.log(data)
     updateStepData({ data, stepId })
     onFormSubmit && onFormSubmit()
   }

@@ -7,7 +7,11 @@ const TITLE = 'My Profile'
 
 const ProfilePage = () => {
   return (
-    <SingleColumnLayout metaDescription="Your profile" metaTitle="Profile">
+    <SingleColumnLayout
+      className="w-full"
+      metaDescription="Your profile"
+      metaTitle="Profile"
+    >
       <SplitContainer title={TITLE} renderRight={() => <NftDetail />}>
         <ApprovedReservationsCell />
       </SplitContainer>
