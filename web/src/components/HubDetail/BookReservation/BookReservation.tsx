@@ -15,6 +15,7 @@ export type BookReservationProps = {
   name?: string
   location?: string
   ownerId?: string
+  userName?: string
   amenities?: amenitiesProps
   checkInDate?: moment.Moment | string | null
   checkOutDate?: moment.Moment | string | null
@@ -28,6 +29,7 @@ const BookReservation = ({
   amenities,
   checkInDate,
   checkOutDate,
+  userName,
 }: BookReservationProps) => {
   const { pathname } = useLocation()
   const setBookingDate = useStore((store) => store.setBookingDate)

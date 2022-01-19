@@ -11,6 +11,7 @@ type OwnerScoreType = {
 
 export default function OwnerScore({ score, owner }: OwnerScoreType) {
   const userName = useStore((store) => store.userName)
+
   const _owner = owner || userName
   return (
     <div className="bg-cardBackground text-left flex-1 rounded-lg flex w-full divide-x divide-outline">

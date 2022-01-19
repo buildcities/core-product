@@ -23,9 +23,10 @@ const EDIT_ERROR_TEXT = 'Oops! failed booking'
 type BookerProps = {
   id?: string | number
   editMode?: boolean
+  userName?: string
 }
 
-export const Booker = ({ id, editMode }: BookerProps) => {
+export const Booker = ({ id, editMode, userName }: BookerProps) => {
   const { setBookingDate, checkInDate, checkOutDate } = useStore((store) => ({
     ...store,
   }))
@@ -80,7 +81,7 @@ export const Booker = ({ id, editMode }: BookerProps) => {
   return (
     <div className="space-y-[17px]">
       <ReservationWidget onDateChange={setBookingDate} />
-      <OwnerScoreWidget />
+      <OwnerScoreWidget owner={userName} />
       <Button onClick={handleReserveBooking} text={RESERVE_TEXT} />
     </div>
   )
