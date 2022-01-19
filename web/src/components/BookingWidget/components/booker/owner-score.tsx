@@ -1,6 +1,5 @@
 import { Heading, Paragraph } from '@buildcities/build-ui.components.all'
 import React from 'react'
-import { useStore } from 'src/utils/stores/authStore'
 
 import { OWNER_LABEL_TEXT, SCORE_LABEL_TEXT } from './presets'
 
