@@ -43,7 +43,6 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
         status: 'current',
       })
       return () => {
-        console.log('exiting')
         updateStepData({
           stepId: _stepId,
           status: 'complete',
@@ -66,6 +65,7 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
           variables = { input: getStepsData(getUserId(userMetadata)), id }
           break
       }
+      //console.log(variables)
       if (variables) {
         toast.promise(
           create({
@@ -74,7 +74,7 @@ export default (WrappedComponent: React.FC<TListHubsComponentProps>) => {
           {
             loading: 'loading',
             success: 'Hub successfully added!',
-            error: 'Oops! Hub listing failed to post!',
+            error: (e) => e.message,
           }
         )
       }

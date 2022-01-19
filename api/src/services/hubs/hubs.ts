@@ -1,4 +1,5 @@
 import type { Prisma } from '@prisma/client'
+import { validate, validateWith } from '@redwoodjs/api'
 import type { ResolverArgs } from '@redwoodjs/graphql-server'
 
 import { db } from 'src/lib/db'
@@ -31,6 +32,39 @@ interface CreateHubArgs {
 }
 
 export const createHub = ({ input }: CreateHubArgs) => {
+  validate(input.location['title'], 'Location', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.location['lat'], 'Location latitude', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.location['lng'], 'Location longitude', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.location['country'], 'Location country', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.location['continent'], 'Location continent', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.location['city'], 'Location city', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.type['estate'], 'Estate', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.type['seats'], 'Estate', {
+    presence: { allowEmptyString: false },
+  })
+  validate(input.images, 'Image(s)', {
+    presence: { allowEmptyString: false },
+  })
+
+  validateWith(() => {
+    if (input.images['length'] < 1) {
+      throw "You'll need to have at least One image"
+    }
+  })
   return db.hub.create({
     data: input,
   })

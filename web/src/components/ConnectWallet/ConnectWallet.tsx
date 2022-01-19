@@ -27,10 +27,11 @@ type ConnectWalletProps = {
 const ConnectWallet = ({ children }: ConnectWalletProps) => {
   const web3API = useMoralisWeb3Api()
   const { account, isAuthenticated, authenticate } = useMoralis()
-  const { setToken, token, setMetaData } = useStore((s) => ({
+  const { setToken, token, setMetaData, clearNFTStore } = useStore((s) => ({
     token: s.token,
     setToken: s.setToken,
     setMetaData: s.setMetadata,
+    clearNFTStore: s.clearNFTStore,
   }))
   const { fetch, data } = useMoralisWeb3ApiCall(
     web3API.account.getNFTsForContract,
@@ -55,6 +56,7 @@ const ConnectWallet = ({ children }: ConnectWalletProps) => {
         }
       } else {
         setToken('non')
+        clearNFTStore()
       }
     }
   }, [data])
@@ -69,7 +71,7 @@ const ConnectWallet = ({ children }: ConnectWalletProps) => {
 
   return (
     <div>
-      {isAuthenticated && token == process.env.TOKEN_SYMBOL ? (
+      {isAuthenticated /* && token == process.env.TOKEN_SYMBOL */ ? (
         children
       ) : (
         <div className="bg-cardBackground rounded-lg py-6 px-[33px] space-x-4 flex flex-col justify-center items-center">

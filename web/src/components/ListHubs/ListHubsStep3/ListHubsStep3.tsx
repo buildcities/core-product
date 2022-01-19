@@ -6,14 +6,12 @@ import {
 } from './presets'
 import { TListHubsComponentProps } from 'src/utils/types'
 import ListHubsHOC from '../../HOC/listHubsHOC'
-import {
-  PageSection,
-  Button as SecondaryButton,
-} from '@buildcities/build-ui.components.all'
+import { PageSection } from '@buildcities/build-ui.components.all'
 import { GroupedAmenities } from './components/grouped-amenities'
 import { CustomAmenities } from './components/custom-amenities'
 import { isEmpty } from 'lodash'
 import Button from '../ListHubsStepButton/ListHubsStepButton'
+import AmenitiesButton from './components/button'
 
 const CUSTOM_AMENITIES_NAME = 'amenities.custom'
 
@@ -91,12 +89,7 @@ const ListHubsStep3 = ({
                 name={CUSTOM_AMENITIES_NAME}
               />
               <div className="absolute top-5 right-4">
-                <SecondaryButton
-                  onClick={onClick}
-                  style="secondary"
-                  text="Add amenities"
-                  type="button"
-                />
+                <AmenitiesButton onClick={onClick} type="button" />
               </div>
             </GroupedAmenities>
           </>

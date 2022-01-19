@@ -18,7 +18,7 @@ type ReservationTableProps = {
 const ReservationTable = ({ data, type }: ReservationTableProps) => {
   return (
     data?.length && (
-      <div className=" text-sm text-mainText mb-4 transition-all duration-300">
+      <div className="w-full text-sm text-mainText mb-4 transition-all duration-300">
         {type === 'unapproved' && (
           <>
             <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl mb-2">
@@ -54,11 +54,11 @@ const ReservationTable = ({ data, type }: ReservationTableProps) => {
           </>
         )}
         {type === 'approved' && data?.length && (
-          <>
+          <div>
             <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl mb-2">
               {CURRENT_RESERVATIONS_TEXT}
             </h2>
-            <div className="grid sm:grid-cols-2 grid-cols-1 gap-x-6 gap-y-4 flex-grow font-bold">
+            <div className="columns-md space-y-4 font-bold">
               {data?.length &&
                 data.map((listing, index) => (
                   <ReservationListing
@@ -68,7 +68,7 @@ const ReservationTable = ({ data, type }: ReservationTableProps) => {
                   />
                 ))}
             </div>
-          </>
+          </div>
         )}
       </div>
     )
