@@ -17,7 +17,7 @@ const ViewReservationsPage = () => {
       {/* Todo: Implement in V2 */}
       {/* <AcceptAllButton /> */}
 
-      <UnapprovedReservationsCell isOwner={selectedView == 'My Properties'} />
+      {selectedView == 'Reservations' && <UnapprovedReservationsCell isOwner />}
 
       <ApprovedReservationsCell isOwner={selectedView == 'My Properties'} />
     </div>

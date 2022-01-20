@@ -30,7 +30,7 @@ export const beforeQuery = ({
   take?: number
 }) => {
   const filter = { OR: [{ status: 'NEW' }, { status: 'REJECTED' }] }
-  console.log(isOwner)
+  //console.log(isOwner)
   return {
     variables: { filter, skip, take, isOwner },
   }
