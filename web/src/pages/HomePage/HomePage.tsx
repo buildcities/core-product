@@ -51,7 +51,7 @@ const HomePage = () => {
             window.location.href = process.env.ONBOARDING_URL
           }
           toastId && toast.dismiss(toastId)
-          if (result.error) {
+          if (result?.error) {
             logOut().then(clearUser)
           }
         })
@@ -60,7 +60,7 @@ const HomePage = () => {
           logOut().then(clearUser)
         })
     } else {
-      logOut().then(clearUser)
+      //logOut().then(clearUser)
     }
   }, [isAuthenticated])
 
