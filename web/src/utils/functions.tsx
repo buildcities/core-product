@@ -40,9 +40,7 @@ export const prepareReservationForView: (
     checkInDate,
     status,
     checkOutDate,
-    hub: {
-      owner: { userName: discordName, avatar },
-    },
+    owner: { userName: discordName, avatar },
   } = reservation
   return {
     id,

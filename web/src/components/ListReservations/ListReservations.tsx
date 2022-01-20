@@ -7,7 +7,7 @@ import { useStore } from 'src/utils/stores/viewReservationStore'
 const ViewReservationsPage = () => {
   const selectedView = useStore((store) => store.selectedView)
   return (
-    <div>
+    <div className="h-max mb-10">
       <ReservationFilters />
 
       <h2 className="text-mainText mt-2 font-sans mr-10 font-medium lg:text-5xl text-2xl mb-2">
@@ -17,7 +17,9 @@ const ViewReservationsPage = () => {
       {/* Todo: Implement in V2 */}
       {/* <AcceptAllButton /> */}
 
-      {selectedView == 'Reservations' && <UnapprovedReservationsCell isOwner />}
+      {selectedView == 'My Properties' && (
+        <UnapprovedReservationsCell isOwner />
+      )}
 
       <ApprovedReservationsCell isOwner={selectedView == 'My Properties'} />
     </div>

@@ -31,6 +31,10 @@ export const RESERVATIONS_QUERY = gql`
       address
       checkInDate
       checkOutDate
+      owner {
+        avatar
+        userName
+      }
       hub {
         owner {
           userName
