@@ -3,6 +3,7 @@ import TableActionButtonGroup from './components/table-action-buttons'
 import { navigate, routes } from '@redwoodjs/router'
 const DATE_FORMAT = 'DD/MM/YYYY'
 import ListItemApproved from './components/list-item-approved'
+import { useStore } from 'src/utils/stores/authStore'
 
 export type ReservationListItemProps = {
   id?: string
@@ -12,8 +13,12 @@ export type ReservationListItemProps = {
   checkOutDate?: string
   discordName?: string
   avatar?: string
+  hubOwnerAvatar?: string
+  hubOwner?: string
+  ownerId?: string
   type?: string
   hideOverlay?: boolean
+  location?: string
 }
 
 const ReservationListItem = (props: ReservationListItemProps) => {
@@ -25,11 +30,21 @@ const ReservationListItem = (props: ReservationListItemProps) => {
     status,
     discordName,
     avatar,
+    ownerId,
+    hubOwner,
+    hubOwnerAvatar,
     type,
+    location,
   } = props
   const onClick = () => {
     navigate(routes.confirmReservation({ id }))
   }
+
+  /* todo: remove store reference from component */
+  const userId = useStore((s) => s.userId)
+
+  const _discordName = userId == ownerId ? hubOwner : discordName
+  const _avatar = userId == ownerId ? hubOwnerAvatar : avatar
 
   return type === 'unapproved' ? (
     <tr className="flex items-center justify-between xl:flex-nowrap flex-wrap bg-cardBackground rounded-xl mb-4 px-6 py-4">
@@ -40,13 +55,13 @@ const ReservationListItem = (props: ReservationListItemProps) => {
           className="flex cursor-pointer  items-center  sm:justify-start lg:mb-0 mb-4 justify-center w-full"
         >
           <img
-            src={avatar}
+            src={_avatar}
             alt={`${address}'s avatar`}
             className="w-16 h-16 border border-mainText rounded-full"
           />
           <div className="flex flex-col items-start ml-4">
-            <span className="truncate w-48">{address}</span>
-            {discordName.length > 0 && <span>{discordName}</span>}
+            <span className="truncate w-48">{location}</span>
+            {_discordName.length > 0 && <span>{_discordName}</span>}
           </div>
         </div>
       </td>

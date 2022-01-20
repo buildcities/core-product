@@ -5,5 +5,5 @@ export const QR_CODE_SECTION_TEXT =
 export const CTA_TEXT = 'Download code'
 export const NOTE_SECTION_TITLE = 'Leave note'
 export const NOTE_SECTION_TEXT =
-  'If you didn’t find right rules that suits you, feel free to type your own that build_citizens have to respect.'
+  'You can send a message to the owner of this property through the app or use the Discord community to communicate with the hub host.'
 export const QR_ID = 'QRCode'

@@ -40,6 +40,11 @@ export const prepareReservationForView: (
     checkInDate,
     status,
     checkOutDate,
+    ownerId,
+    hub: {
+      owner: { userName: hubOwner, avatar: hubOwnerAvatar },
+      location,
+    },
     owner: { userName: discordName, avatar },
   } = reservation
   return {
@@ -49,7 +54,11 @@ export const prepareReservationForView: (
     checkInDate,
     checkOutDate,
     discordName,
-    avatar: avatar,
+    ownerId,
+    hubOwnerAvatar,
+    hubOwner,
+    avatar,
+    location: getLocation(location),
   }
 }
 

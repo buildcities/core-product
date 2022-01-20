@@ -31,6 +31,7 @@ export const RESERVATIONS_QUERY = gql`
       address
       checkInDate
       checkOutDate
+      ownerId
       owner {
         avatar
         userName
@@ -40,6 +41,7 @@ export const RESERVATIONS_QUERY = gql`
           userName
           avatar
         }
+        location
       }
     }
   }

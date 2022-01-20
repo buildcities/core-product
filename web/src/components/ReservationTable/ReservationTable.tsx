@@ -58,7 +58,7 @@ const ReservationTable = ({ data, type }: ReservationTableProps) => {
             <h2 className="text-paragraph font-sans font-medium lg:text-3xl text-xl mb-2">
               {CURRENT_RESERVATIONS_TEXT}
             </h2>
-            <div className="columns-md space-y-4 font-bold">
+            <div className="columns-lg gap-4 font-bold">
               {data?.length &&
                 data.map((listing, index) => (
                   <ReservationListing
