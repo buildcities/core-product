@@ -7,7 +7,6 @@ import { CHECKIN_TEXT, CHECKOUT_TEXT } from '../preset'
 import { Link, routes } from '@redwoodjs/router'
 import { useStore } from 'src/utils/stores/bookReservationStore'
 import { useStore as useAuthStore } from 'src/utils/stores/authStore'
-import { useAuth } from '@redwoodjs/auth'
 
 const DateViewer: React.FC<{
   title: string

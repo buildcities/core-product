@@ -34,7 +34,7 @@ const ReservationListItem = (props: ReservationListItemProps) => {
     hubOwner,
     hubOwnerAvatar,
     type,
-    location
+    location,
   } = props
   const onClick = () => {
     navigate(routes.confirmReservation({ id }))

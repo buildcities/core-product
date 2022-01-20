@@ -33,7 +33,7 @@ export const getImage: (images: { dataURL }[]) => string = (
 
 export const prepareReservationForView: (
   data: Reservation
-) => ReservationListItemProps = (reservation, userId) => {
+) => ReservationListItemProps = (reservation) => {
   const {
     id,
     address,
