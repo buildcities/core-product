@@ -33,13 +33,18 @@ export const getImage: (images: { dataURL }[]) => string = (
 
 export const prepareReservationForView: (
   data: Reservation
-) => ReservationListItemProps = (reservation) => {
+) => ReservationListItemProps = (reservation, userId) => {
   const {
     id,
     address,
     checkInDate,
     status,
     checkOutDate,
+    ownerId,
+    hub: {
+      owner: { userName: hubOwner, avatar: hubOwnerAvatar },
+      location,
+    },
     owner: { userName: discordName, avatar },
   } = reservation
   return {
@@ -49,7 +54,11 @@ export const prepareReservationForView: (
     checkInDate,
     checkOutDate,
     discordName,
-    avatar: avatar,
+    ownerId,
+    hubOwnerAvatar,
+    hubOwner,
+    avatar,
+    location: getLocation(location),
   }
 }
 

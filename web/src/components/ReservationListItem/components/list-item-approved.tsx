@@ -3,6 +3,7 @@ import { navigate, routes } from '@redwoodjs/router'
 import classNames from 'classnames'
 import moment from 'moment'
 import React from 'react'
+import { useStore } from 'src/utils/stores/authStore'
 import { ReservationListItemProps } from '../ReservationListItem'
 const DATE_FORMAT = 'DD/MM/YYYY'
 
@@ -13,32 +14,40 @@ export default function ListItemApproved({
   discordName,
   address,
   avatar,
+  hubOwnerAvatar,
+  hubOwner,
+  ownerId,
+  location,
 }: ReservationListItemProps) {
   const onClick = () => {
     navigate(routes.confirmReservation({ id }))
   }
+  /* todo: remove store reference from component */
+  const userId = useStore((s) => s.userId)
+  const _discordName = userId == ownerId ? hubOwner : discordName
+  const _avatar = userId == ownerId ? hubOwnerAvatar : avatar
   return (
-    <div className="relative w-full h-max group">
+    <div className="relative mb-5  w-full group">
       <div
         className={classNames(
-          'absolute group-hover:-inset-0.5 w-full h-full  px-6 py-4 bg-selected rounded-lg group-hover:blur-[10px]'
+          'absolute group-hover:-inset-0.5 w-full h-full px-6 py-4 bg-selected rounded-lg group-hover:blur-[10px]'
         )}
       />
 
-      <div className="flex px-6 py-4 justify-between items-center w-full bg-cardBackground rounded-lg relative">
+      <div className="relative flex px-6 py-4 justify-between items-center w-full bg-cardBackground rounded-lg ">
         <div
           aria-hidden
           onClick={onClick}
           className="flex cursor-pointer  items-center"
         >
           <img
-            src={avatar}
+            src={_avatar}
             alt={`${address}'s avatar`}
             className="w-16 h-16 border border-mainText rounded-full"
           />
-          <div className="flex flex-col items-start ml-2 sm:ml-4">
-            <span className="truncate  w-24 lg:w-48">{address}</span>
-            {discordName && <span>{discordName}</span>}
+          <div className=" ml-2 sm:ml-4">
+            <div className="truncate  w-24 lg:w-48">{location}</div>
+            {discordName && <span>{_discordName}</span>}
           </div>
         </div>
         <div className="relative flex-1">
@@ -52,13 +61,7 @@ export default function ListItemApproved({
             </span>
           </div>
           <div className="absolute hidden group-hover:block right-0 -top-5 ">
-            <Button
-              text="Send message"
-              onClick={() => {
-                console.log('hello')
-              }}
-              style="primary"
-            />
+            <Button text="Send message" onClick={() => {}} style="primary" />
           </div>
         </div>
       </div>
