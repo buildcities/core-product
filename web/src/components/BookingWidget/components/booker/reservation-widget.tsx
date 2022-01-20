@@ -9,7 +9,10 @@ import { DateRangePicker } from '@buildcities/build-ui.components.all'
 
 type ReservatioWidgetProps = {
   className?: string
-  onDateChange?: () => void
+  onDateChange?: (
+    startDate: moment.Moment | null,
+    endDate: moment.Moment | null
+  ) => void
   onClick?: () => void
 }
 
