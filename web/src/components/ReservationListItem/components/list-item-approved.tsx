@@ -18,7 +18,7 @@ export default function ListItemApproved({
     navigate(routes.confirmReservation({ id }))
   }
   return (
-    <div className="relative w-full group">
+    <div className="relative w-full h-max group">
       <div
         className={classNames(
           'absolute group-hover:-inset-0.5 w-full h-full  px-6 py-4 bg-selected rounded-lg group-hover:blur-[10px]'
