@@ -7,7 +7,7 @@ import { useStore } from 'src/utils/stores/viewReservationStore'
 const ViewReservationsPage = () => {
   const selectedView = useStore((store) => store.selectedView)
   return (
-    <div>
+    <div className="h-max mb-10">
       <ReservationFilters />
 
       <h2 className="text-mainText mt-2 font-sans mr-10 font-medium lg:text-5xl text-2xl mb-2">
