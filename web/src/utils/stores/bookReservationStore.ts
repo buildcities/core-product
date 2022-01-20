@@ -5,15 +5,18 @@ interface TStore {
   hubImages?: { dataURL: string }[]
   hubTitle?: string
   hubLocation?: string
+  ownerId?: string
   checkInDate: moment.Moment | null
   checkOutDate: moment.Moment | null
   setSelectedHubDetails: ({
     location,
     title,
     images,
+    ownerId,
   }: {
     location?: string
     title?: string
+    ownerId?: string
     images?: { dataURL: string }[]
   }) => void
   setBookingDate: (
@@ -28,7 +31,7 @@ export const useStore = create<TStore>((set) => ({
   hubTitle: null,
   hubImages: null,
   hubLocation: null,
-  setSelectedHubDetails: ({ location, title, images }) =>
+  setSelectedHubDetails: ({ location, title, images, ownerId }) =>
     set(
       produce((draft) => {
         if (location) {
@@ -39,6 +42,9 @@ export const useStore = create<TStore>((set) => ({
         }
         if (images) {
           draft.hubImages = images
+        }
+        if (ownerId) {
+          draft.ownerId = ownerId
         }
       })
     ),

@@ -28,6 +28,7 @@ export const Success = (changeBookingProps: BookReservationProps) => {
     title: changeBookingProps.name,
     location: changeBookingProps.location,
     images: changeBookingProps.images,
+    ownerId: changeBookingProps.ownerId,
   })
   return <BookReservation {...changeBookingProps} />
 }

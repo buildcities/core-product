@@ -5,6 +5,9 @@ import classNames from 'classnames'
 import { PageSection } from 'src/components/bit.dev/page-section'
 import { CHECKIN_TEXT, CHECKOUT_TEXT } from '../preset'
 import { Link, routes } from '@redwoodjs/router'
+import { useStore } from 'src/utils/stores/bookReservationStore'
+import { useStore as useAuthStore } from 'src/utils/stores/authStore'
+import { useAuth } from '@redwoodjs/auth'
 
 const DateViewer: React.FC<{
   title: string
@@ -33,15 +36,19 @@ export default function DateSection({
   checkOutDate,
   id,
 }: DateSectionProps) {
+  const ownerId = useStore((s) => s.ownerId)
+  const { userId } = useAuthStore()
   return (
     <PageSection className="relative" title={DATES_SECTION_TITLE}>
       <>
-        <Link
-          to={routes.changeBooking({ id })}
-          className="absolute top-2 left-28 hover:text-selected"
-        >
-          <EditPencil />
-        </Link>
+        {ownerId == userId && (
+          <Link
+            to={routes.changeBooking({ id })}
+            className="absolute top-2 left-28 hover:text-selected"
+          >
+            <EditPencil />
+          </Link>
+        )}
         <div className="border flex-1 flex bg-cardBackground divide-x justify-evenly divide-[#343434] border-[#343434] rounded-lg">
           <DateViewer content={checkInDate} title={CHECKIN_TEXT} />
           <DateViewer content={checkOutDate} title={CHECKOUT_TEXT} />
